@@ -21,5 +21,9 @@
 
 - Confirmed the README/charter preserve the aim and Arena core values; the home page puts the submission gate first, the executive page explains the portal steps, the site distinguishes official facts from owner/user claims, and the unique download is disabled while inputs and validation are absent.
 - Confirmed the H33 TIFF is confined to an evaluation-only path and hash-checked; it cannot be used as the GEMSDOE37 prediction surface. No zero, synthetic, or copied raster is labelled submission-ready.
-- Recorded the unresolved requirement for a competitor-authenticated data download, local provenance/grid/band checks, metric parity against the organizer's worked example, a passing spatial holdout, and a GitHub Pages source change from the repository's current `main:/` setting to `main:/docs`.
+- Recorded the unresolved requirement for a competitor-authenticated data download, local provenance/grid/band checks, and metric parity against the organizer's worked example. The Pages settings API denied a source-path change from the repository's current `main:/` setting, so a root redirect into `docs/` is included to make the existing Pages configuration serve the site.
 - **Decision:** do not spend a weekly submission slot. The current repository state is intentionally **not submission-ready**.
+
+## Post-merge Pages handoff
+
+- PR #1 was merged to `main` on 2026-10-05 at 01:02:59 UTC. The Pages API currently reports the existing root source as `building`; changing it to `/docs` returned HTTP 403. A small root redirect into the static site was added on the fixed Arena branch so the existing `main:/` configuration can reach the site after that follow-up change is reviewed and merged.
