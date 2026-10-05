@@ -1,0 +1,51 @@
+{
+  "schema_version": 1,
+  "candidate_id": "GEMSDOE37-H2-STRAIN-STRUCT-TOPO-RANKMIX",
+  "baseline_id": "GEMSDOE37-H2-STRAIN-ABS-BASELINE",
+  "registered_utc": "2026-10-05T02:00:00Z",
+  "status": "measured on exact-mask public-catalogue pseudo-holdout using mirror-bridged competition rasters; organizer provenance remains unauthenticated in this environment",
+  "hypothesis": "High-magnitude geodetic strain components identify actively deforming transfer zones that may be absent from the public catalogue; adding a structural prior from DEM/magnetic/gravity and a smaller topological-persistence prior can suppress broad non-structural strain halos while preserving stable lineament anchors.",
+  "layers": {
+    "second_invariant_band_index_1based": 4,
+    "shear_rate_band_index_1based": 7,
+    "dilatation_rate_band_index_1based": 8,
+    "structural_single_scale_prior": "reuse H1 single-scale DEM-curvature + magnetic-edge + gravity-edge surfaces from scripts/build_candidate.py",
+    "topological_persistence_prior": "reuse H1 fused H0 persistence surface from scripts/build_candidate.py"
+  },
+  "weights": {
+    "strain_abs_primary": 2.0,
+    "structural_single_scale": 1.0,
+    "topological_persistence": 1.0
+  },
+  "persistence": {
+    "pixel_size_m": 100.0
+  },
+  "baseline_description": "Mean robust-standardized absolute second-invariant, shear-rate, and dilatation-rate fields with exact-mask pooled scoring at the same 37,654-pixel budget.",
+  "evaluation": {
+    "truth": "public-catalogue spatial pseudo-holdout; not expert-only hidden new-fault truth",
+    "spatial_blocks": ["NW", "NE", "SW", "SE"],
+    "guard_distance_m": 300,
+    "known_fault_mask_rule": "Apply the organizer-confirmed exact provided training-fault pixel mask only; no proximity buffer.",
+    "aggregation": "Pool TP, FP, and FN across the four non-overlapping guarded quadrants before calculating one DTI.",
+    "metric": {
+      "name": "distance-weighted Tversky",
+      "alpha": 0.2,
+      "beta": 0.8,
+      "radius_m": 300.0,
+      "pixel_size_m": 100.0,
+      "denominator_epsilon": 1e-8
+    },
+    "matched_positive_pixel_budget": 37654,
+    "promotion_gate": {
+      "minimum_pooled_dti_gain_over_current_holdout_best": 0.005,
+      "minimum_positive_folds": 3,
+      "maximum_allowed_single_fold_regression": 0.02
+    }
+  },
+  "important_limits": [
+    "The current rasters were brought in through a GitHub data bridge built from user-provided Dropbox mirrors, not a fresh participant-authenticated DrivenData download in this sandbox.",
+    "The public-catalogue pseudo-holdout does not estimate private or final leaderboard performance and is especially weak for near-catalogue corrections, continuations, and splays.",
+    "The candidate score is a deterministic ranking, not a calibrated probability surface.",
+    "The topological prior is inherited from H1 and remains a peak-stability prior, not a proof of line continuity or geology."
+  ]
+}

@@ -1,0 +1,4 @@
+Submission name: GEMSDOE37-H2-RANKMIX-20261005T030338376116Z-52BF89742E
+Note: GEMSDOE37-H2-RANKMIX-20261005T030338376116Z-52BF89742E | strain abs×2 + structural + PH prior; 37654 px; exact-mask pooled pseudo-holdout 0.0369; unscored
+Filename: gemsdoe37-rankmix-strain-topo-20261005T030338376116Z-52bf89742e.tif
+SHA-256: 59cbcc4a15108ff5346b50504c6e5ebb95089f45d18bfe835ed6dcbd5f2bfa17

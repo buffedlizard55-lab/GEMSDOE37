@@ -319,14 +319,13 @@ Go ahead and create a pull request and then merge the pull request onto the main
 
 | Item | Details |
 |:---|:---|
-| **Direct GeoTIFF Download** | [Download .tif (123 KB)](docs/downloads/gemsdoe37-topo-persistence-20261005T025021488008Z-58f9ca92.tif) |
-| **Direct ZIP Package** | [Download .zip (78 KB)](docs/downloads/gemsdoe37-topo-persistence-20261005T025021488008Z-58f9ca92.zip) |
-| **Unique Filename** | `gemsdoe37-topo-persistence-20261005T025021488008Z-58f9ca92.tif` |
-| **Unique Submission Name** | `GEMSDOE37-TOPO-PH-20261005T025021488008Z-58F9CA92` |
-| **DrivenData Note (147 chars)** | `GEMSDOE37-TOPO-PH-20261005T025021488008Z-58F9CA92 | H0 persistence, DEM curvature + mag/gravity edges; 37654 px; 4-block catalogue pooled DTI 0.0305; unscored` |
-| **SHA-256 Hash** | `29ce3150ae796ca50570b830b9231487fc5a043af5b0681f7e7dbe8f4fbdcc19` |
-| **Spatial Holdout Pooled DTI** | **0.030516** (+0.003786 gain over single-scale control 0.026731; won 3 of 4 quadrants) |
-| **Format Verification** | Single-band float32, EPSG:32611, 100 m pixel size, 3730×3292 dimensions. All 12,279,160 cells finite in [0.0, 1.0], 0.0 outside footprint, nodata=None. Zero range errors. |
+| **Direct GeoTIFF Download** | [Download .tif (86 KB)](docs/downloads/gemsdoe37-rankmix-strain-topo-20261005T030338376116Z-52bf89742e.tif) |
+| **Unique Filename** | `gemsdoe37-rankmix-strain-topo-20261005T030338376116Z-52bf89742e.tif` |
+| **Unique Submission Name** | `GEMSDOE37-H2-RANKMIX-20261005T030338376116Z-52BF89742E` |
+| **DrivenData Note (153 chars)** | `GEMSDOE37-H2-RANKMIX-20261005T030338376116Z-52BF89742E | strain abs×2 + structural + PH prior; 37654 px; exact-mask pooled pseudo-holdout 0.0369; unscored` |
+| **SHA-256 Hash** | `59cbcc4a15108ff5346b50504c6e5ebb95089f45d18bfe835ed6dcbd5f2bfa17` |
+| **Spatial Holdout Pooled DTI** | **0.036928** against a strain-only incumbent at **0.028092** (pooled gain **+0.008836**, positive gains in all 4 folds) |
+| **Format Verification** | Single-band float32, EPSG:32611, 100 m pixel size, 3730×3292 dimensions. All 12,279,160 cells finite in [0.0, 1.0], 0.0 outside footprint, nodata=None. Exact-grid re-read passed with **37,654** positive cells. |
 
 ---
 
@@ -358,9 +357,9 @@ Because $\text{TP}_w$ uses a **maximum**, contiguous solid lines (width 3–5 pi
 Known USGS/INGENIOUS faults are masked out during evaluation. Pixels within $d \le 2$ pixels (200 m) of catalogued traces are predominantly redundant mapping of existing known faults rather than new hidden discoveries. Deleting candidate points within 200 m of the catalogue in H33-2-B2 removed 6,436 low-yield dots, dropping total emission to 37,654 and boosting the score from 0.2708 to 0.2778.
 
 ### 3. Exceeding 0.2778 toward 0.3195+ via Topological Persistence
-1. **Multi-Scale Persistence Tracking ($H_0$):** We track ridge persistence across scales $\sigma \in \{100\text{ m}, 200\text{ m}, 400\text{ m}\}$. Single-scale noise (roads, alluvial furrows, flight-line striping) dies quickly ($P < 2\epsilon$ or fails to survive multiple scales). Features with persistence $P - 2\epsilon > 0$ have formal diagram stability guarantees (Cohen-Steiner et al. 2007).
-2. **Multi-Physics Structural Agreement:** Fusing DEM Hessian curvature with Aeromagnetic horizontal gradients and Isostatic gravity gradients ensures structural corroboration across independent sensors.
-3. **Continuous Ridge Structure Certification:** Rather than isolating 0-D point neighborhoods, multiscale geometric mean responses preserve continuous structural lineaments while boosting segments with verified topological stability certificates.
+1. **Primary Active-Deformation Signal:** The current leading candidate does not rely on persistence alone. It starts from the robust-standardized absolute magnitudes of geodetic second invariant, shear rate, and dilatation rate, because those fields screened stronger than the original DEM/magnetic/gravity-only control on the exact-mask pseudo-holdout.
+2. **Structural Corroboration:** DEM curvature plus magnetic/gravity edge responses are added as a secondary prior so that broad non-structural strain halos are less competitive than strain that aligns with mapped structural contrasts.
+3. **Topological Stability Prior:** The H1 persistence surface is retained as a tertiary term. It still provides an auditable multiscale stability bias, but in the measured H2 candidate it acts as a prior within a broader rank-mix rather than a full certificate of line continuity or geology.
 
 ---
 
@@ -368,10 +367,10 @@ Known USGS/INGENIOUS faults are masked out during evaluation. Pixels within $d \
 
 | Rank | Candidate | Named Layers & Physical Signature | Why It Catches Missing Faults | Difference from Prior Work | Expected DTI & Cost |
 |:---:|:---|:---|:---|:---|:---:|
-| **1** | **H1: Multi-Physics H0 Persistence** *(Implemented & Gate Passed)* | Detrended elevation (band 12), Aeromagnetics (band 14), Isostatic gravity (band 13). Multi-scale $H_0$ persistence superlevel filtration across $\sigma \in \{100, 200, 400\text{ m}\}$. | Blind hydrothermal faults express faint multiscale lineaments across potential fields and topography that only emerge as stable across scales. | Evaluates full threshold filtrations across crustal scales with formal diagram stability guarantees (Cohen-Steiner et al. 2007). | **Holdout: 0.030516 (+0.003786 gain, 3/4 folds won)**. Cost: ~145 s. |
-| **2** | **H2: Raw GeoDAWN Flight-Line Repeatability** | USGS GeoDAWN raw flight-line magnetic records and tie-lines. | Rejects survey striping and acquisition artifacts that produce false cross-line ridge candidates. | Tests raw along-track line repeatability rather than gridded interpolations. | Expected: +0.010 to +0.020 DTI. Cost: High (large raw data). |
-| **3** | **H3: Sentinel-1 Interseismic InSAR Discontinuities** | Multi-temporal Sentinel-1 SLC interferograms (ascending/descending). | Detects active blind fault strands accommodating shallow creep without geomorphic surface scarps. | Uses repeat-pass radar phase rather than regional stress/strain tensors. | Expected: +0.005 to +0.015 DTI. Cost: High processing. |
-| **4** | **H4: Focal-Mechanism Nodal-Plane Concordance** | USGS ComCat hypocenters and moment tensors. Local nodal-plane strike/dip concordance. | Maps coherent active seismogenic fault planes omitted by surface catalogues. | Evaluates observed fault kinematics rather than bulk earthquake density. | Expected: +0.004 to +0.010 DTI. Cost: Medium. |
+| **1** | **H2: Strain-Dominated Structural Rank-Mix with a Topological Prior** *(Implemented & Published)* | Geodetic second invariant (band 4), geodetic shear rate (band 7), geodetic dilatation rate (band 8), plus the DEM/magnetic/gravity structural prior and the H1 persistence prior. | Active or recently active transfer zones may concentrate strain even where the mapped surface trace is incomplete; structural and topological priors reduce broad non-structural strain halos. | This is not the original H1 detector. It demotes topology to a tertiary prior and promotes geodetic strain to the primary signal. | **Holdout: 0.036928 vs strain-only incumbent 0.028092** (**+0.008836**, 4/4 folds positive). |
+| **2** | **H3: Buried Basin-Boundary Fault Proxy** | Depth to basement, conductivity surface, isostatic gravity anomaly. | Concealed basin-margin faults can be weak in surface morphology but strong in buried physical-property partitioning. | Uses subsurface-property contrasts rather than only surface morphology and raw potential fields. | **Quick screen:** ~0.02137 pooled pseudo-holdout DTI. Cost: Low. |
+| **3** | **H4: Conductivity/Gravity/Magnetic Concealed-Contact Corroboration** | Conductivity surface, isostatic gravity anomaly, total magnetic intensity. | Concealed structural zones can separate alteration, density, and magnetic domains even where strain is muted. | Directly elevates conductivity as a first-class in-stack layer family. | **Quick screen:** ~0.02581 pooled pseudo-holdout DTI. Cost: Low. |
+| **4** | **H1: DEM/Magnetic/Gravity H0 Persistence** | Detrended elevation (band 12), total magnetic intensity (band 14), isostatic gravity anomaly (band 13). Multi-scale $H_0$ persistence across $\sigma \in \{100, 200, 400\text{ m}\}$. | Stable cross-physics lineaments may mark fault-related contacts absent from the public map. | Tracks full threshold filtrations with explicit birth/death accounting. | Built successfully, but the fused score surface produced only **25,686** positive cells—below the fixed **37,654** budget—so it now serves as a prior inside H2. |
 
 ---
 
@@ -381,22 +380,22 @@ At matched budget $N = 37,654$ pixels:
 
 | Quadrant | Single-Scale Control DTI | Topological Persistence DTI | Paired Delta (ΔDTI) | Result |
 |:---|:---:|:---:|:---:|:---:|
-| **NW Quadrant** | 0.024063 | **0.030490** | **+0.006427** | **WIN** |
-| **NE Quadrant** | 0.039479 | 0.034166 | -0.005313 | Minor regression (<< 0.02) |
-| **SW Quadrant** | 0.032604 | **0.041023** | **+0.008418** | **WIN** |
-| **SE Quadrant** | 0.011714 | **0.015128** | **+0.003414** | **WIN** |
-| **Pooled Overall DTI** | 0.026731 | **0.030516** | **+0.003786** | **GATE PASSED (+14.2% gain)** |
+| **NW Quadrant** | 0.000000 | **0.004800** | **+0.004800** | **WIN** |
+| **NE Quadrant** | 0.000000 | **0.002642** | **+0.002642** | **WIN** |
+| **SW Quadrant** | 0.110982 | **0.144610** | **+0.033628** | **WIN** |
+| **SE Quadrant** | 0.000000 | **0.003274** | **+0.003274** | **WIN** |
+| **Pooled Overall DTI** | 0.028092 | **0.036928** | **+0.008836** | **GATE PASSED** |
 
 ---
 
 ## How to Submit to the DOE GEMS Prize (4 Easy Steps)
 
-1. **Download the File:** Click [Download submission (.tif)](docs/downloads/gemsdoe37-topo-persistence-20261005T025021488008Z-58f9ca92.tif) or [.zip](docs/downloads/gemsdoe37-topo-persistence-20261005T025021488008Z-58f9ca92.zip).
+1. **Download the File:** Click [Download submission (.tif)](docs/downloads/gemsdoe37-rankmix-strain-topo-20261005T030338376116Z-52bf89742e.tif).
 2. **Open DrivenData:** Navigate to the [DOE GEMS Competition Submissions Page](https://www.drivendata.org/competitions/306/competition-doe-gems/submissions/).
-3. **Upload File:** Select the downloaded `.tif` or `.zip` file in the "File to submit" input.
+3. **Upload File:** Select the downloaded `.tif` file in the "File to submit" input.
 4. **Paste Note:** In the "Note (optional)" box, paste:
    ```text
-   GEMSDOE37-TOPO-PH-20261005T025021488008Z-58F9CA92 | H0 persistence, DEM curvature + mag/gravity edges; 37654 px; 4-block catalogue pooled DTI 0.0305; unscored
+   GEMSDOE37-H2-RANKMIX-20261005T030338376116Z-52BF89742E | strain abs×2 + structural + PH prior; 37654 px; exact-mask pooled pseudo-holdout 0.0369; unscored
    ```
 5. Click **Submit**.
 

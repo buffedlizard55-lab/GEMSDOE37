@@ -1,15 +1,16 @@
 {
+  "schema_version": 1,
   "status": "HOLDOUT_GATE_PASSED_UNSCORED",
-  "candidate_id": "GEMSDOE37-H1-TOPO-PERSISTENCE",
-  "generated_utc": "2026-10-05T02:50:20+00:00",
-  "download_path": "downloads/gemsdoe37-topo-persistence-20261005T025021488008Z-58f9ca92.tif",
-  "holdout_report_path": "reports/GEMSDOE37-TOPO-PH-20261005T025021488008Z-58F9CA92/holdout-report.json",
-  "filename": "gemsdoe37-topo-persistence-20261005T025021488008Z-58f9ca92.tif",
-  "submission_name": "GEMSDOE37-TOPO-PH-20261005T025021488008Z-58F9CA92",
-  "submission_note": "GEMSDOE37-TOPO-PH-20261005T025021488008Z-58F9CA92 | H0 persistence, DEM curvature + mag/gravity edges; 37654 px; 4-block catalogue pooled DTI 0.0305; unscored",
-  "sha256": "29ce3150ae796ca50570b830b9231487fc5a043af5b0681f7e7dbe8f4fbdcc19",
+  "candidate_id": "GEMSDOE37-H2-STRAIN-STRUCT-TOPO-RANKMIX",
+  "generated_utc": "2026-10-05T03:03:37+00:00",
+  "download_path": "downloads/gemsdoe37-rankmix-strain-topo-20261005T030338376116Z-52bf89742e.tif",
+  "holdout_report_path": "reports/GEMSDOE37-H2-RANKMIX-20261005T030338376116Z-52BF89742E/holdout-report.json",
+  "filename": "gemsdoe37-rankmix-strain-topo-20261005T030338376116Z-52bf89742e.tif",
+  "submission_name": "GEMSDOE37-H2-RANKMIX-20261005T030338376116Z-52BF89742E",
+  "submission_note": "GEMSDOE37-H2-RANKMIX-20261005T030338376116Z-52BF89742E | strain abs\u00d72 + structural + PH prior; 37654 px; exact-mask pooled pseudo-holdout 0.0369; unscored",
+  "sha256": "59cbcc4a15108ff5346b50504c6e5ebb95089f45d18bfe835ed6dcbd5f2bfa17",
   "positive_pixels": 37654,
-  "public_catalogue_holdout_pooled_dti": 0.030516266995057145,
+  "public_catalogue_holdout_pooled_dti": 0.03692793767492934,
   "organizer_score": null,
   "format_receipt": {
     "driver_is_gtiff": true,
@@ -28,8 +29,8 @@
     "range_0_1_all_cells": true,
     "positive_pixels": 37654,
     "positive_pixels_match_budget": true,
-    "sha256": "29ce3150ae796ca50570b830b9231487fc5a043af5b0681f7e7dbe8f4fbdcc19",
-    "size_bytes": 123105
+    "sha256": "59cbcc4a15108ff5346b50504c6e5ebb95089f45d18bfe835ed6dcbd5f2bfa17",
+    "size_bytes": 87681
   },
-  "warning": "A pseudo-holdout pass is not an organizer score or proof of private-label performance."
+  "warning": "This TIFF is unique to GEMSDOE37 and passed the repository's exact-mask pseudo-holdout gate against the registered strain-only incumbent. It is not an organizer score or a guarantee of private-label performance."
 }

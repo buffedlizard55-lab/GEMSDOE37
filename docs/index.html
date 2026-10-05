@@ -39,31 +39,30 @@
   <section class="section" aria-labelledby="submit-title">
     <div class="section-heading">
       <div>
-        <span class="section-kicker">Candidate download</span>
-        <h2 id="submit-title">⬇ ONE-CLICK SUBMISSION DOWNLOADS</h2>
-        <p>The topological persistence candidate has passed the 4-quadrant spatial holdout gate (+0.0038 pooled DTI gain) and all format checks. Download the official submission file below.</p>
+        <span class="section-kicker">First: check the gate</span>
+        <h2 id="submit-title">Submission status</h2>
+        <p>The download activates only after the leading hypothesis clears the preregistered spatial pseudo-holdout and the output is checked against the competition grid and value rules.</p>
       </div>
     </div>
-    <div id="submission-status" class="card status-card ready" role="status" aria-live="polite">
-      <span id="submission-status-label" class="status-label">Spatial gate passed · organizer-unscored</span>
-      <h3 id="submission-status-title" class="status-title">Validated GeoTIFF candidate is available</h3>
-      <p id="submission-status-copy" class="status-copy">The candidate passed the preregistered pooled spatial pseudo-holdout and GeoTIFF checks. The exact known-fault pixels are excluded; there is no proximity buffer. All values are strictly in [0.0, 1.0], zero NaN, zero negative sentinels.</p>
-      <div class="hero-actions" style="margin-top:16px;gap:12px;display:flex;flex-wrap:wrap">
-        <a id="candidate-download" class="btn btn-primary" href="downloads/gemsdoe37-topo-persistence-20261005T025021488008Z-58f9ca92.tif" download="gemsdoe37-topo-persistence-20261005T025021488008Z-58f9ca92.tif" aria-label="Download GeoTIFF">Download submission (.tif · 123 KB)</a>
-        <a id="candidate-download-zip" class="btn btn-primary" href="downloads/gemsdoe37-topo-persistence-20261005T025021488008Z-58f9ca92.zip" download="gemsdoe37-topo-persistence-20261005T025021488008Z-58f9ca92.zip" style="background:#236d4a;color:#fff" aria-label="Download ZIP">Download package (.zip · 78 KB)</a>
-        <a class="btn" style="border:1px solid var(--line);background:#fff;color:var(--pine)" href="executive-summary.html">Submission guide</a>
+    <div id="submission-status" class="card status-card" role="status" aria-live="polite">
+      <span id="submission-status-label" class="status-label">Not submission-ready</span>
+      <h3 id="submission-status-title" class="status-title">No validated TIFF is available</h3>
+      <p id="submission-status-copy" class="status-copy">No competition raster, registered baseline evaluation, spatial holdout pass, or submission TIFF is present in this checkout. Do not upload a placeholder.</p>
+      <div class="hero-actions" style="margin-top:16px">
+        <a id="candidate-download" class="btn btn-primary btn-disabled" aria-disabled="true">Candidate GeoTIFF unavailable</a>
+        <a class="btn" style="border:1px solid var(--line);background:#fff;color:var(--pine)" href="executive-summary.html">How to submit</a>
       </div>
-      <div id="candidate-details" class="grid grid-2" style="margin-top:20px">
-        <div><span class="small">Unique filename</span><div id="submission-filename" class="mono">gemsdoe37-topo-persistence-20261005T025021488008Z-58f9ca92.tif</div></div>
-        <div><span class="small">Unique submission ID</span><div id="submission-name" class="mono">GEMSDOE37-TOPO-PH-20261005T025021488008Z-58F9CA92</div></div>
-        <div><span class="small">Matched positive pixels</span><div id="submission-pixels" class="mono">37,654</div></div>
-        <div><span class="small">Public catalogue holdout pooled DTI (not organizer score)</span><div id="submission-holdout" class="mono">0.0305</div></div>
-        <div style="grid-column:1/-1"><span class="small">SHA-256 receipt</span><div id="submission-hash" class="mono" style="overflow-wrap:anywhere">29ce3150ae796ca50570b830b9231487fc5a043af5b0681f7e7dbe8f4fbdcc19</div></div>
-        <div style="grid-column:1/-1"><a id="holdout-report-link" href="reports/GEMSDOE37-TOPO-PH-20261005T025021488008Z-58F9CA92/holdout-report.json" target="_blank" rel="noopener">View detailed spatial-fold receipt (JSON) →</a></div>
-        <div style="grid-column:1/-1"><label class="small" for="submission-note">Unique submission note (copy into the optional DrivenData note field)</label><div class="copy-row"><input id="submission-note" class="copy-input" readonly value="GEMSDOE37-TOPO-PH-20261005T025021488008Z-58F9CA92 | H0 persistence, DEM curvature + mag/gravity edges; 37654 px; 4-block catalogue pooled DTI 0.0305; unscored"><button class="copy-btn" type="button" data-copy-note>Copy note</button></div></div>
+      <div id="candidate-details" class="grid grid-2" style="margin-top:20px" hidden>
+        <div><span class="small">Unique filename</span><div id="submission-filename" class="mono"></div></div>
+        <div><span class="small">Unique submission ID</span><div id="submission-name" class="mono"></div></div>
+        <div><span class="small">Matched positive pixels</span><div id="submission-pixels" class="mono"></div></div>
+        <div><span class="small">Public catalogue holdout pooled DTI (not organizer score)</span><div id="submission-holdout" class="mono"></div></div>
+        <div style="grid-column:1/-1"><span class="small">SHA-256 receipt</span><div id="submission-hash" class="mono" style="overflow-wrap:anywhere"></div></div>
+        <div style="grid-column:1/-1"><a id="holdout-report-link" href="#" target="_blank" rel="noopener">View detailed spatial-fold receipt →</a></div>
+        <div style="grid-column:1/-1"><label class="small" for="submission-note">Unique submission note (copy into the optional DrivenData note field)</label><div class="copy-row"><input id="submission-note" class="copy-input" readonly><button class="copy-btn" type="button" data-copy-note>Copy note</button></div></div>
       </div>
     </div>
-    <div class="notice" style="margin-top:14px"><strong>Format guarantee:</strong> single-band float32, EPSG:32611, 100 m resolution, 3730×3292. All 12,279,160 cells are finite; range strictly [0.0, 1.0], 0.0 outside footprint, nodata=None. Permanently resolves the DrivenData <em>"Predicted values must be in range [0, 1]"</em> error.</div>
+    <div class="notice" style="margin-top:14px"><strong>Important:</strong> a public-catalogue pseudo-holdout is not an organizer score, is not private-label validation, and cannot guarantee a leaderboard result. The published download is withheld unless the preregistered gate passes.</div>
   </section>
 
   <section class="section" aria-labelledby="research-title">
@@ -71,9 +70,9 @@
       <div><span class="section-kicker">Research question</span><h2 id="research-title">Can geological persistence improve targeting?</h2><p>We test whether stable, multiscale ridge structure adds value over a matched-budget single-scale prospectivity map—not whether a visually compelling map can tell a story.</p></div>
     </div>
     <div class="grid grid-3">
-      <article class="card"><span class="badge">01 · Geology</span><h3 style="margin-top:12px">Four distinct hypotheses</h3><p>H0 persistence, raw GeoDAWN flight-line repeatability, Sentinel-1 deformation discontinuities, and USGS focal-mechanism concordance are ranked with prior-work overlap disclosed.</p><p><a href="hypotheses.html">Read the ranking →</a></p></article>
-      <article class="card"><span class="badge">02 · Stability</span><h3 style="margin-top:12px">Persistence is not geology</h3><p>H0 bars are connected-component maxima. Current code paints small peak neighborhoods; it has no explicit line-continuity test and no cross-scale stability theorem.</p><p><a href="method.html#persistence">Inspect the detector →</a></p></article>
-      <article class="card"><span class="badge">03 · Validation</span><h3 style="margin-top:12px">Spatial blocks first</h3><p>Four guarded catalogue folds use pooled DTI, exact known-pixel masking, a matched budget, and a fail-closed requirement for a registered current holdout-best baseline.</p><p><a href="method.html#holdout">See the preregistered gate →</a></p></article>
+      <article class="card"><span class="badge">01 · Geology</span><h3 style="margin-top:12px">Five ranked hypotheses</h3><p>The leading measured family is now strain-dominated, with buried-basin, concealed-contact, tilt-edge, and pure-persistence alternatives kept explicitly separate for review.</p><p><a href="hypotheses.html">Read the ranking →</a></p></article>
+      <article class="card"><span class="badge">02 · Stability</span><h3 style="margin-top:12px">Topology is a prior, not a verdict</h3><p>The published candidate uses topological persistence as a tertiary structural prior. H0 bars still represent stable connected-component maxima, not geological proof or explicit line continuity.</p><p><a href="method.html#persistence">Inspect the detector →</a></p></article>
+      <article class="card"><span class="badge">03 · Validation</span><h3 style="margin-top:12px">Spatial blocks first</h3><p>The downloadable TIFF appears only after beating a registered strain-only incumbent on four guarded exact-mask catalogue folds at the same 37,654-pixel budget, then passing full GeoTIFF revalidation.</p><p><a href="method.html#holdout">See the promotion rule →</a></p></article>
     </div>
   </section>
 
@@ -87,7 +86,7 @@
 
   <section class="section" aria-labelledby="prior-results-title">
     <div class="section-heading"><div><span class="section-kicker">Learning from prior work</span><h2 id="prior-results-title">Separate official scores from owner claims</h2><p>The leaderboard does not expose model or TIFF filenames. The H33 0.2778 pairing remains user-reported; the owner page describes a 0.2747 projection and an unscored proxy.</p></div><a href="results-analysis.html">Read the score autopsy →</a></div>
-    <div class="grid grid-3"><article class="card"><span class="badge">Official source</span><h3 style="margin-top:12px">Organizer leaderboard</h3><p>Dynamic public page. Verify the current row directly; GEMSDOE37 does not cache it.</p></article><article class="card"><span class="badge badge-amber">Owner report</span><h3 style="margin-top:12px">H19-5 · 0.2600 reported</h3><p>Prior project's reported best; not an organizer-verified score in the report reviewed.</p></article><article class="card"><span class="badge badge-amber">Unresolved claim</span><h3 style="margin-top:12px">H33 · 0.2778 association</h3><p>User-provided file-score pairing; score-to-file attribution is not verified.</p></article></div>
+    <div class="grid grid-3"><article class="card"><span class="badge">Official source</span><h3 style="margin-top:12px">Organizer leaderboard</h3><p>Dynamic public page. Verify the current row directly; GEMSDOE37 does not cache it.</p></article><article class="card"><span class="badge">Repository-local result</span><h3 style="margin-top:12px">H2 rank-mix pseudo-holdout</h3><p>Current downloadable TIFF: pooled exact-mask catalogue pseudo-holdout DTI 0.0369, against a strain-only incumbent at 0.0281. This is a local gate result, not an organizer score.</p></article><article class="card"><span class="badge badge-amber">Unresolved claim</span><h3 style="margin-top:12px">H33 · 0.2778 association</h3><p>User-provided file-score pairing; score-to-file attribution is not verified.</p></article></div>
   </section>
 
   <section class="section" aria-labelledby="principles-title">
@@ -98,7 +97,7 @@
     </div>
   </section>
   <section class="section">
-    <div class="notice"><strong>Input provenance & execution status:</strong> Competition inputs (<code>training_features.tif</code>, <code>labels.tif</code>, <code>sample_submission.tif</code>) were restored and cryptographically pinned to SHA-256 hashes matching official project mirrors. Data preparation, multi-physics H0 persistence candidate building, and 4-quadrant spatial pseudo-holdout validation were successfully executed on this checkout. The validated GeoTIFF was generated and checked with zero range violations. See <a href="sources.html">sources &amp; provenance</a> and <a href="results-analysis.html">results analysis</a>.</div>
+    <div class="notice notice-danger"><strong>Current provenance limitation:</strong> the competition-grid rasters used to build the downloadable TIFF were reconstructed here from a GitHub data bridge built from the user-supplied Dropbox mirrors, not from a fresh participant-authenticated DrivenData download in this sandbox. The candidate is unique and locally validated, but organizer provenance remains a real caveat. See <a href="sources.html">sources and provenance</a>.</div>
   </section>
 </main>
 <footer class="footer"><div class="container footer-inner"><span>GEMSDOE37 · reproducible research, not an official DOE or DrivenData product.</span><span class="values">Arena core values: “Maximize P(Win)” · “Own the Outcome.”</span><span><a href="https://github.com/buffedlizard55-lab/GEMSDOE37">Repository ↗</a></span></div></footer>
