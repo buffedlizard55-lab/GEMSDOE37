@@ -1,0 +1,21 @@
+# Participant / external datasets and derived rasters must not be committed.
+data/raw/*
+data/prepared/*
+data/work/*
+data/reference/*
+!data/.gitkeep
+!data/README.md
+artifacts/
+work/
+*.npy
+*.npz
+*.pt
+*.pth
+*.ckpt
+__pycache__/
+*.py[cod]
+.pytest_cache/
+.coverage
+htmlcov/
+.venv/
+venv/
