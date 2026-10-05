@@ -1,0 +1,4 @@
+Submission name: GEMSDOE37-TOPO-PH-20261005T025021488008Z-58F9CA92
+Note: GEMSDOE37-TOPO-PH-20261005T025021488008Z-58F9CA92 | H0 persistence, DEM curvature + mag/gravity edges; 37654 px; 4-block catalogue pooled DTI 0.0305; unscored
+Filename: gemsdoe37-topo-persistence-20261005T025021488008Z-58f9ca92.tif
+SHA-256: 29ce3150ae796ca50570b830b9231487fc5a043af5b0681f7e7dbe8f4fbdcc19
