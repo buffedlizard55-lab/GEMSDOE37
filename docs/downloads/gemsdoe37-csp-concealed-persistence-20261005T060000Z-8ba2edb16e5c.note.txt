@@ -1,0 +1,4 @@
+Submission name: gemsdoe37-csp-concealed-persistence-20261005T060000Z-8ba2edb16e5c
+Note: GEMSDOE37-CSP | 4-fold blocked-OOF multi-physics belief, 234 label-free features, 37000 dots, 3 px spacing, 600 m catalogue stand-off | unscored
+Filename: gemsdoe37-csp-concealed-persistence-20261005T060000Z-8ba2edb16e5c.tif
+SHA-256: 8e5870c61569b8e6546dd409e438ad6525c57735511074be45175fa03b77f0fc

@@ -1,0 +1,31 @@
+{
+  "generated_utc": "2026-10-05T05:57:50+00:00",
+  "file": "gemsdoe37-csp-concealed-persistence-20261005T060000Z-8ba2edb16e5c.tif",
+  "inputs": {
+    "positive_pixels": 37000,
+    "mean_catalogue_distance_px": 28.77135862346305
+  },
+  "forecasts": {
+    "geometry_ladder_model_8_maps": {
+      "value": 0.2823904160894225,
+      "features": [
+        "log_positive_pixels",
+        "mean_catalogue_distance_px"
+      ],
+      "fit_r2": 0.992000888335109,
+      "loo_r2": 0.978470604601454,
+      "reading": "Fitted on the eight owner-reported scored maps recovered this session; it reads geometry only and gives the ranking field no credit."
+    },
+    "budget_power_law_12_dotted_maps": {
+      "value": 0.28203410439511534,
+      "reading": "Same fit as the H5 receipt; extrapolates below the smallest budget ever observed on the ladder."
+    },
+    "geometry_matched_precedent": {
+      "value": 0.2778,
+      "reading": "The score of the closest-geometry incumbent (37,654 dots, mean catalogue distance 29.0 px). If our ranking field is no better than the precedent, this is where the build should land."
+    }
+  },
+  "owner_best_public_dti": 0.2778,
+  "leaderboard_top_public_dti": 0.3262,
+  "honest_reading": "All three models read geometry, not the ranking field, and the local holdouts cannot certify the ranking. The upside case is that the multi-physics field concentrates the same stand-off geometry on better structures; the downside case is that it is no better than the ridge field it replaces. Nothing here is an organizer score."
+}
