@@ -19,6 +19,7 @@ def distance_weighted_tversky(
     truth: np.ndarray,
     *,
     valid_mask: np.ndarray | None = None,
+    exclusion_mask: np.ndarray | None = None,
     pixel_size_m: float = 100.0,
     radius_m: float = 300.0,
     alpha: float = 0.2,
@@ -32,6 +33,9 @@ def distance_weighted_tversky(
     that matched value. Each prediction contributes ``FP_w`` according to the
     nearest truth pixel's kernel. The raster is assumed to be square, projected,
     and sampled at ``pixel_size_m``; invalid/out-of-footprint cells are excluded.
+    ``exclusion_mask`` removes exact pixels from both prediction and truth
+    scoring. It models the organizer's pixel-exact known-fault mask; no buffer
+    around excluded cells is implied.
     """
     pred = np.asarray(prediction, dtype=np.float64)
     gt = np.asarray(truth, dtype=bool)
@@ -51,8 +55,14 @@ def distance_weighted_tversky(
         valid = np.asarray(valid_mask, dtype=bool)
         if valid.shape != pred.shape:
             raise ValueError("valid_mask shape must match rasters")
-    truth_valid = gt & valid
-    pred_valid = np.where(valid, pred, 0.0)
+    scoring_valid = valid.copy()
+    if exclusion_mask is not None:
+        excluded = np.asarray(exclusion_mask, dtype=bool)
+        if excluded.shape != pred.shape:
+            raise ValueError("exclusion_mask shape must match rasters")
+        scoring_valid &= ~excluded
+    truth_valid = gt & scoring_valid
+    pred_valid = np.where(scoring_valid, pred, 0.0)
     truth_count = int(truth_valid.sum())
     if truth_count == 0:
         return {"tp": 0.0, "fp": float(pred_valid.sum()), "fn": 0.0, "dti": 0.0}
@@ -60,7 +70,7 @@ def distance_weighted_tversky(
     # Distance to the nearest truth centre. SciPy's EDT returns zero on truth.
     nearest_distance = distance_transform_edt(~truth_valid, sampling=pixel_size_m)
     nearest_kernel = np.clip(1.0 - nearest_distance / radius_m, 0.0, 1.0)
-    fp_weight = np.where(valid, pred_valid * (1.0 - nearest_kernel), 0.0)
+    fp_weight = np.where(scoring_valid, pred_valid * (1.0 - nearest_kernel), 0.0)
     fp_weight[pred_valid == 0.0] = 0.0
     fp = float(fp_weight.sum(dtype=np.float64))
 
@@ -80,7 +90,7 @@ def distance_weighted_tversky(
                 continue
             indices = np.flatnonzero(inside)
             rr, cc = rows[inside], cols[inside]
-            inside_valid = valid[rr, cc]
+            inside_valid = scoring_valid[rr, cc]
             if not np.any(inside_valid):
                 continue
             indices = indices[inside_valid]

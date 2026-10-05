@@ -22,3 +22,20 @@ The implementation defaults were explicitly registered so the scoring surface is
 - Recorded a 250,000-bar-per-scale memory guard; exceeding it aborts the run rather than silently truncating the persistence diagram.
 
 **No competition raster, score, holdout result, TIFF, or leaderboard outcome was observed for either revision.** Persistence scales, cutoff, ε, matching radius, minimum scales, layer agreement, matched-budget definition, fold geometry, and numerical promotion margins were not tuned or changed. Any later change made after viewing a fold score requires a new preregistration and a genuinely untouched evaluation split.
+
+## Revision 3 — 2026-10-05 (before raster evaluation)
+
+Updated the holdout and output protocol after reviewing official DrivenData scoring clarifications and the current implementation. No competition raster or fold score was available or observed.
+
+- Added the exact, pixel-level known-fault exclusion mask; explicitly rejected any distance-based exclusion buffer. New/corrected/splayed truth can occur within 300 m of a known trace.
+- Changed cross-fold aggregation from mean-of-fold DTIs to one pooled DTI computed after summing TP, FP, and FN over disjoint evaluation blocks, matching the organizer's stated aggregation.
+- Removed the pinned H33-2-B2 raster as a holdout promotion comparator. Its two-pixel catalogue pruning was constructed using the complete known-fault raster, including labels in future holdout folds; evaluating that static file as an independent fold baseline can leak held-out label geometry. Its score/file association remains owner-reported and unverified. The reported 37,654 positive-pixel count is retained only as a fixed, matched submission budget—not as an outcome or a pixel source.
+- Added a fail-closed requirement for a hash-pinned, same-input, same-protocol current local holdout-best report. No such report exists yet, so the slot gate is currently incapable of passing.
+- Clarified that the 300 m spatial-block guard is a validation design choice, not a competition mask, and means the present spatial holdout cannot assess new-fault corrections/splays close to known traces.
+- Kept the format contract to the verified single-band float32 / EPSG:32611 / 100 m / `[0,1]` requirements and exact sample-grid matching. Outside-footprint encoding remains unverified; do not treat a local convention as organizer guidance.
+
+## Revision 4 — 2026-10-05 (before raster evaluation)
+
+A final source review found that the previous draft asserted NaN/nodata outside the template footprint without an authenticated sample or verified source passage. That statement is withdrawn. The local writer retains its conservative requirement that all stored cells are finite in `[0,1]` and omits a nodata tag; it has not been tested against the real sample or portal. No competition raster or fold score was available or observed. Revisit this only after the exact official sample template and output instructions can be checked; any resulting preregistration hash change requires a rebuild before evaluation.
+
+These protocol corrections were registered before any raster evaluation. Future changes to fold guard, mask, aggregation, budget, or thresholds after seeing a fold score require a new preregistration and untouched evaluation data.

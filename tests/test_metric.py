@@ -51,6 +51,44 @@ def test_invalid_cells_are_excluded_from_metric():
     assert result["dti"] == pytest.approx(0.0)
 
 
+def test_exact_known_fault_pixels_are_excluded_without_a_proximity_buffer():
+    truth = np.zeros((5, 7), dtype=bool)
+    truth[2, 2] = True
+    known = np.zeros_like(truth)
+    known[2, 4] = True
+    prediction = np.zeros_like(truth, dtype=np.float32)
+    prediction[2, 4] = 1.0  # on the exact known mask: ignored
+    prediction[2, 3] = 1.0  # adjacent to it: still scored normally
+
+    result = distance_weighted_tversky(
+        prediction,
+        truth,
+        exclusion_mask=known,
+        radius_m=300.0,
+        pixel_size_m=100.0,
+    )
+    assert result["tp"] == pytest.approx(2.0 / 3.0)
+    assert result["fp"] == pytest.approx(1.0 / 3.0)
+    assert result["fn"] == pytest.approx(1.0 / 3.0)
+    assert result["dti"] == pytest.approx(2.0 / 3.0)
+
+
+def test_truth_and_prediction_on_exact_excluded_pixels_do_not_score():
+    truth = np.zeros((3, 3), dtype=bool)
+    truth[1, 1] = True
+    prediction = truth.astype(np.float32)
+    known = truth.copy()
+    result = distance_weighted_tversky(prediction, truth, exclusion_mask=known)
+    assert result == {"tp": 0.0, "fp": 0.0, "fn": 0.0, "dti": 0.0}
+
+
+def test_exclusion_mask_shape_is_checked():
+    with pytest.raises(ValueError, match="exclusion_mask shape"):
+        distance_weighted_tversky(
+            np.zeros((2, 2)), np.zeros((2, 2)), exclusion_mask=np.zeros((2, 1))
+        )
+
+
 def test_values_are_checked_and_marginal_rule_is_explicitly_conditional():
     with pytest.raises(ValueError, match=r"\[0, 1\]"):
         distance_weighted_tversky(np.array([[1.1]]), np.array([[True]]))

@@ -1,15 +1,14 @@
 {
-  "status": "BLOCKED_NO_VALIDATED_INPUTS",
-  "candidate_id": null,
-  "generated_utc": null,
+  "schema_version": 1,
+  "status": "NOT_READY",
+  "candidate_id": "GEMSDOE37-H1-TOPO-PERSISTENCE",
+  "generated_utc": "2026-10-05",
   "download_path": null,
-  "holdout_report_path": null,
   "filename": null,
   "submission_name": null,
   "submission_note": null,
-  "sha256": null,
   "positive_pixels": null,
-  "public_catalogue_holdout_mean_dti": null,
+  "public_catalogue_holdout_pooled_dti": null,
   "organizer_score": null,
-  "warning": "No competition raster, registered baseline evaluation, spatial holdout pass, or submission TIFF is present in this checkout. Do not upload a placeholder."
+  "warning": "No authorized competition raster, completed matched-budget spatial holdout, registered current holdout-best baseline, format-validated candidate TIFF, or organizer score is present. Do not spend a weekly slot or upload a placeholder."
 }
