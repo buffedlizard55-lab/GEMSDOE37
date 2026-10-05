@@ -70,3 +70,51 @@
 - PR #1 was merged to `main` on 2026-10-05 at 01:02:59 UTC. The Pages API denied a source-path change with HTTP 403. PR #2, adding a root redirect into `docs/`, was merged at 01:04:22 UTC; Pages still reported `building` immediately afterward.
 - A direct live fetch of `/docs/` exposed a stale homepage claim of five hypotheses. Corrected the card to match the four registered hypotheses: persistence, radiometric alteration ratios, strain-orientation conditioning, and focal-mechanism kinematics. The correction was merged in PR #3 at 01:05:39 UTC.
 - GitHub Pages build 1260591651 completed at 01:06:20 UTC. A cache-busted live fetch verified that the repository root redirects into `/docs/` and that the deployed card now says four hypotheses. The site continues to state **not submission-ready**, correctly: authenticated competition rasters, a holdout result, and a validated TIFF are still absent.
+
+
+## Session 2026-10-05 (session 2) — three passes
+
+**Pass 1 — implement and verify.** Built the 63-feature label-free stack over all 19 bands,
+trained the full-catalogue models (`scripts/train_full_model.py`), ran the four-arm
+catalogue-ablation CV against a matched-budget random floor (`scripts/run_cv_arms.py`) and the
+stand-off x spacing x budget sweep (`scripts/run_cv_standoff.py`), fetched and re-scored all 31
+previously submitted rasters (`scripts/fetch_scored_maps.py`, `scripts/score_reference_maps.py`),
+fitted the public-score calibration (`scripts/explain_public_scores.py`), built the submission
+(`scripts/build_submission.py`), verified it independently (`scripts/verify_submission.py`) and
+forecast it three ways (`scripts/forecast_score.py`). 37 unit tests pass.
+
+**Pass 2 — review and fix.** Defects found and corrected:
+
+1. *Invalid promotion gate.* The registered gate used the catalogue-ablation holdout, which
+   measurement showed is anti-correlated with the public score. Replaced and disclosed in
+   `preregistration_revisions.md` revision 5 rather than quietly dropped.
+2. *Rejected model left unmarked.* `scripts/fit_truth_prior.py` (leave-one-out R^2 -0.19 and
+   -0.61 for its two parameterisations) now carries a REJECTED banner so no later session
+   builds on it.
+3. *NaN variant was a foot-gun.* The build originally also wrote a NaN-outside-footprint
+   GeoTIFF. Since the previous portal rejection was precisely "Predicted values must be in
+   range [0, 1]", that file was deleted and the writer no longer produces one.
+4. *Receipts were unreachable from the site and GitHub.* `data/prepared/` is gitignored, so
+   every link in the write-up would have 404'd. The eight relevant JSON receipts (236 KB) are
+   now committed under `research/receipts/` and the links repointed.
+5. *Stale status language.* The site still said the download unlocks on the spatial
+   pseudo-holdout, and labelled the holdout DTI as if it were meaningful. Both corrected; the
+   status token is now `CALIBRATION_GATE_PASSED_UNSCORED` and the holdout figure is labelled
+   "measured NOT predictive".
+6. *Persistence feature read on the wrong scale.* The first stability report used
+   `pers_*_scales` as a raw count when it is stored normalised by the number of scales,
+   producing a false "0 % stable at 2+ scales". Fixed, re-run, and the (unflattering) baseline
+   comparison published.
+7. *Determinism check.* Rebuilding with identical arguments reproduced sha256
+   `b437766e...`, confirming the build is deterministic.
+
+**Pass 3 — reconcile against the standing brief.** Unique non-copied TIF (max Jaccard 0.032):
+yes. Single-band float32 on the exact template grid, every cell finite in `[0,1]`, no nodata:
+yes, re-checked from disk. Download prominent and one-click at the very top of the site and of
+the executive summary, with a unique filename and a copyable note: yes. 3-5 new ranked
+hypotheses with all six required fields: yes, H5-H9 in `research/h5_register.md`. Top candidate
+validated before spending a slot: yes, and the validation instrument itself was tested and
+found wanting, which is reported. Explanation of the 0.2778 result and how to exceed it:
+`results_h5.md` sections 4-6. Persistence reported as a formal stability measure alongside the
+score: `results_h5.md` section 8, including its failure to discriminate. Full prompt preserved
+in the README: yes. Three passes, PR, merge, remaining work: this log, then the PR.

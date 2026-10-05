@@ -1,0 +1,2975 @@
+{
+  "generated_utc": "2026-10-05T03:01:55+00:00",
+  "protocol": "catalogue-ablation holdout of whole mapped fault objects; pooled TP/FP/FN then one DTI",
+  "n_folds": 4,
+  "arms": {
+    "struct": {
+      "best": {
+        "spacing": 2.9,
+        "budget": 55722,
+        "pooled_dti": 0.16699428398246696
+      },
+      "curve": [
+        {
+          "spacing": 0.0,
+          "budget": 5000,
+          "pooled_dti": 0.009127479628485426
+        },
+        {
+          "spacing": 0.0,
+          "budget": 5579,
+          "pooled_dti": 0.01053935241943327
+        },
+        {
+          "spacing": 0.0,
+          "budget": 6225,
+          "pooled_dti": 0.011953818622279762
+        },
+        {
+          "spacing": 0.0,
+          "budget": 6946,
+          "pooled_dti": 0.013324335653079881
+        },
+        {
+          "spacing": 0.0,
+          "budget": 7751,
+          "pooled_dti": 0.014797446150714984
+        },
+        {
+          "spacing": 0.0,
+          "budget": 8648,
+          "pooled_dti": 0.017195332968804784
+        },
+        {
+          "spacing": 0.0,
+          "budget": 9650,
+          "pooled_dti": 0.01966156003554633
+        },
+        {
+          "spacing": 0.0,
+          "budget": 10768,
+          "pooled_dti": 0.021528778310773676
+        },
+        {
+          "spacing": 0.0,
+          "budget": 12015,
+          "pooled_dti": 0.024288332357524808
+        },
+        {
+          "spacing": 0.0,
+          "budget": 13406,
+          "pooled_dti": 0.026625045120267646
+        },
+        {
+          "spacing": 0.0,
+          "budget": 14959,
+          "pooled_dti": 0.02924033767337526
+        },
+        {
+          "spacing": 0.0,
+          "budget": 16692,
+          "pooled_dti": 0.031872406286802726
+        },
+        {
+          "spacing": 0.0,
+          "budget": 18625,
+          "pooled_dti": 0.03480497597891369
+        },
+        {
+          "spacing": 0.0,
+          "budget": 20782,
+          "pooled_dti": 0.03732383065648615
+        },
+        {
+          "spacing": 0.0,
+          "budget": 23189,
+          "pooled_dti": 0.04015676644458949
+        },
+        {
+          "spacing": 0.0,
+          "budget": 25875,
+          "pooled_dti": 0.043481817774714965
+        },
+        {
+          "spacing": 0.0,
+          "budget": 28871,
+          "pooled_dti": 0.04653927201796721
+        },
+        {
+          "spacing": 0.0,
+          "budget": 32215,
+          "pooled_dti": 0.04908538226140545
+        },
+        {
+          "spacing": 0.0,
+          "budget": 35946,
+          "pooled_dti": 0.05228254593859403
+        },
+        {
+          "spacing": 0.0,
+          "budget": 40109,
+          "pooled_dti": 0.05532401560777133
+        },
+        {
+          "spacing": 0.0,
+          "budget": 44755,
+          "pooled_dti": 0.05804070311234625
+        },
+        {
+          "spacing": 0.0,
+          "budget": 49938,
+          "pooled_dti": 0.061119521629796475
+        },
+        {
+          "spacing": 0.0,
+          "budget": 55722,
+          "pooled_dti": 0.06408635184145971
+        },
+        {
+          "spacing": 0.0,
+          "budget": 62176,
+          "pooled_dti": 0.06679375910415634
+        },
+        {
+          "spacing": 0.0,
+          "budget": 69377,
+          "pooled_dti": 0.06919785376371373
+        },
+        {
+          "spacing": 0.0,
+          "budget": 77412,
+          "pooled_dti": 0.07150640304222863
+        },
+        {
+          "spacing": 0.0,
+          "budget": 86378,
+          "pooled_dti": 0.07353685910951735
+        },
+        {
+          "spacing": 0.0,
+          "budget": 96382,
+          "pooled_dti": 0.07538760588872755
+        },
+        {
+          "spacing": 0.0,
+          "budget": 107544,
+          "pooled_dti": 0.07678651919136631
+        },
+        {
+          "spacing": 0.0,
+          "budget": 120000,
+          "pooled_dti": 0.07837137350716526
+        },
+        {
+          "spacing": 2.0,
+          "budget": 5000,
+          "pooled_dti": 0.03111883417792724
+        },
+        {
+          "spacing": 2.0,
+          "budget": 5579,
+          "pooled_dti": 0.03443503217258526
+        },
+        {
+          "spacing": 2.0,
+          "budget": 6225,
+          "pooled_dti": 0.03867673584350809
+        },
+        {
+          "spacing": 2.0,
+          "budget": 6946,
+          "pooled_dti": 0.0429447159185722
+        },
+        {
+          "spacing": 2.0,
+          "budget": 7751,
+          "pooled_dti": 0.04669475907976592
+        },
+        {
+          "spacing": 2.0,
+          "budget": 8648,
+          "pooled_dti": 0.05112567126885046
+        },
+        {
+          "spacing": 2.0,
+          "budget": 9650,
+          "pooled_dti": 0.05625786943558964
+        },
+        {
+          "spacing": 2.0,
+          "budget": 10768,
+          "pooled_dti": 0.060703258406697595
+        },
+        {
+          "spacing": 2.0,
+          "budget": 12015,
+          "pooled_dti": 0.06737205976490294
+        },
+        {
+          "spacing": 2.0,
+          "budget": 13406,
+          "pooled_dti": 0.07309216268845331
+        },
+        {
+          "spacing": 2.0,
+          "budget": 14959,
+          "pooled_dti": 0.07930446559327194
+        },
+        {
+          "spacing": 2.0,
+          "budget": 16692,
+          "pooled_dti": 0.0852494172294757
+        },
+        {
+          "spacing": 2.0,
+          "budget": 18625,
+          "pooled_dti": 0.09127492017400633
+        },
+        {
+          "spacing": 2.0,
+          "budget": 20782,
+          "pooled_dti": 0.09799183364851297
+        },
+        {
+          "spacing": 2.0,
+          "budget": 23189,
+          "pooled_dti": 0.10423685886634108
+        },
+        {
+          "spacing": 2.0,
+          "budget": 25875,
+          "pooled_dti": 0.11116952410963415
+        },
+        {
+          "spacing": 2.0,
+          "budget": 28871,
+          "pooled_dti": 0.11671626611121247
+        },
+        {
+          "spacing": 2.0,
+          "budget": 32215,
+          "pooled_dti": 0.1226357765499116
+        },
+        {
+          "spacing": 2.0,
+          "budget": 35946,
+          "pooled_dti": 0.12817871771478684
+        },
+        {
+          "spacing": 2.0,
+          "budget": 40109,
+          "pooled_dti": 0.13363994042789673
+        },
+        {
+          "spacing": 2.0,
+          "budget": 44755,
+          "pooled_dti": 0.1386224332783033
+        },
+        {
+          "spacing": 2.0,
+          "budget": 49938,
+          "pooled_dti": 0.1434544402017245
+        },
+        {
+          "spacing": 2.0,
+          "budget": 55722,
+          "pooled_dti": 0.14631202610641308
+        },
+        {
+          "spacing": 2.0,
+          "budget": 62176,
+          "pooled_dti": 0.14961765169897698
+        },
+        {
+          "spacing": 2.0,
+          "budget": 69377,
+          "pooled_dti": 0.1524661218593294
+        },
+        {
+          "spacing": 2.0,
+          "budget": 77412,
+          "pooled_dti": 0.15438200397540774
+        },
+        {
+          "spacing": 2.0,
+          "budget": 86378,
+          "pooled_dti": 0.15586727305158812
+        },
+        {
+          "spacing": 2.9,
+          "budget": 5000,
+          "pooled_dti": 0.04124684876978868
+        },
+        {
+          "spacing": 2.9,
+          "budget": 5579,
+          "pooled_dti": 0.04555832879919869
+        },
+        {
+          "spacing": 2.9,
+          "budget": 6225,
+          "pooled_dti": 0.05010966826428454
+        },
+        {
+          "spacing": 2.9,
+          "budget": 6946,
+          "pooled_dti": 0.054282070598427296
+        },
+        {
+          "spacing": 2.9,
+          "budget": 7751,
+          "pooled_dti": 0.05968750947287301
+        },
+        {
+          "spacing": 2.9,
+          "budget": 8648,
+          "pooled_dti": 0.06519812201287932
+        },
+        {
+          "spacing": 2.9,
+          "budget": 9650,
+          "pooled_dti": 0.07122878572313059
+        },
+        {
+          "spacing": 2.9,
+          "budget": 10768,
+          "pooled_dti": 0.07722842286754934
+        },
+        {
+          "spacing": 2.9,
+          "budget": 12015,
+          "pooled_dti": 0.08385803272920997
+        },
+        {
+          "spacing": 2.9,
+          "budget": 13406,
+          "pooled_dti": 0.09106360968564543
+        },
+        {
+          "spacing": 2.9,
+          "budget": 14959,
+          "pooled_dti": 0.09782595768168298
+        },
+        {
+          "spacing": 2.9,
+          "budget": 16692,
+          "pooled_dti": 0.1046251091003115
+        },
+        {
+          "spacing": 2.9,
+          "budget": 18625,
+          "pooled_dti": 0.11129980910784242
+        },
+        {
+          "spacing": 2.9,
+          "budget": 20782,
+          "pooled_dti": 0.11814608539406002
+        },
+        {
+          "spacing": 2.9,
+          "budget": 23189,
+          "pooled_dti": 0.12491295167118228
+        },
+        {
+          "spacing": 2.9,
+          "budget": 25875,
+          "pooled_dti": 0.13154009565859376
+        },
+        {
+          "spacing": 2.9,
+          "budget": 28871,
+          "pooled_dti": 0.13826804057964207
+        },
+        {
+          "spacing": 2.9,
+          "budget": 32215,
+          "pooled_dti": 0.14368473479253555
+        },
+        {
+          "spacing": 2.9,
+          "budget": 35946,
+          "pooled_dti": 0.14870401453127916
+        },
+        {
+          "spacing": 2.9,
+          "budget": 40109,
+          "pooled_dti": 0.15418567997537788
+        },
+        {
+          "spacing": 2.9,
+          "budget": 44755,
+          "pooled_dti": 0.15915684027354968
+        },
+        {
+          "spacing": 2.9,
+          "budget": 49938,
+          "pooled_dti": 0.16384296287258937
+        },
+        {
+          "spacing": 2.9,
+          "budget": 55722,
+          "pooled_dti": 0.16699428398246696
+        },
+        {
+          "spacing": 4.0,
+          "budget": 5000,
+          "pooled_dti": 0.04814837629438107
+        },
+        {
+          "spacing": 4.0,
+          "budget": 5579,
+          "pooled_dti": 0.05213711350684366
+        },
+        {
+          "spacing": 4.0,
+          "budget": 6225,
+          "pooled_dti": 0.05746236709042301
+        },
+        {
+          "spacing": 4.0,
+          "budget": 6946,
+          "pooled_dti": 0.0629866436327868
+        },
+        {
+          "spacing": 4.0,
+          "budget": 7751,
+          "pooled_dti": 0.06942572451030171
+        },
+        {
+          "spacing": 4.0,
+          "budget": 8648,
+          "pooled_dti": 0.075442521879593
+        },
+        {
+          "spacing": 4.0,
+          "budget": 9650,
+          "pooled_dti": 0.08248696873676675
+        },
+        {
+          "spacing": 4.0,
+          "budget": 10768,
+          "pooled_dti": 0.08784489379708092
+        },
+        {
+          "spacing": 4.0,
+          "budget": 12015,
+          "pooled_dti": 0.0942317632805449
+        },
+        {
+          "spacing": 4.0,
+          "budget": 13406,
+          "pooled_dti": 0.10089738941747355
+        },
+        {
+          "spacing": 4.0,
+          "budget": 14959,
+          "pooled_dti": 0.10669350081848418
+        },
+        {
+          "spacing": 4.0,
+          "budget": 16692,
+          "pooled_dti": 0.11304825067177783
+        },
+        {
+          "spacing": 4.0,
+          "budget": 18625,
+          "pooled_dti": 0.11952501669165379
+        },
+        {
+          "spacing": 4.0,
+          "budget": 20782,
+          "pooled_dti": 0.12578918639571496
+        },
+        {
+          "spacing": 4.0,
+          "budget": 23189,
+          "pooled_dti": 0.13221138588871376
+        },
+        {
+          "spacing": 4.0,
+          "budget": 25875,
+          "pooled_dti": 0.13798874963989535
+        },
+        {
+          "spacing": 4.0,
+          "budget": 28871,
+          "pooled_dti": 0.1435204735771132
+        },
+        {
+          "spacing": 4.0,
+          "budget": 32215,
+          "pooled_dti": 0.1492237825601931
+        }
+      ]
+    },
+    "cat": {
+      "best": {
+        "spacing": 2.9,
+        "budget": 40109,
+        "pooled_dti": 0.05288545197743429
+      },
+      "curve": [
+        {
+          "spacing": 0.0,
+          "budget": 5000,
+          "pooled_dti": 0.0024770518003877874
+        },
+        {
+          "spacing": 0.0,
+          "budget": 5579,
+          "pooled_dti": 0.003219945165909637
+        },
+        {
+          "spacing": 0.0,
+          "budget": 6225,
+          "pooled_dti": 0.0034558886038384435
+        },
+        {
+          "spacing": 0.0,
+          "budget": 6946,
+          "pooled_dti": 0.0037635137753668814
+        },
+        {
+          "spacing": 0.0,
+          "budget": 7751,
+          "pooled_dti": 0.0038715348014885685
+        },
+        {
+          "spacing": 0.0,
+          "budget": 8648,
+          "pooled_dti": 0.003912156037241378
+        },
+        {
+          "spacing": 0.0,
+          "budget": 9650,
+          "pooled_dti": 0.003916323838377929
+        },
+        {
+          "spacing": 0.0,
+          "budget": 10768,
+          "pooled_dti": 0.004297577415076255
+        },
+        {
+          "spacing": 0.0,
+          "budget": 12015,
+          "pooled_dti": 0.00477323045319337
+        },
+        {
+          "spacing": 0.0,
+          "budget": 13406,
+          "pooled_dti": 0.005144366391193567
+        },
+        {
+          "spacing": 0.0,
+          "budget": 14959,
+          "pooled_dti": 0.005309292480317735
+        },
+        {
+          "spacing": 0.0,
+          "budget": 16692,
+          "pooled_dti": 0.005465908518409537
+        },
+        {
+          "spacing": 0.0,
+          "budget": 18625,
+          "pooled_dti": 0.005475968588211826
+        },
+        {
+          "spacing": 0.0,
+          "budget": 20782,
+          "pooled_dti": 0.005796929265325235
+        },
+        {
+          "spacing": 0.0,
+          "budget": 23189,
+          "pooled_dti": 0.006986953704898947
+        },
+        {
+          "spacing": 0.0,
+          "budget": 25875,
+          "pooled_dti": 0.007758786192197246
+        },
+        {
+          "spacing": 0.0,
+          "budget": 28871,
+          "pooled_dti": 0.008144746503406311
+        },
+        {
+          "spacing": 0.0,
+          "budget": 32215,
+          "pooled_dti": 0.008959388904657995
+        },
+        {
+          "spacing": 0.0,
+          "budget": 35946,
+          "pooled_dti": 0.009100392146333436
+        },
+        {
+          "spacing": 0.0,
+          "budget": 40109,
+          "pooled_dti": 0.00911445917978187
+        },
+        {
+          "spacing": 0.0,
+          "budget": 44755,
+          "pooled_dti": 0.01059278383764606
+        },
+        {
+          "spacing": 0.0,
+          "budget": 49938,
+          "pooled_dti": 0.011183092498848165
+        },
+        {
+          "spacing": 0.0,
+          "budget": 55722,
+          "pooled_dti": 0.01234791388862045
+        },
+        {
+          "spacing": 0.0,
+          "budget": 62176,
+          "pooled_dti": 0.012797022266537133
+        },
+        {
+          "spacing": 0.0,
+          "budget": 69377,
+          "pooled_dti": 0.012892492413590096
+        },
+        {
+          "spacing": 0.0,
+          "budget": 77412,
+          "pooled_dti": 0.013019817789949435
+        },
+        {
+          "spacing": 0.0,
+          "budget": 86378,
+          "pooled_dti": 0.013853372066961222
+        },
+        {
+          "spacing": 0.0,
+          "budget": 96382,
+          "pooled_dti": 0.014539051096263382
+        },
+        {
+          "spacing": 0.0,
+          "budget": 107544,
+          "pooled_dti": 0.015160006902577693
+        },
+        {
+          "spacing": 0.0,
+          "budget": 120000,
+          "pooled_dti": 0.015027686225753805
+        },
+        {
+          "spacing": 2.0,
+          "budget": 5000,
+          "pooled_dti": 0.008127399413238857
+        },
+        {
+          "spacing": 2.0,
+          "budget": 5579,
+          "pooled_dti": 0.00858085038301881
+        },
+        {
+          "spacing": 2.0,
+          "budget": 6225,
+          "pooled_dti": 0.009170549040723688
+        },
+        {
+          "spacing": 2.0,
+          "budget": 6946,
+          "pooled_dti": 0.010762059009854049
+        },
+        {
+          "spacing": 2.0,
+          "budget": 7751,
+          "pooled_dti": 0.01190667018869287
+        },
+        {
+          "spacing": 2.0,
+          "budget": 8648,
+          "pooled_dti": 0.013604013961172086
+        },
+        {
+          "spacing": 2.0,
+          "budget": 9650,
+          "pooled_dti": 0.014507947319197788
+        },
+        {
+          "spacing": 2.0,
+          "budget": 10768,
+          "pooled_dti": 0.015576890691550467
+        },
+        {
+          "spacing": 2.0,
+          "budget": 12015,
+          "pooled_dti": 0.01652410722066826
+        },
+        {
+          "spacing": 2.0,
+          "budget": 13406,
+          "pooled_dti": 0.01845532671363215
+        },
+        {
+          "spacing": 2.0,
+          "budget": 14959,
+          "pooled_dti": 0.020103864579124116
+        },
+        {
+          "spacing": 2.0,
+          "budget": 16692,
+          "pooled_dti": 0.021985371433631475
+        },
+        {
+          "spacing": 2.0,
+          "budget": 18625,
+          "pooled_dti": 0.022947583175511477
+        },
+        {
+          "spacing": 2.0,
+          "budget": 20782,
+          "pooled_dti": 0.024856387025675015
+        },
+        {
+          "spacing": 2.0,
+          "budget": 23189,
+          "pooled_dti": 0.025743382509343903
+        },
+        {
+          "spacing": 2.0,
+          "budget": 25875,
+          "pooled_dti": 0.027338517549907265
+        },
+        {
+          "spacing": 2.0,
+          "budget": 28871,
+          "pooled_dti": 0.030131611329499326
+        },
+        {
+          "spacing": 2.0,
+          "budget": 32215,
+          "pooled_dti": 0.03203258053133325
+        },
+        {
+          "spacing": 2.0,
+          "budget": 35946,
+          "pooled_dti": 0.03320220398123833
+        },
+        {
+          "spacing": 2.0,
+          "budget": 40109,
+          "pooled_dti": 0.03844695446869186
+        },
+        {
+          "spacing": 2.0,
+          "budget": 44755,
+          "pooled_dti": 0.04191273385476752
+        },
+        {
+          "spacing": 2.0,
+          "budget": 49938,
+          "pooled_dti": 0.044479334304514735
+        },
+        {
+          "spacing": 2.0,
+          "budget": 55722,
+          "pooled_dti": 0.047221869432569674
+        },
+        {
+          "spacing": 2.0,
+          "budget": 62176,
+          "pooled_dti": 0.04925720927781229
+        },
+        {
+          "spacing": 2.0,
+          "budget": 69377,
+          "pooled_dti": 0.04973445086701705
+        },
+        {
+          "spacing": 2.9,
+          "budget": 5000,
+          "pooled_dti": 0.01171112689755806
+        },
+        {
+          "spacing": 2.9,
+          "budget": 5579,
+          "pooled_dti": 0.012926338833659077
+        },
+        {
+          "spacing": 2.9,
+          "budget": 6225,
+          "pooled_dti": 0.01389418153822304
+        },
+        {
+          "spacing": 2.9,
+          "budget": 6946,
+          "pooled_dti": 0.01515821928140646
+        },
+        {
+          "spacing": 2.9,
+          "budget": 7751,
+          "pooled_dti": 0.01685027799618909
+        },
+        {
+          "spacing": 2.9,
+          "budget": 8648,
+          "pooled_dti": 0.018311962261862758
+        },
+        {
+          "spacing": 2.9,
+          "budget": 9650,
+          "pooled_dti": 0.0201302579830095
+        },
+        {
+          "spacing": 2.9,
+          "budget": 10768,
+          "pooled_dti": 0.021598073798965233
+        },
+        {
+          "spacing": 2.9,
+          "budget": 12015,
+          "pooled_dti": 0.023348192844364946
+        },
+        {
+          "spacing": 2.9,
+          "budget": 13406,
+          "pooled_dti": 0.024513088660378286
+        },
+        {
+          "spacing": 2.9,
+          "budget": 14959,
+          "pooled_dti": 0.026965908980635094
+        },
+        {
+          "spacing": 2.9,
+          "budget": 16692,
+          "pooled_dti": 0.029806805957254087
+        },
+        {
+          "spacing": 2.9,
+          "budget": 18625,
+          "pooled_dti": 0.03168445904435264
+        },
+        {
+          "spacing": 2.9,
+          "budget": 20782,
+          "pooled_dti": 0.034036648438453186
+        },
+        {
+          "spacing": 2.9,
+          "budget": 23189,
+          "pooled_dti": 0.03931841603617727
+        },
+        {
+          "spacing": 2.9,
+          "budget": 25875,
+          "pooled_dti": 0.042940928649736324
+        },
+        {
+          "spacing": 2.9,
+          "budget": 28871,
+          "pooled_dti": 0.04596216815952335
+        },
+        {
+          "spacing": 2.9,
+          "budget": 32215,
+          "pooled_dti": 0.04918558103002853
+        },
+        {
+          "spacing": 2.9,
+          "budget": 35946,
+          "pooled_dti": 0.05163704827503246
+        },
+        {
+          "spacing": 2.9,
+          "budget": 40109,
+          "pooled_dti": 0.05288545197743429
+        },
+        {
+          "spacing": 4.0,
+          "budget": 5000,
+          "pooled_dti": 0.01412492744779565
+        },
+        {
+          "spacing": 4.0,
+          "budget": 5579,
+          "pooled_dti": 0.015554936192302925
+        },
+        {
+          "spacing": 4.0,
+          "budget": 6225,
+          "pooled_dti": 0.01674035856699244
+        },
+        {
+          "spacing": 4.0,
+          "budget": 6946,
+          "pooled_dti": 0.018336881243170046
+        },
+        {
+          "spacing": 4.0,
+          "budget": 7751,
+          "pooled_dti": 0.019528324048039777
+        },
+        {
+          "spacing": 4.0,
+          "budget": 8648,
+          "pooled_dti": 0.021977382610674844
+        },
+        {
+          "spacing": 4.0,
+          "budget": 9650,
+          "pooled_dti": 0.024079912635693
+        },
+        {
+          "spacing": 4.0,
+          "budget": 10768,
+          "pooled_dti": 0.025476126282431344
+        },
+        {
+          "spacing": 4.0,
+          "budget": 12015,
+          "pooled_dti": 0.03008221116455798
+        },
+        {
+          "spacing": 4.0,
+          "budget": 13406,
+          "pooled_dti": 0.033617975961795325
+        },
+        {
+          "spacing": 4.0,
+          "budget": 14959,
+          "pooled_dti": 0.03706208592487239
+        },
+        {
+          "spacing": 4.0,
+          "budget": 16692,
+          "pooled_dti": 0.04037706420579693
+        },
+        {
+          "spacing": 4.0,
+          "budget": 18625,
+          "pooled_dti": 0.042951164838537004
+        },
+        {
+          "spacing": 4.0,
+          "budget": 20782,
+          "pooled_dti": 0.04512377673546305
+        }
+      ]
+    },
+    "offcat": {
+      "best": {
+        "spacing": 2.9,
+        "budget": 55722,
+        "pooled_dti": 0.18396172212500203
+      },
+      "curve": [
+        {
+          "spacing": 0.0,
+          "budget": 5000,
+          "pooled_dti": 0.02827342481841835
+        },
+        {
+          "spacing": 0.0,
+          "budget": 5579,
+          "pooled_dti": 0.03059103291353323
+        },
+        {
+          "spacing": 0.0,
+          "budget": 6225,
+          "pooled_dti": 0.03338248745467434
+        },
+        {
+          "spacing": 0.0,
+          "budget": 6946,
+          "pooled_dti": 0.03591181050654386
+        },
+        {
+          "spacing": 0.0,
+          "budget": 7751,
+          "pooled_dti": 0.0388882718970774
+        },
+        {
+          "spacing": 0.0,
+          "budget": 8648,
+          "pooled_dti": 0.04151158998891574
+        },
+        {
+          "spacing": 0.0,
+          "budget": 9650,
+          "pooled_dti": 0.044000135490155655
+        },
+        {
+          "spacing": 0.0,
+          "budget": 10768,
+          "pooled_dti": 0.04801749708630524
+        },
+        {
+          "spacing": 0.0,
+          "budget": 12015,
+          "pooled_dti": 0.051049095866970685
+        },
+        {
+          "spacing": 0.0,
+          "budget": 13406,
+          "pooled_dti": 0.05449866523797115
+        },
+        {
+          "spacing": 0.0,
+          "budget": 14959,
+          "pooled_dti": 0.05756230840412791
+        },
+        {
+          "spacing": 0.0,
+          "budget": 16692,
+          "pooled_dti": 0.06117422685029115
+        },
+        {
+          "spacing": 0.0,
+          "budget": 18625,
+          "pooled_dti": 0.065212801920915
+        },
+        {
+          "spacing": 0.0,
+          "budget": 20782,
+          "pooled_dti": 0.06859655729315027
+        },
+        {
+          "spacing": 0.0,
+          "budget": 23189,
+          "pooled_dti": 0.07223752812362386
+        },
+        {
+          "spacing": 0.0,
+          "budget": 25875,
+          "pooled_dti": 0.0763482913355106
+        },
+        {
+          "spacing": 0.0,
+          "budget": 28871,
+          "pooled_dti": 0.08029260263108146
+        },
+        {
+          "spacing": 0.0,
+          "budget": 32215,
+          "pooled_dti": 0.08381443584130092
+        },
+        {
+          "spacing": 0.0,
+          "budget": 35946,
+          "pooled_dti": 0.08751677377471391
+        },
+        {
+          "spacing": 0.0,
+          "budget": 40109,
+          "pooled_dti": 0.09034038062727841
+        },
+        {
+          "spacing": 0.0,
+          "budget": 44755,
+          "pooled_dti": 0.09343552280797322
+        },
+        {
+          "spacing": 0.0,
+          "budget": 49938,
+          "pooled_dti": 0.09619199043759759
+        },
+        {
+          "spacing": 0.0,
+          "budget": 55722,
+          "pooled_dti": 0.09890737807211103
+        },
+        {
+          "spacing": 0.0,
+          "budget": 62176,
+          "pooled_dti": 0.1012711571353121
+        },
+        {
+          "spacing": 0.0,
+          "budget": 69377,
+          "pooled_dti": 0.10356523773636019
+        },
+        {
+          "spacing": 0.0,
+          "budget": 77412,
+          "pooled_dti": 0.10450260003052785
+        },
+        {
+          "spacing": 0.0,
+          "budget": 86378,
+          "pooled_dti": 0.10521088333912201
+        },
+        {
+          "spacing": 0.0,
+          "budget": 96382,
+          "pooled_dti": 0.10557289998004933
+        },
+        {
+          "spacing": 0.0,
+          "budget": 107544,
+          "pooled_dti": 0.10555138562871155
+        },
+        {
+          "spacing": 0.0,
+          "budget": 120000,
+          "pooled_dti": 0.1049160277565784
+        },
+        {
+          "spacing": 2.0,
+          "budget": 5000,
+          "pooled_dti": 0.05625361977079761
+        },
+        {
+          "spacing": 2.0,
+          "budget": 5579,
+          "pooled_dti": 0.06056537050172345
+        },
+        {
+          "spacing": 2.0,
+          "budget": 6225,
+          "pooled_dti": 0.06512660013279022
+        },
+        {
+          "spacing": 2.0,
+          "budget": 6946,
+          "pooled_dti": 0.0715375979360224
+        },
+        {
+          "spacing": 2.0,
+          "budget": 7751,
+          "pooled_dti": 0.07696058616870663
+        },
+        {
+          "spacing": 2.0,
+          "budget": 8648,
+          "pooled_dti": 0.08252837742474983
+        },
+        {
+          "spacing": 2.0,
+          "budget": 9650,
+          "pooled_dti": 0.08851064297050004
+        },
+        {
+          "spacing": 2.0,
+          "budget": 10768,
+          "pooled_dti": 0.09439533963264715
+        },
+        {
+          "spacing": 2.0,
+          "budget": 12015,
+          "pooled_dti": 0.10041230018793877
+        },
+        {
+          "spacing": 2.0,
+          "budget": 13406,
+          "pooled_dti": 0.1074611287303192
+        },
+        {
+          "spacing": 2.0,
+          "budget": 14959,
+          "pooled_dti": 0.11347972373369598
+        },
+        {
+          "spacing": 2.0,
+          "budget": 16692,
+          "pooled_dti": 0.12077758385269009
+        },
+        {
+          "spacing": 2.0,
+          "budget": 18625,
+          "pooled_dti": 0.12632424835817443
+        },
+        {
+          "spacing": 2.0,
+          "budget": 20782,
+          "pooled_dti": 0.13278370560646274
+        },
+        {
+          "spacing": 2.0,
+          "budget": 23189,
+          "pooled_dti": 0.13837642513272835
+        },
+        {
+          "spacing": 2.0,
+          "budget": 25875,
+          "pooled_dti": 0.1440326821056111
+        },
+        {
+          "spacing": 2.0,
+          "budget": 28871,
+          "pooled_dti": 0.14919211852755038
+        },
+        {
+          "spacing": 2.0,
+          "budget": 32215,
+          "pooled_dti": 0.1544781118116712
+        },
+        {
+          "spacing": 2.0,
+          "budget": 35946,
+          "pooled_dti": 0.1595633540570016
+        },
+        {
+          "spacing": 2.0,
+          "budget": 40109,
+          "pooled_dti": 0.1627898709993644
+        },
+        {
+          "spacing": 2.0,
+          "budget": 44755,
+          "pooled_dti": 0.16586434801736402
+        },
+        {
+          "spacing": 2.0,
+          "budget": 49938,
+          "pooled_dti": 0.16949957197744553
+        },
+        {
+          "spacing": 2.0,
+          "budget": 55722,
+          "pooled_dti": 0.17195415444303572
+        },
+        {
+          "spacing": 2.0,
+          "budget": 62176,
+          "pooled_dti": 0.1735993827362325
+        },
+        {
+          "spacing": 2.0,
+          "budget": 69377,
+          "pooled_dti": 0.17497167030378163
+        },
+        {
+          "spacing": 2.0,
+          "budget": 77412,
+          "pooled_dti": 0.17492945077540475
+        },
+        {
+          "spacing": 2.0,
+          "budget": 86378,
+          "pooled_dti": 0.17478338512893452
+        },
+        {
+          "spacing": 2.0,
+          "budget": 96382,
+          "pooled_dti": 0.1736166959113893
+        },
+        {
+          "spacing": 2.9,
+          "budget": 5000,
+          "pooled_dti": 0.06340766360138478
+        },
+        {
+          "spacing": 2.9,
+          "budget": 5579,
+          "pooled_dti": 0.06831910357960434
+        },
+        {
+          "spacing": 2.9,
+          "budget": 6225,
+          "pooled_dti": 0.07365669354098177
+        },
+        {
+          "spacing": 2.9,
+          "budget": 6946,
+          "pooled_dti": 0.07925241998357724
+        },
+        {
+          "spacing": 2.9,
+          "budget": 7751,
+          "pooled_dti": 0.08488254170028811
+        },
+        {
+          "spacing": 2.9,
+          "budget": 8648,
+          "pooled_dti": 0.09179719145694085
+        },
+        {
+          "spacing": 2.9,
+          "budget": 9650,
+          "pooled_dti": 0.09863698888478502
+        },
+        {
+          "spacing": 2.9,
+          "budget": 10768,
+          "pooled_dti": 0.10541077552840135
+        },
+        {
+          "spacing": 2.9,
+          "budget": 12015,
+          "pooled_dti": 0.11151369952550953
+        },
+        {
+          "spacing": 2.9,
+          "budget": 13406,
+          "pooled_dti": 0.11799724493596836
+        },
+        {
+          "spacing": 2.9,
+          "budget": 14959,
+          "pooled_dti": 0.12448938318779715
+        },
+        {
+          "spacing": 2.9,
+          "budget": 16692,
+          "pooled_dti": 0.13094219459193016
+        },
+        {
+          "spacing": 2.9,
+          "budget": 18625,
+          "pooled_dti": 0.13752431190143624
+        },
+        {
+          "spacing": 2.9,
+          "budget": 20782,
+          "pooled_dti": 0.14425252410655784
+        },
+        {
+          "spacing": 2.9,
+          "budget": 23189,
+          "pooled_dti": 0.15021521427016707
+        },
+        {
+          "spacing": 2.9,
+          "budget": 25875,
+          "pooled_dti": 0.15576718544385929
+        },
+        {
+          "spacing": 2.9,
+          "budget": 28871,
+          "pooled_dti": 0.16099278748057969
+        },
+        {
+          "spacing": 2.9,
+          "budget": 32215,
+          "pooled_dti": 0.16624301857008603
+        },
+        {
+          "spacing": 2.9,
+          "budget": 35946,
+          "pooled_dti": 0.17094647847437297
+        },
+        {
+          "spacing": 2.9,
+          "budget": 40109,
+          "pooled_dti": 0.17506481565859378
+        },
+        {
+          "spacing": 2.9,
+          "budget": 44755,
+          "pooled_dti": 0.1790271610306459
+        },
+        {
+          "spacing": 2.9,
+          "budget": 49938,
+          "pooled_dti": 0.18180887282802363
+        },
+        {
+          "spacing": 2.9,
+          "budget": 55722,
+          "pooled_dti": 0.18396172212500203
+        },
+        {
+          "spacing": 4.0,
+          "budget": 5000,
+          "pooled_dti": 0.06443847458474922
+        },
+        {
+          "spacing": 4.0,
+          "budget": 5579,
+          "pooled_dti": 0.06938608384090489
+        },
+        {
+          "spacing": 4.0,
+          "budget": 6225,
+          "pooled_dti": 0.07597846369437802
+        },
+        {
+          "spacing": 4.0,
+          "budget": 6946,
+          "pooled_dti": 0.08210738802756329
+        },
+        {
+          "spacing": 4.0,
+          "budget": 7751,
+          "pooled_dti": 0.08868971742830975
+        },
+        {
+          "spacing": 4.0,
+          "budget": 8648,
+          "pooled_dti": 0.09343663435726325
+        },
+        {
+          "spacing": 4.0,
+          "budget": 9650,
+          "pooled_dti": 0.09894439382832686
+        },
+        {
+          "spacing": 4.0,
+          "budget": 10768,
+          "pooled_dti": 0.10512930922971996
+        },
+        {
+          "spacing": 4.0,
+          "budget": 12015,
+          "pooled_dti": 0.11102770736468816
+        },
+        {
+          "spacing": 4.0,
+          "budget": 13406,
+          "pooled_dti": 0.11701753080283989
+        },
+        {
+          "spacing": 4.0,
+          "budget": 14959,
+          "pooled_dti": 0.1232973385272943
+        },
+        {
+          "spacing": 4.0,
+          "budget": 16692,
+          "pooled_dti": 0.12871518071567578
+        },
+        {
+          "spacing": 4.0,
+          "budget": 18625,
+          "pooled_dti": 0.13457258236993253
+        },
+        {
+          "spacing": 4.0,
+          "budget": 20782,
+          "pooled_dti": 0.14027542536894824
+        },
+        {
+          "spacing": 4.0,
+          "budget": 23189,
+          "pooled_dti": 0.14640611319687152
+        },
+        {
+          "spacing": 4.0,
+          "budget": 25875,
+          "pooled_dti": 0.15147097766560544
+        },
+        {
+          "spacing": 4.0,
+          "budget": 28871,
+          "pooled_dti": 0.15715507620955846
+        },
+        {
+          "spacing": 4.0,
+          "budget": 32215,
+          "pooled_dti": 0.16164089361410927
+        },
+        {
+          "spacing": 4.0,
+          "budget": 35946,
+          "pooled_dti": 0.16603318134585504
+        }
+      ]
+    },
+    "persist": {
+      "best": {
+        "spacing": 2.9,
+        "budget": 62176,
+        "pooled_dti": 0.049912458079561454
+      },
+      "curve": [
+        {
+          "spacing": 0.0,
+          "budget": 5000,
+          "pooled_dti": 0.0030317639863958346
+        },
+        {
+          "spacing": 0.0,
+          "budget": 5579,
+          "pooled_dti": 0.0033173820582596326
+        },
+        {
+          "spacing": 0.0,
+          "budget": 6225,
+          "pooled_dti": 0.0034667209622689633
+        },
+        {
+          "spacing": 0.0,
+          "budget": 6946,
+          "pooled_dti": 0.004084795410234353
+        },
+        {
+          "spacing": 0.0,
+          "budget": 7751,
+          "pooled_dti": 0.00432745955254494
+        },
+        {
+          "spacing": 0.0,
+          "budget": 8648,
+          "pooled_dti": 0.004662627816798991
+        },
+        {
+          "spacing": 0.0,
+          "budget": 9650,
+          "pooled_dti": 0.004766744561273176
+        },
+        {
+          "spacing": 0.0,
+          "budget": 10768,
+          "pooled_dti": 0.005032620136172741
+        },
+        {
+          "spacing": 0.0,
+          "budget": 12015,
+          "pooled_dti": 0.005495040373494369
+        },
+        {
+          "spacing": 0.0,
+          "budget": 13406,
+          "pooled_dti": 0.006598702552283812
+        },
+        {
+          "spacing": 0.0,
+          "budget": 14959,
+          "pooled_dti": 0.007252247983009557
+        },
+        {
+          "spacing": 0.0,
+          "budget": 16692,
+          "pooled_dti": 0.007940615394976619
+        },
+        {
+          "spacing": 0.0,
+          "budget": 18625,
+          "pooled_dti": 0.008179370543903155
+        },
+        {
+          "spacing": 0.0,
+          "budget": 20782,
+          "pooled_dti": 0.008386469600191897
+        },
+        {
+          "spacing": 0.0,
+          "budget": 23189,
+          "pooled_dti": 0.008937284587046882
+        },
+        {
+          "spacing": 0.0,
+          "budget": 25875,
+          "pooled_dti": 0.009402613776460464
+        },
+        {
+          "spacing": 0.0,
+          "budget": 28871,
+          "pooled_dti": 0.009945672916151716
+        },
+        {
+          "spacing": 0.0,
+          "budget": 32215,
+          "pooled_dti": 0.010562829202772048
+        },
+        {
+          "spacing": 0.0,
+          "budget": 35946,
+          "pooled_dti": 0.010796305732643749
+        },
+        {
+          "spacing": 0.0,
+          "budget": 40109,
+          "pooled_dti": 0.010874138530963905
+        },
+        {
+          "spacing": 0.0,
+          "budget": 44755,
+          "pooled_dti": 0.011351347198107124
+        },
+        {
+          "spacing": 0.0,
+          "budget": 49938,
+          "pooled_dti": 0.011701131475974468
+        },
+        {
+          "spacing": 0.0,
+          "budget": 55722,
+          "pooled_dti": 0.012576218505415564
+        },
+        {
+          "spacing": 0.0,
+          "budget": 62176,
+          "pooled_dti": 0.013110669975357746
+        },
+        {
+          "spacing": 0.0,
+          "budget": 69377,
+          "pooled_dti": 0.013345234597070623
+        },
+        {
+          "spacing": 0.0,
+          "budget": 77412,
+          "pooled_dti": 0.013564175832463343
+        },
+        {
+          "spacing": 0.0,
+          "budget": 86378,
+          "pooled_dti": 0.013720569478790705
+        },
+        {
+          "spacing": 0.0,
+          "budget": 96382,
+          "pooled_dti": 0.013914985401881746
+        },
+        {
+          "spacing": 0.0,
+          "budget": 107544,
+          "pooled_dti": 0.014816907831832657
+        },
+        {
+          "spacing": 0.0,
+          "budget": 120000,
+          "pooled_dti": 0.015233191620067999
+        },
+        {
+          "spacing": 2.0,
+          "budget": 5000,
+          "pooled_dti": 0.008343712069180166
+        },
+        {
+          "spacing": 2.0,
+          "budget": 5579,
+          "pooled_dti": 0.008811431514074828
+        },
+        {
+          "spacing": 2.0,
+          "budget": 6225,
+          "pooled_dti": 0.009489640355267719
+        },
+        {
+          "spacing": 2.0,
+          "budget": 6946,
+          "pooled_dti": 0.01047522903666262
+        },
+        {
+          "spacing": 2.0,
+          "budget": 7751,
+          "pooled_dti": 0.011160528342170436
+        },
+        {
+          "spacing": 2.0,
+          "budget": 8648,
+          "pooled_dti": 0.01166682354683128
+        },
+        {
+          "spacing": 2.0,
+          "budget": 9650,
+          "pooled_dti": 0.012583516897911052
+        },
+        {
+          "spacing": 2.0,
+          "budget": 10768,
+          "pooled_dti": 0.01347072225439521
+        },
+        {
+          "spacing": 2.0,
+          "budget": 12015,
+          "pooled_dti": 0.014789246686480595
+        },
+        {
+          "spacing": 2.0,
+          "budget": 13406,
+          "pooled_dti": 0.01590051102774802
+        },
+        {
+          "spacing": 2.0,
+          "budget": 14959,
+          "pooled_dti": 0.01676405892928093
+        },
+        {
+          "spacing": 2.0,
+          "budget": 16692,
+          "pooled_dti": 0.017847885531766236
+        },
+        {
+          "spacing": 2.0,
+          "budget": 18625,
+          "pooled_dti": 0.018807016551359544
+        },
+        {
+          "spacing": 2.0,
+          "budget": 20782,
+          "pooled_dti": 0.020549445074974457
+        },
+        {
+          "spacing": 2.0,
+          "budget": 23189,
+          "pooled_dti": 0.02248797910216726
+        },
+        {
+          "spacing": 2.0,
+          "budget": 25875,
+          "pooled_dti": 0.023823079155992945
+        },
+        {
+          "spacing": 2.0,
+          "budget": 28871,
+          "pooled_dti": 0.02606327037287742
+        },
+        {
+          "spacing": 2.0,
+          "budget": 32215,
+          "pooled_dti": 0.027843864440240448
+        },
+        {
+          "spacing": 2.0,
+          "budget": 35946,
+          "pooled_dti": 0.028778621857040387
+        },
+        {
+          "spacing": 2.0,
+          "budget": 40109,
+          "pooled_dti": 0.03028913494976151
+        },
+        {
+          "spacing": 2.0,
+          "budget": 44755,
+          "pooled_dti": 0.03233256701400541
+        },
+        {
+          "spacing": 2.0,
+          "budget": 49938,
+          "pooled_dti": 0.03373774850491522
+        },
+        {
+          "spacing": 2.0,
+          "budget": 55722,
+          "pooled_dti": 0.03583221196790158
+        },
+        {
+          "spacing": 2.0,
+          "budget": 62176,
+          "pooled_dti": 0.03725701948241387
+        },
+        {
+          "spacing": 2.0,
+          "budget": 69377,
+          "pooled_dti": 0.03819612343340234
+        },
+        {
+          "spacing": 2.0,
+          "budget": 77412,
+          "pooled_dti": 0.03924314208641412
+        },
+        {
+          "spacing": 2.0,
+          "budget": 86378,
+          "pooled_dti": 0.041174285142211935
+        },
+        {
+          "spacing": 2.0,
+          "budget": 96382,
+          "pooled_dti": 0.04298235488618216
+        },
+        {
+          "spacing": 2.9,
+          "budget": 5000,
+          "pooled_dti": 0.009156663665396508
+        },
+        {
+          "spacing": 2.9,
+          "budget": 5579,
+          "pooled_dti": 0.010013137216215927
+        },
+        {
+          "spacing": 2.9,
+          "budget": 6225,
+          "pooled_dti": 0.010715342516328755
+        },
+        {
+          "spacing": 2.9,
+          "budget": 6946,
+          "pooled_dti": 0.011634445876879966
+        },
+        {
+          "spacing": 2.9,
+          "budget": 7751,
+          "pooled_dti": 0.012942867953922372
+        },
+        {
+          "spacing": 2.9,
+          "budget": 8648,
+          "pooled_dti": 0.01382488121192968
+        },
+        {
+          "spacing": 2.9,
+          "budget": 9650,
+          "pooled_dti": 0.014762049751988847
+        },
+        {
+          "spacing": 2.9,
+          "budget": 10768,
+          "pooled_dti": 0.01567729937906548
+        },
+        {
+          "spacing": 2.9,
+          "budget": 12015,
+          "pooled_dti": 0.016663871293962594
+        },
+        {
+          "spacing": 2.9,
+          "budget": 13406,
+          "pooled_dti": 0.018294044086628655
+        },
+        {
+          "spacing": 2.9,
+          "budget": 14959,
+          "pooled_dti": 0.019739553893566717
+        },
+        {
+          "spacing": 2.9,
+          "budget": 16692,
+          "pooled_dti": 0.021683080589536823
+        },
+        {
+          "spacing": 2.9,
+          "budget": 18625,
+          "pooled_dti": 0.02391665029082854
+        },
+        {
+          "spacing": 2.9,
+          "budget": 20782,
+          "pooled_dti": 0.025597293026381984
+        },
+        {
+          "spacing": 2.9,
+          "budget": 23189,
+          "pooled_dti": 0.026743292375016648
+        },
+        {
+          "spacing": 2.9,
+          "budget": 25875,
+          "pooled_dti": 0.028857071895785975
+        },
+        {
+          "spacing": 2.9,
+          "budget": 28871,
+          "pooled_dti": 0.03095903365104455
+        },
+        {
+          "spacing": 2.9,
+          "budget": 32215,
+          "pooled_dti": 0.03286108056983235
+        },
+        {
+          "spacing": 2.9,
+          "budget": 35946,
+          "pooled_dti": 0.03566228183552131
+        },
+        {
+          "spacing": 2.9,
+          "budget": 40109,
+          "pooled_dti": 0.0373146928191661
+        },
+        {
+          "spacing": 2.9,
+          "budget": 44755,
+          "pooled_dti": 0.03912869022350116
+        },
+        {
+          "spacing": 2.9,
+          "budget": 49938,
+          "pooled_dti": 0.041148384902206445
+        },
+        {
+          "spacing": 2.9,
+          "budget": 55722,
+          "pooled_dti": 0.04315275614515973
+        },
+        {
+          "spacing": 2.9,
+          "budget": 62176,
+          "pooled_dti": 0.049912458079561454
+        },
+        {
+          "spacing": 4.0,
+          "budget": 5000,
+          "pooled_dti": 0.009812642083754253
+        },
+        {
+          "spacing": 4.0,
+          "budget": 5579,
+          "pooled_dti": 0.01072474513074309
+        },
+        {
+          "spacing": 4.0,
+          "budget": 6225,
+          "pooled_dti": 0.011358748732603162
+        },
+        {
+          "spacing": 4.0,
+          "budget": 6946,
+          "pooled_dti": 0.012174598098628793
+        },
+        {
+          "spacing": 4.0,
+          "budget": 7751,
+          "pooled_dti": 0.013013975395659719
+        },
+        {
+          "spacing": 4.0,
+          "budget": 8648,
+          "pooled_dti": 0.01477398339332174
+        },
+        {
+          "spacing": 4.0,
+          "budget": 9650,
+          "pooled_dti": 0.016101353157296314
+        },
+        {
+          "spacing": 4.0,
+          "budget": 10768,
+          "pooled_dti": 0.017649589680975304
+        },
+        {
+          "spacing": 4.0,
+          "budget": 12015,
+          "pooled_dti": 0.019592339509087682
+        },
+        {
+          "spacing": 4.0,
+          "budget": 13406,
+          "pooled_dti": 0.021364615790895984
+        },
+        {
+          "spacing": 4.0,
+          "budget": 14959,
+          "pooled_dti": 0.022719971392247417
+        },
+        {
+          "spacing": 4.0,
+          "budget": 16692,
+          "pooled_dti": 0.024668058532609994
+        },
+        {
+          "spacing": 4.0,
+          "budget": 18625,
+          "pooled_dti": 0.0264829999113959
+        },
+        {
+          "spacing": 4.0,
+          "budget": 20782,
+          "pooled_dti": 0.028630176371685887
+        },
+        {
+          "spacing": 4.0,
+          "budget": 23189,
+          "pooled_dti": 0.031076041342518457
+        },
+        {
+          "spacing": 4.0,
+          "budget": 25875,
+          "pooled_dti": 0.03320724460906601
+        },
+        {
+          "spacing": 4.0,
+          "budget": 28871,
+          "pooled_dti": 0.03523794009022714
+        },
+        {
+          "spacing": 4.0,
+          "budget": 32215,
+          "pooled_dti": 0.03765643894933663
+        },
+        {
+          "spacing": 4.0,
+          "budget": 35946,
+          "pooled_dti": 0.040118169276396366
+        }
+      ]
+    },
+    "random": {
+      "best": {
+        "spacing": 4.0,
+        "budget": 120000,
+        "pooled_dti": 0.08920139134004723
+      },
+      "curve": [
+        {
+          "spacing": 0.0,
+          "budget": 5000,
+          "pooled_dti": 0.009884095785814803
+        },
+        {
+          "spacing": 0.0,
+          "budget": 5579,
+          "pooled_dti": 0.01123651907443308
+        },
+        {
+          "spacing": 0.0,
+          "budget": 6225,
+          "pooled_dti": 0.012497944522683945
+        },
+        {
+          "spacing": 0.0,
+          "budget": 6946,
+          "pooled_dti": 0.014180175420530048
+        },
+        {
+          "spacing": 0.0,
+          "budget": 7751,
+          "pooled_dti": 0.015663263302134033
+        },
+        {
+          "spacing": 0.0,
+          "budget": 8648,
+          "pooled_dti": 0.017241771837403143
+        },
+        {
+          "spacing": 0.0,
+          "budget": 9650,
+          "pooled_dti": 0.01928806991826069
+        },
+        {
+          "spacing": 0.0,
+          "budget": 10768,
+          "pooled_dti": 0.02087734783661325
+        },
+        {
+          "spacing": 0.0,
+          "budget": 12015,
+          "pooled_dti": 0.022584136362718745
+        },
+        {
+          "spacing": 0.0,
+          "budget": 13406,
+          "pooled_dti": 0.024524922131493126
+        },
+        {
+          "spacing": 0.0,
+          "budget": 14959,
+          "pooled_dti": 0.02678963344727419
+        },
+        {
+          "spacing": 0.0,
+          "budget": 16692,
+          "pooled_dti": 0.028836539518124458
+        },
+        {
+          "spacing": 0.0,
+          "budget": 18625,
+          "pooled_dti": 0.0311194554682189
+        },
+        {
+          "spacing": 0.0,
+          "budget": 20782,
+          "pooled_dti": 0.03370206307516411
+        },
+        {
+          "spacing": 0.0,
+          "budget": 23189,
+          "pooled_dti": 0.036534492965575364
+        },
+        {
+          "spacing": 0.0,
+          "budget": 25875,
+          "pooled_dti": 0.039460473783846255
+        },
+        {
+          "spacing": 0.0,
+          "budget": 28871,
+          "pooled_dti": 0.042436636497679925
+        },
+        {
+          "spacing": 0.0,
+          "budget": 32215,
+          "pooled_dti": 0.04468248733958511
+        },
+        {
+          "spacing": 0.0,
+          "budget": 35946,
+          "pooled_dti": 0.047245017707180204
+        },
+        {
+          "spacing": 0.0,
+          "budget": 40109,
+          "pooled_dti": 0.05094190986531656
+        },
+        {
+          "spacing": 0.0,
+          "budget": 44755,
+          "pooled_dti": 0.05393645703801919
+        },
+        {
+          "spacing": 0.0,
+          "budget": 49938,
+          "pooled_dti": 0.057429108047285904
+        },
+        {
+          "spacing": 0.0,
+          "budget": 55722,
+          "pooled_dti": 0.06054771567915611
+        },
+        {
+          "spacing": 0.0,
+          "budget": 62176,
+          "pooled_dti": 0.06363996890802466
+        },
+        {
+          "spacing": 0.0,
+          "budget": 69377,
+          "pooled_dti": 0.06633228830270571
+        },
+        {
+          "spacing": 0.0,
+          "budget": 77412,
+          "pooled_dti": 0.06890245128802162
+        },
+        {
+          "spacing": 0.0,
+          "budget": 86378,
+          "pooled_dti": 0.07118035708357802
+        },
+        {
+          "spacing": 0.0,
+          "budget": 96382,
+          "pooled_dti": 0.0735964257343445
+        },
+        {
+          "spacing": 0.0,
+          "budget": 107544,
+          "pooled_dti": 0.075686539470886
+        },
+        {
+          "spacing": 0.0,
+          "budget": 120000,
+          "pooled_dti": 0.07717915413295524
+        },
+        {
+          "spacing": 2.0,
+          "budget": 5000,
+          "pooled_dti": 0.010043903575601884
+        },
+        {
+          "spacing": 2.0,
+          "budget": 5579,
+          "pooled_dti": 0.011220703224382404
+        },
+        {
+          "spacing": 2.0,
+          "budget": 6225,
+          "pooled_dti": 0.012626797443498532
+        },
+        {
+          "spacing": 2.0,
+          "budget": 6946,
+          "pooled_dti": 0.014320097885309897
+        },
+        {
+          "spacing": 2.0,
+          "budget": 7751,
+          "pooled_dti": 0.0157194997434474
+        },
+        {
+          "spacing": 2.0,
+          "budget": 8648,
+          "pooled_dti": 0.01732067814176056
+        },
+        {
+          "spacing": 2.0,
+          "budget": 9650,
+          "pooled_dti": 0.01935466971759376
+        },
+        {
+          "spacing": 2.0,
+          "budget": 10768,
+          "pooled_dti": 0.02099015528828184
+        },
+        {
+          "spacing": 2.0,
+          "budget": 12015,
+          "pooled_dti": 0.022757632963142125
+        },
+        {
+          "spacing": 2.0,
+          "budget": 13406,
+          "pooled_dti": 0.024724489425904043
+        },
+        {
+          "spacing": 2.0,
+          "budget": 14959,
+          "pooled_dti": 0.027010132341333926
+        },
+        {
+          "spacing": 2.0,
+          "budget": 16692,
+          "pooled_dti": 0.0290672974185231
+        },
+        {
+          "spacing": 2.0,
+          "budget": 18625,
+          "pooled_dti": 0.03142710482930571
+        },
+        {
+          "spacing": 2.0,
+          "budget": 20782,
+          "pooled_dti": 0.03437374841240251
+        },
+        {
+          "spacing": 2.0,
+          "budget": 23189,
+          "pooled_dti": 0.0372632590418334
+        },
+        {
+          "spacing": 2.0,
+          "budget": 25875,
+          "pooled_dti": 0.040389328741901015
+        },
+        {
+          "spacing": 2.0,
+          "budget": 28871,
+          "pooled_dti": 0.04326040278596964
+        },
+        {
+          "spacing": 2.0,
+          "budget": 32215,
+          "pooled_dti": 0.04592232112454326
+        },
+        {
+          "spacing": 2.0,
+          "budget": 35946,
+          "pooled_dti": 0.04855166749134643
+        },
+        {
+          "spacing": 2.0,
+          "budget": 40109,
+          "pooled_dti": 0.052203186274216405
+        },
+        {
+          "spacing": 2.0,
+          "budget": 44755,
+          "pooled_dti": 0.05578506077681167
+        },
+        {
+          "spacing": 2.0,
+          "budget": 49938,
+          "pooled_dti": 0.0593487051575363
+        },
+        {
+          "spacing": 2.0,
+          "budget": 55722,
+          "pooled_dti": 0.0625614047609132
+        },
+        {
+          "spacing": 2.0,
+          "budget": 62176,
+          "pooled_dti": 0.0660439293659679
+        },
+        {
+          "spacing": 2.0,
+          "budget": 69377,
+          "pooled_dti": 0.06890072448937977
+        },
+        {
+          "spacing": 2.0,
+          "budget": 77412,
+          "pooled_dti": 0.07221724890738793
+        },
+        {
+          "spacing": 2.0,
+          "budget": 86378,
+          "pooled_dti": 0.07493948056220438
+        },
+        {
+          "spacing": 2.0,
+          "budget": 96382,
+          "pooled_dti": 0.07816453481257522
+        },
+        {
+          "spacing": 2.0,
+          "budget": 107544,
+          "pooled_dti": 0.08059634032321686
+        },
+        {
+          "spacing": 2.0,
+          "budget": 120000,
+          "pooled_dti": 0.08243154800726996
+        },
+        {
+          "spacing": 2.9,
+          "budget": 5000,
+          "pooled_dti": 0.010054570775216775
+        },
+        {
+          "spacing": 2.9,
+          "budget": 5579,
+          "pooled_dti": 0.01129155758764078
+        },
+        {
+          "spacing": 2.9,
+          "budget": 6225,
+          "pooled_dti": 0.012582793130145391
+        },
+        {
+          "spacing": 2.9,
+          "budget": 6946,
+          "pooled_dti": 0.014347708485433484
+        },
+        {
+          "spacing": 2.9,
+          "budget": 7751,
+          "pooled_dti": 0.015905753383458017
+        },
+        {
+          "spacing": 2.9,
+          "budget": 8648,
+          "pooled_dti": 0.017451877736122827
+        },
+        {
+          "spacing": 2.9,
+          "budget": 9650,
+          "pooled_dti": 0.019482531605101463
+        },
+        {
+          "spacing": 2.9,
+          "budget": 10768,
+          "pooled_dti": 0.021021345385800472
+        },
+        {
+          "spacing": 2.9,
+          "budget": 12015,
+          "pooled_dti": 0.022945595323936044
+        },
+        {
+          "spacing": 2.9,
+          "budget": 13406,
+          "pooled_dti": 0.02509621517780634
+        },
+        {
+          "spacing": 2.9,
+          "budget": 14959,
+          "pooled_dti": 0.02710771746363491
+        },
+        {
+          "spacing": 2.9,
+          "budget": 16692,
+          "pooled_dti": 0.02918731114636617
+        },
+        {
+          "spacing": 2.9,
+          "budget": 18625,
+          "pooled_dti": 0.03158667841185035
+        },
+        {
+          "spacing": 2.9,
+          "budget": 20782,
+          "pooled_dti": 0.03453423638016791
+        },
+        {
+          "spacing": 2.9,
+          "budget": 23189,
+          "pooled_dti": 0.0378161019977526
+        },
+        {
+          "spacing": 2.9,
+          "budget": 25875,
+          "pooled_dti": 0.04092296589385722
+        },
+        {
+          "spacing": 2.9,
+          "budget": 28871,
+          "pooled_dti": 0.04341487922271355
+        },
+        {
+          "spacing": 2.9,
+          "budget": 32215,
+          "pooled_dti": 0.046173198792974
+        },
+        {
+          "spacing": 2.9,
+          "budget": 35946,
+          "pooled_dti": 0.04962429128111253
+        },
+        {
+          "spacing": 2.9,
+          "budget": 40109,
+          "pooled_dti": 0.053187591502095496
+        },
+        {
+          "spacing": 2.9,
+          "budget": 44755,
+          "pooled_dti": 0.057031738730050345
+        },
+        {
+          "spacing": 2.9,
+          "budget": 49938,
+          "pooled_dti": 0.06061950556536852
+        },
+        {
+          "spacing": 2.9,
+          "budget": 55722,
+          "pooled_dti": 0.06459359209037112
+        },
+        {
+          "spacing": 2.9,
+          "budget": 62176,
+          "pooled_dti": 0.0677985819649044
+        },
+        {
+          "spacing": 2.9,
+          "budget": 69377,
+          "pooled_dti": 0.0710510207173704
+        },
+        {
+          "spacing": 2.9,
+          "budget": 77412,
+          "pooled_dti": 0.07384432410016274
+        },
+        {
+          "spacing": 2.9,
+          "budget": 86378,
+          "pooled_dti": 0.0777130806000037
+        },
+        {
+          "spacing": 2.9,
+          "budget": 96382,
+          "pooled_dti": 0.08061679952488406
+        },
+        {
+          "spacing": 2.9,
+          "budget": 107544,
+          "pooled_dti": 0.08319836392549403
+        },
+        {
+          "spacing": 2.9,
+          "budget": 120000,
+          "pooled_dti": 0.08561218667633816
+        },
+        {
+          "spacing": 4.0,
+          "budget": 5000,
+          "pooled_dti": 0.010193748542336723
+        },
+        {
+          "spacing": 4.0,
+          "budget": 5579,
+          "pooled_dti": 0.01135128846908856
+        },
+        {
+          "spacing": 4.0,
+          "budget": 6225,
+          "pooled_dti": 0.012824550067683028
+        },
+        {
+          "spacing": 4.0,
+          "budget": 6946,
+          "pooled_dti": 0.014591938062216116
+        },
+        {
+          "spacing": 4.0,
+          "budget": 7751,
+          "pooled_dti": 0.01598014436427305
+        },
+        {
+          "spacing": 4.0,
+          "budget": 8648,
+          "pooled_dti": 0.01770356623146035
+        },
+        {
+          "spacing": 4.0,
+          "budget": 9650,
+          "pooled_dti": 0.0198878917629331
+        },
+        {
+          "spacing": 4.0,
+          "budget": 10768,
+          "pooled_dti": 0.021309504289568917
+        },
+        {
+          "spacing": 4.0,
+          "budget": 12015,
+          "pooled_dti": 0.02301602857489902
+        },
+        {
+          "spacing": 4.0,
+          "budget": 13406,
+          "pooled_dti": 0.02544802260449131
+        },
+        {
+          "spacing": 4.0,
+          "budget": 14959,
+          "pooled_dti": 0.027353299309955666
+        },
+        {
+          "spacing": 4.0,
+          "budget": 16692,
+          "pooled_dti": 0.029393634690729364
+        },
+        {
+          "spacing": 4.0,
+          "budget": 18625,
+          "pooled_dti": 0.03202830312417864
+        },
+        {
+          "spacing": 4.0,
+          "budget": 20782,
+          "pooled_dti": 0.03480964118931709
+        },
+        {
+          "spacing": 4.0,
+          "budget": 23189,
+          "pooled_dti": 0.037999632944720446
+        },
+        {
+          "spacing": 4.0,
+          "budget": 25875,
+          "pooled_dti": 0.04107484884174784
+        },
+        {
+          "spacing": 4.0,
+          "budget": 28871,
+          "pooled_dti": 0.044018430518846664
+        },
+        {
+          "spacing": 4.0,
+          "budget": 32215,
+          "pooled_dti": 0.04701297631966159
+        },
+        {
+          "spacing": 4.0,
+          "budget": 35946,
+          "pooled_dti": 0.05063792784553113
+        },
+        {
+          "spacing": 4.0,
+          "budget": 40109,
+          "pooled_dti": 0.05471618740883762
+        },
+        {
+          "spacing": 4.0,
+          "budget": 44755,
+          "pooled_dti": 0.05840470626470502
+        },
+        {
+          "spacing": 4.0,
+          "budget": 49938,
+          "pooled_dti": 0.06234558646629353
+        },
+        {
+          "spacing": 4.0,
+          "budget": 55722,
+          "pooled_dti": 0.06552495376440047
+        },
+        {
+          "spacing": 4.0,
+          "budget": 62176,
+          "pooled_dti": 0.06937725922130217
+        },
+        {
+          "spacing": 4.0,
+          "budget": 69377,
+          "pooled_dti": 0.07357303610897084
+        },
+        {
+          "spacing": 4.0,
+          "budget": 77412,
+          "pooled_dti": 0.07759463334112264
+        },
+        {
+          "spacing": 4.0,
+          "budget": 86378,
+          "pooled_dti": 0.08087633256845382
+        },
+        {
+          "spacing": 4.0,
+          "budget": 96382,
+          "pooled_dti": 0.08405107732440004
+        },
+        {
+          "spacing": 4.0,
+          "budget": 107544,
+          "pooled_dti": 0.08689669839159159
+        },
+        {
+          "spacing": 4.0,
+          "budget": 120000,
+          "pooled_dti": 0.08920139134004723
+        }
+      ]
+    }
+  },
+  "folds": [
+    {
+      "fold": 0,
+      "arms": {
+        "struct": {
+          "0.0": {
+            "best_k": 120000,
+            "best_dti": 0.07716285177586933
+          },
+          "2.0": {
+            "best_k": 88850,
+            "best_dti": 0.1523810702839254
+          },
+          "2.9": {
+            "best_k": 56124,
+            "best_dti": 0.16237252902987817
+          },
+          "4.0": {
+            "best_k": 34203,
+            "best_dti": 0.14886266659175593
+          }
+        },
+        "cat": {
+          "0.0": {
+            "best_k": 116408,
+            "best_dti": 0.013510371001279485
+          },
+          "2.0": {
+            "best_k": 73381,
+            "best_dti": 0.04899747768403419
+          },
+          "2.9": {
+            "best_k": 42261,
+            "best_dti": 0.05271780429785775
+          },
+          "4.0": {
+            "best_k": 21562,
+            "best_dti": 0.044474892009397325
+          }
+        },
+        "offcat": {
+          "0.0": {
+            "best_k": 102743,
+            "best_dti": 0.10421057540535275
+          },
+          "2.0": {
+            "best_k": 71913,
+            "best_dti": 0.1719602661018954
+          },
+          "2.9": {
+            "best_k": 58271,
+            "best_dti": 0.17967325836710366
+          },
+          "4.0": {
+            "best_k": 37366,
+            "best_dti": 0.16295390569689927
+          }
+        },
+        "persist": {
+          "0.0": {
+            "best_k": 101012,
+            "best_dti": 0.01963892675770378
+          },
+          "2.0": {
+            "best_k": 97528,
+            "best_dti": 0.04664754852041343
+          },
+          "2.9": {
+            "best_k": 59701,
+            "best_dti": 0.05026399621510638
+          },
+          "4.0": {
+            "best_k": 38279,
+            "best_dti": 0.04598378582668188
+          }
+        },
+        "random": {
+          "0.0": {
+            "best_k": 119974,
+            "best_dti": 0.07726585871132509
+          },
+          "2.0": {
+            "best_k": 119955,
+            "best_dti": 0.0833852956938093
+          },
+          "2.9": {
+            "best_k": 119760,
+            "best_dti": 0.08657107700852715
+          },
+          "4.0": {
+            "best_k": 119172,
+            "best_dti": 0.09061078732763307
+          }
+        }
+      }
+    },
+    {
+      "fold": 1,
+      "arms": {
+        "struct": {
+          "0.0": {
+            "best_k": 117178,
+            "best_dti": 0.08296458889065718
+          },
+          "2.0": {
+            "best_k": 87374,
+            "best_dti": 0.15932416434327032
+          },
+          "2.9": {
+            "best_k": 56942,
+            "best_dti": 0.1714340001969201
+          },
+          "4.0": {
+            "best_k": 34042,
+            "best_dti": 0.1528682029427127
+          }
+        },
+        "cat": {
+          "0.0": {
+            "best_k": 96027,
+            "best_dti": 0.018085035028372512
+          },
+          "2.0": {
+            "best_k": 73431,
+            "best_dti": 0.05952941919275157
+          },
+          "2.9": {
+            "best_k": 42402,
+            "best_dti": 0.0630449818626259
+          },
+          "4.0": {
+            "best_k": 21484,
+            "best_dti": 0.05226330161272501
+          }
+        },
+        "offcat": {
+          "0.0": {
+            "best_k": 74998,
+            "best_dti": 0.1117414903552621
+          },
+          "2.0": {
+            "best_k": 70506,
+            "best_dti": 0.17825094327005622
+          },
+          "2.9": {
+            "best_k": 59563,
+            "best_dti": 0.18765030495887444
+          },
+          "4.0": {
+            "best_k": 37148,
+            "best_dti": 0.1676125177245973
+          }
+        },
+        "persist": {
+          "0.0": {
+            "best_k": 119188,
+            "best_dti": 0.015614190761062713
+          },
+          "2.0": {
+            "best_k": 98282,
+            "best_dti": 0.04933432733377704
+          },
+          "2.9": {
+            "best_k": 63749,
+            "best_dti": 0.05182944348126167
+          },
+          "4.0": {
+            "best_k": 38992,
+            "best_dti": 0.048218911801782186
+          }
+        },
+        "random": {
+          "0.0": {
+            "best_k": 119621,
+            "best_dti": 0.07759411863903048
+          },
+          "2.0": {
+            "best_k": 119989,
+            "best_dti": 0.08243314699370148
+          },
+          "2.9": {
+            "best_k": 118185,
+            "best_dti": 0.08526672946788441
+          },
+          "4.0": {
+            "best_k": 119821,
+            "best_dti": 0.09011551937605061
+          }
+        }
+      }
+    },
+    {
+      "fold": 2,
+      "arms": {
+        "struct": {
+          "0.0": {
+            "best_k": 118511,
+            "best_dti": 0.07752579859558452
+          },
+          "2.0": {
+            "best_k": 95225,
+            "best_dti": 0.15866329227564616
+          },
+          "2.9": {
+            "best_k": 57842,
+            "best_dti": 0.17055134921440387
+          },
+          "4.0": {
+            "best_k": 34129,
+            "best_dti": 0.15443700444217762
+          }
+        },
+        "cat": {
+          "0.0": {
+            "best_k": 106458,
+            "best_dti": 0.016097287823505325
+          },
+          "2.0": {
+            "best_k": 72262,
+            "best_dti": 0.05303307097577884
+          },
+          "2.9": {
+            "best_k": 42510,
+            "best_dti": 0.05689513376222444
+          },
+          "4.0": {
+            "best_k": 21513,
+            "best_dti": 0.04897062465726195
+          }
+        },
+        "offcat": {
+          "0.0": {
+            "best_k": 93933,
+            "best_dti": 0.10588237513774428
+          },
+          "2.0": {
+            "best_k": 79520,
+            "best_dti": 0.1783228700101078
+          },
+          "2.9": {
+            "best_k": 59978,
+            "best_dti": 0.18786392568296667
+          },
+          "4.0": {
+            "best_k": 37164,
+            "best_dti": 0.16732026150340495
+          }
+        },
+        "persist": {
+          "0.0": {
+            "best_k": 113083,
+            "best_dti": 0.013849681549571159
+          },
+          "2.0": {
+            "best_k": 97605,
+            "best_dti": 0.03581637676767445
+          },
+          "2.9": {
+            "best_k": 61793,
+            "best_dti": 0.036886138653094556
+          },
+          "4.0": {
+            "best_k": 38298,
+            "best_dti": 0.0340339912545938
+          }
+        },
+        "random": {
+          "0.0": {
+            "best_k": 119963,
+            "best_dti": 0.07732743507854856
+          },
+          "2.0": {
+            "best_k": 119773,
+            "best_dti": 0.08231244288263535
+          },
+          "2.9": {
+            "best_k": 119917,
+            "best_dti": 0.08539528106215834
+          },
+          "4.0": {
+            "best_k": 117569,
+            "best_dti": 0.08820749392899466
+          }
+        }
+      }
+    },
+    {
+      "fold": 3,
+      "arms": {
+        "struct": {
+          "0.0": {
+            "best_k": 119177,
+            "best_dti": 0.07598297114392716
+          },
+          "2.0": {
+            "best_k": 96195,
+            "best_dti": 0.1573340718546576
+          },
+          "2.9": {
+            "best_k": 57544,
+            "best_dti": 0.16885998068605393
+          },
+          "4.0": {
+            "best_k": 34295,
+            "best_dti": 0.1543124672590415
+          }
+        },
+        "cat": {
+          "0.0": {
+            "best_k": 112597,
+            "best_dti": 0.014454714955395364
+          },
+          "2.0": {
+            "best_k": 59540,
+            "best_dti": 0.04245905963615865
+          },
+          "2.9": {
+            "best_k": 33826,
+            "best_dti": 0.04433615873042765
+          },
+          "4.0": {
+            "best_k": 21153,
+            "best_dti": 0.038449416912052635
+          }
+        },
+        "offcat": {
+          "0.0": {
+            "best_k": 113207,
+            "best_dti": 0.10380295441902637
+          },
+          "2.0": {
+            "best_k": 82904,
+            "best_dti": 0.17659876845477712
+          },
+          "2.9": {
+            "best_k": 60879,
+            "best_dti": 0.18612730377443595
+          },
+          "4.0": {
+            "best_k": 37230,
+            "best_dti": 0.17004916630095815
+          }
+        },
+        "persist": {
+          "0.0": {
+            "best_k": 119260,
+            "best_dti": 0.012552808821943942
+          },
+          "2.0": {
+            "best_k": 97669,
+            "best_dti": 0.04185023895462664
+          },
+          "2.9": {
+            "best_k": 61395,
+            "best_dti": 0.04461088528725973
+          },
+          "4.0": {
+            "best_k": 38199,
+            "best_dti": 0.040701779656513365
+          }
+        },
+        "random": {
+          "0.0": {
+            "best_k": 119494,
+            "best_dti": 0.07672351860844615
+          },
+          "2.0": {
+            "best_k": 119858,
+            "best_dti": 0.08173085049433132
+          },
+          "2.9": {
+            "best_k": 119839,
+            "best_dti": 0.08554307089798802
+          },
+          "4.0": {
+            "best_k": 119938,
+            "best_dti": 0.08849523230207018
+          }
+        }
+      }
+    }
+  ],
+  "interpretation": "An arm is only credible evidence of discovery skill if its pooled DTI exceeds the random arm at matched spacing and budget."
+}

@@ -28,13 +28,40 @@ Build an auditable, reproducible system to test geological fault hypotheses over
 9. **Three passes.** Implement/test; review for defects, edge cases, source errors, and assumptions; reconcile against this brief and charter. Keep the pass log in [`research/review_log.md`](research/review_log.md).
 10. **No unauthorized leaderboard polling.** The site links directly to the official leaderboard but does not cache its rows or scrape it. DrivenData's Terms of Use prohibit automated monitoring/copying and manual monitoring/copying without written consent. No authorized API or written permission is documented here.
 
-## Current status (2026-10-05 UTC)
+## Current status (2026-10-05 UTC, session 2)
 
-- One-time review of the official board found the task's stated 0.3195 was not the highest public entry at that time. The dynamic board is authoritative and does not expose TIFF filenames; see the [official page](https://www.drivendata.org/competitions/306/competition-doe-gems/leaderboard/) and the evidence limits in [`research/score_analysis.md`](research/score_analysis.md). GEMSDOE37 does not maintain a score-row cache.
-- The user-supplied H33-2-B2 association with 0.2778 is **unverified**. The GEMSDOE32 owner report described a 0.2747 projection and an unscored four-fold proxy. The official exact mask does not require a 200 m buffer; nearby predictions are scored normally.
-- H1 H0-persistence code is implemented and preregistered but **unrun**. H2–H4 are proposed; external data coverage is conditional. No official raster, spatial-holdout result, registered current-best report, validated TIFF, organizer score, or slot-eligible candidate exists.
-- Official data access requires a participant login. User-provided Dropbox mirrors are not authenticated organizer data and were not downloaded here. No credentials were requested or stored.
-- Python dependencies were initially absent, then installed in an ignored isolated `.venv` for review. The synthetic suite passes (**37 passed**, 2026-10-05 UTC). GitHub Actions has not yet run; no actual competition raster, GeoTIFF, portal acceptance, or organizer score was produced.
+A **unique, format-validated submission GeoTIFF now exists** and is the first thing on the site:
+`docs/downloads/gemsdoe37-h5-standoff-dotted-26k-20261005T031536Z-3d5db2166013.tif`
+(26,000 positive pixels, single-band float32, exact template grid, every cell finite in `[0,1]`,
+no nodata tag). Maximum Jaccard overlap with any of 31 previously submitted rasters is **0.032**,
+so it is demonstrably not a copy or a relabel. No organizer score exists for it.
+
+Four measured results from this session changed the build, all with committed receipts and
+written up in [`research/results_h5.md`](research/results_h5.md):
+
+1. **Our catalogue-ablation holdout does not predict the public score** (Spearman −0.10 over 28
+   non-leaking scored maps; −0.27 over all 31). Withheld *mapped* faults reward maps that hug the
+   catalogue; the competition rewards the opposite. Model selection was moved onto a 31-map
+   public-score calibration. Protocol change recorded in
+   [`research/preregistration_revisions.md`](research/preregistration_revisions.md).
+2. **Dottedness is the dominant controllable lever** (Spearman −0.751, leave-one-out R² 0.553
+   alone, over 31 scored maps). The shipped map is perfectly dotted (`spacing_proxy` = 1.000).
+3. **Near-catalogue mass has zero marginal recall.** The controlled pair in the record
+   (`dotted-h19-5-d2-8` → `h33-2-b2`) deleted 6,436 pixels within 2 px of the catalogue, changed
+   kernel-weighted recall by +0.002, and raised the score 0.2600 → 0.2778. The shipped map uses a
+   3 px stand-off and places 0.0 % of its mass within 300 m of a catalogued fault.
+4. **Catalogue-geometry features and standalone persistence both score below the random floor**
+   (0.053 and 0.043 vs. 0.065 at matched budget). Both were removed from the shipped ranking;
+   persistence survives only as 3 of the 63 label-free features.
+
+Forecast for the shipped file: **0.277** under the pessimistic physical model that gives the new
+ranking no credit at all, 0.37–0.39 under two observational models that extrapolate below the
+smallest budget ever submitted. Owner best to date 0.2778; leaderboard top at last manual check
+0.3262. Treat anything above 0.30 as unverified upside.
+
+Earlier status notes (H1 unrun, no data) are superseded: the full 19-band feature stack, the
+four-fold catalogue-ablation CV, the full-catalogue model and the submission writer have all run
+to completion in this checkout.
 
 ## Site and source links
 

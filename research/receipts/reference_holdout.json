@@ -1,0 +1,324 @@
+{
+  "generated_utc": "2026-10-05T03:11:44+00:00",
+  "n_folds": 4,
+  "caveat": "Reference rasters were built with the full public catalogue available, so their holdout scores are optimistically biased relative to a model trained only on the visible folds. Treat the calibration as indicative, not exact.",
+  "calibration": {
+    "model": "log(public_dti) = slope * log(holdout_dti) + intercept",
+    "slope": -0.2772635600376618,
+    "intercept": -2.938849604740051,
+    "r2_log": 0.03755547400025527,
+    "spearman": -0.2707452725250278,
+    "n": 30
+  },
+  "results": [
+    {
+      "id": "Hedge-v2",
+      "public_dti": 0.1563,
+      "holdout_dti": 0.3185851104396596,
+      "mass": 227507.0,
+      "tp": 60988.0,
+      "fp": 652229.6542225569,
+      "fn": 0.0,
+      "predicted_public_dti": 0.07267939558624026
+    },
+    {
+      "id": "h28-dotted-ridge",
+      "public_dti": 0.1839,
+      "holdout_dti": 0.23276893421628014,
+      "mass": 69281.0,
+      "tp": 24341.453625402075,
+      "fp": 254573.86342779588,
+      "fn": 36646.54637459792,
+      "predicted_public_dti": 0.079287086008519
+    },
+    {
+      "id": "structural-area06-v1",
+      "public_dti": 0.0202,
+      "holdout_dti": 0.2212731056900712,
+      "mass": 343526.0,
+      "tp": 60988.0,
+      "fp": 1073175.9669133346,
+      "fn": 0.0,
+      "predicted_public_dti": 0.08040836904516233
+    },
+    {
+      "id": "gems6-hgb88-topk03",
+      "public_dti": 0.0286,
+      "holdout_dti": 0.20597268806016122,
+      "mass": 155021.0,
+      "tp": 31206.773189738462,
+      "fp": 482387.615208645,
+      "fn": 29781.226810261538,
+      "predicted_public_dti": 0.08202182278828683
+    },
+    {
+      "id": "h25-ctx-ridge",
+      "public_dti": 0.128,
+      "holdout_dti": 0.18508081676561614,
+      "mass": 174232.0,
+      "tp": 33401.44103273267,
+      "fp": 624994.0203746252,
+      "fn": 27586.55896726733,
+      "predicted_public_dti": 0.08449048788555479
+    },
+    {
+      "id": "r7-nms3-dem10-scarp",
+      "public_dti": 0.1294,
+      "holdout_dti": 0.17365768631793957,
+      "mass": 103347.0,
+      "tp": 23245.351967754086,
+      "fp": 402089.23305543367,
+      "fn": 37742.64803224592,
+      "predicted_public_dti": 0.08599614412378802
+    },
+    {
+      "id": "h20-dem10-scarp-thin",
+      "public_dti": 0.0921,
+      "holdout_dti": 0.15455269018372977,
+      "mass": 153957.0,
+      "tp": 25424.38261677928,
+      "fp": 553138.6634349467,
+      "fn": 35563.61738322073,
+      "predicted_public_dti": 0.08882052808197982
+    },
+    {
+      "id": "H19-C",
+      "public_dti": 0.0297,
+      "holdout_dti": 0.14536070386928948,
+      "mass": 513786.0,
+      "tp": 60988.0,
+      "fp": 1792875.9288097513,
+      "fn": 0.0,
+      "predicted_public_dti": 0.09034346747919916
+    },
+    {
+      "id": "F-ensemble-2pct",
+      "public_dti": 0.0187,
+      "holdout_dti": 0.13982984991569272,
+      "mass": 103347.0,
+      "tp": 16729.369246864233,
+      "fp": 337523.136334363,
+      "fn": 44258.630753135774,
+      "predicted_public_dti": 0.09132040929055016
+    },
+    {
+      "id": "h16-continuation",
+      "public_dti": 0.0461,
+      "holdout_dti": 0.12990977641641172,
+      "mass": 310042.0,
+      "tp": 35231.98303419257,
+      "fp": 1076833.4009561765,
+      "fn": 25756.01696580743,
+      "predicted_public_dti": 0.0932027343501731
+    },
+    {
+      "id": "h30-arrangement-matched-habitat",
+      "public_dti": 0.1352,
+      "holdout_dti": 0.11287240244378094,
+      "mass": 91533.0,
+      "tp": 13967.131094198685,
+      "fp": 360794.1589482566,
+      "fn": 47020.86890580132,
+      "predicted_public_dti": 0.096907350866987
+    },
+    {
+      "id": "dotted-h19-5-d2-8",
+      "public_dti": 0.26,
+      "holdout_dti": 0.11156092336208365,
+      "mass": 44090.0,
+      "tp": 9498.798137300993,
+      "fp": 172271.6614407024,
+      "fn": 51489.201862699,
+      "predicted_public_dti": 0.09722188104263757
+    },
+    {
+      "id": "d28-poisson300m-offcat-44090",
+      "public_dti": 0.26,
+      "holdout_dti": 0.11156092336208365,
+      "mass": 44090.0,
+      "tp": 9498.798137300993,
+      "fp": 172271.6614407024,
+      "fn": 51489.201862699,
+      "predicted_public_dti": 0.09722188104263757
+    },
+    {
+      "id": "h25-1-dotted-h19-5-d1-5",
+      "public_dti": 0.2477,
+      "holdout_dti": 0.10866594474693558,
+      "mass": 60069.0,
+      "tp": 10633.361305372086,
+      "fp": 234682.97985405376,
+      "fn": 50354.63869462791,
+      "predicted_public_dti": 0.09793321056466135
+    },
+    {
+      "id": "topo-gap-closure-t-v2-on-d1-5",
+      "public_dti": 0.2449,
+      "holdout_dti": 0.10850873947483568,
+      "mass": 61328.0,
+      "tp": 10727.7187591302,
+      "fp": 239645.38404132152,
+      "fn": 50260.281240869794,
+      "predicted_public_dti": 0.09797252915450105
+    },
+    {
+      "id": "r13-lattice-s5",
+      "public_dti": 0.0904,
+      "holdout_dti": 0.10559775447075313,
+      "mass": 206895.0,
+      "tp": 22777.813697612943,
+      "fp": 811788.0871693293,
+      "fn": 38210.186302387054,
+      "predicted_public_dti": 0.0987140139936761
+    },
+    {
+      "id": "h18-3a-topo-geophys-x-complexity",
+      "public_dti": 0.0976,
+      "holdout_dti": 0.10349382042696553,
+      "mass": 122120.0,
+      "tp": 15171.092562324346,
+      "fp": 473823.691107208,
+      "fn": 45816.90743767565,
+      "predicted_public_dti": 0.09926637637058157
+    },
+    {
+      "id": "lidarscarp-ridge-top2pct",
+      "public_dti": 0.1461,
+      "holdout_dti": 0.102344681656719,
+      "mass": 76859.0,
+      "tp": 11345.187012436445,
+      "fp": 298966.4458790632,
+      "fn": 49642.81298756356,
+      "predicted_public_dti": 0.09957416158585741
+    },
+    {
+      "id": "dilcond-oof-v1",
+      "public_dti": 0.1223,
+      "holdout_dti": 0.08741166399831059,
+      "mass": 60068.0,
+      "tp": 8460.812627490486,
+      "fp": 231550.7821882503,
+      "fn": 52527.18737250952,
+      "predicted_public_dti": 0.10402508351665533
+    },
+    {
+      "id": "h20-1-sarnnpu-powerlaw",
+      "public_dti": 0.189,
+      "holdout_dti": 0.08402171560733351,
+      "mass": 123829.0,
+      "tp": 12443.460482513674,
+      "fp": 484095.28006996505,
+      "fn": 48544.53951748632,
+      "predicted_public_dti": 0.10517217683492054
+    },
+    {
+      "id": "h19-5-powerlaw-budget",
+      "public_dti": 0.1922,
+      "holdout_dti": 0.08358992007684729,
+      "mass": 121131.0,
+      "tp": 12199.639425538931,
+      "fp": 473579.85297943756,
+      "fn": 48788.360574461076,
+      "predicted_public_dti": 0.1053225287060368
+    },
+    {
+      "id": "h19-4-multiline-corroborated",
+      "public_dti": 0.1894,
+      "holdout_dti": 0.08356085852415639,
+      "mass": 123779.0,
+      "tp": 12373.284010275167,
+      "fp": 484050.30743349687,
+      "fn": 48614.715989724835,
+      "predicted_public_dti": 0.10533268360060513
+    },
+    {
+      "id": "h16-1-topo-geophys-baseline-ridges",
+      "public_dti": 0.1855,
+      "holdout_dti": 0.08323147527940468,
+      "mass": 123939.0,
+      "tp": 12335.981790939153,
+      "fp": 484776.7265737108,
+      "fn": 48652.01820906085,
+      "predicted_public_dti": 0.10544809527434389
+    },
+    {
+      "id": "h20-5-continuous-pu-proxy",
+      "public_dti": 0.1859,
+      "holdout_dti": 0.08134387189736415,
+      "mass": 107710.75,
+      "tp": 10992.816376447663,
+      "fp": 420755.5234301614,
+      "fn": 49995.18362355234,
+      "predicted_public_dti": 0.10612093004727971
+    },
+    {
+      "id": "tso1-conj-alteration-mag",
+      "public_dti": 0.0782,
+      "holdout_dti": 0.0809266173486617,
+      "mass": 99999.0,
+      "tp": 10459.736881512157,
+      "fp": 391836.5077749366,
+      "fn": 50528.26311848784,
+      "predicted_public_dti": 0.10627235449354233
+    },
+    {
+      "id": "r5-geom-horse-ensemble",
+      "public_dti": 0.002,
+      "holdout_dti": 0.0639559122403079,
+      "mass": 116225.0,
+      "tp": 8890.611888767515,
+      "fp": 442215.2472940782,
+      "fn": 52097.38811123249,
+      "predicted_public_dti": 0.11343827200614376
+    },
+    {
+      "id": "h23-a-dti-optimal-emission-6pct",
+      "public_dti": 0.1002,
+      "holdout_dti": 0.059318575227745286,
+      "mass": 335879.0,
+      "tp": 18789.78201019855,
+      "fp": 1321060.7569126636,
+      "fn": 42198.21798980145,
+      "predicted_public_dti": 0.11583061025270869
+    },
+    {
+      "id": "h23-b-dti-optimal-emission-10pct",
+      "public_dti": 0.0748,
+      "holdout_dti": 0.04714317587018467,
+      "mass": 516738.0,
+      "tp": 21721.365902133606,
+      "fp": 2038092.2906529051,
+      "fn": 39266.634097866394,
+      "predicted_public_dti": 0.1234486797718838
+    },
+    {
+      "id": "h27-4-r1-solo-d2-8",
+      "public_dti": 0.2708,
+      "holdout_dti": 0.034523166276940354,
+      "mass": 40199.0,
+      "tp": 2804.280907126009,
+      "fp": 159388.52119910123,
+      "fn": 58183.71909287399,
+      "predicted_public_dti": 0.1345868062422742
+    },
+    {
+      "id": "h33-2-b2",
+      "public_dti": 0.2778,
+      "holdout_dti": 0.004788912193600268,
+      "mass": 37654.0,
+      "tp": 377.9998967710636,
+      "fp": 150331.5448233027,
+      "fn": 60610.00010322894,
+      "predicted_public_dti": 0.23273388340743578
+    },
+    {
+      "id": "h18-4-usgs-geologic-map-faults-gap",
+      "public_dti": 0.036,
+      "holdout_dti": 0.0,
+      "mass": 57783.0,
+      "tp": 0.0,
+      "fp": 231132.0,
+      "fn": 60988.0
+    }
+  ]
+}

@@ -1,0 +1,534 @@
+{
+  "generated_utc": "2026-10-05T03:13:10+00:00",
+  "n_maps": 31,
+  "target": "log(public leaderboard DTI)",
+  "univariate": {
+    "log_mass": {
+      "spearman_vs_public_dti": -0.5685483870967742,
+      "loo_r2_alone": 0.09844779091192823
+    },
+    "frac_near_cat": {
+      "spearman_vs_public_dti": -0.44112903225806455,
+      "loo_r2_alone": 0.20089393957601598
+    },
+    "mean_pstruct": {
+      "spearman_vs_public_dti": -0.23508064516129035,
+      "loo_r2_alone": 0.08485816314224937
+    },
+    "mean_persist": {
+      "spearman_vs_public_dti": 0.27822580645161293,
+      "loo_r2_alone": 0.21846674410201483
+    },
+    "spacing_proxy": {
+      "spearman_vs_public_dti": -0.751209677419355,
+      "loo_r2_alone": 0.5530508921685007
+    }
+  },
+  "best_subset": {
+    "features": [
+      "mean_pstruct",
+      "spacing_proxy"
+    ],
+    "loo_r2": 0.554027312812122,
+    "beta": [
+      -1.4800393471994584,
+      3.428374133351445,
+      -0.4745966786882037
+    ]
+  },
+  "subsets": [
+    {
+      "features": [
+        "mean_pstruct",
+        "spacing_proxy"
+      ],
+      "loo_r2": 0.554027312812122
+    },
+    {
+      "features": [
+        "spacing_proxy"
+      ],
+      "loo_r2": 0.5530508921685007
+    },
+    {
+      "features": [
+        "frac_near_cat",
+        "spacing_proxy"
+      ],
+      "loo_r2": 0.5434595914490209
+    },
+    {
+      "features": [
+        "log_mass",
+        "mean_pstruct",
+        "spacing_proxy"
+      ],
+      "loo_r2": 0.5384394528786542
+    },
+    {
+      "features": [
+        "mean_persist",
+        "spacing_proxy"
+      ],
+      "loo_r2": 0.5195776054888219
+    },
+    {
+      "features": [
+        "frac_near_cat",
+        "mean_pstruct",
+        "spacing_proxy"
+      ],
+      "loo_r2": 0.5195567342242621
+    },
+    {
+      "features": [
+        "log_mass",
+        "spacing_proxy"
+      ],
+      "loo_r2": 0.5096412350741091
+    },
+    {
+      "features": [
+        "log_mass",
+        "frac_near_cat",
+        "spacing_proxy"
+      ],
+      "loo_r2": 0.5045603709781987
+    },
+    {
+      "features": [
+        "log_mass",
+        "mean_persist",
+        "spacing_proxy"
+      ],
+      "loo_r2": 0.4877673477913883
+    },
+    {
+      "features": [
+        "frac_near_cat",
+        "mean_persist",
+        "spacing_proxy"
+      ],
+      "loo_r2": 0.48578452227011815
+    },
+    {
+      "features": [
+        "mean_pstruct",
+        "mean_persist",
+        "spacing_proxy"
+      ],
+      "loo_r2": 0.4789217694585821
+    },
+    {
+      "features": [
+        "log_mass",
+        "mean_persist"
+      ],
+      "loo_r2": 0.29779246378533086
+    },
+    {
+      "features": [
+        "log_mass",
+        "frac_near_cat",
+        "mean_persist"
+      ],
+      "loo_r2": 0.24632604607954378
+    },
+    {
+      "features": [
+        "log_mass",
+        "frac_near_cat"
+      ],
+      "loo_r2": 0.23097282632512472
+    },
+    {
+      "features": [
+        "mean_persist"
+      ],
+      "loo_r2": 0.21846674410201483
+    },
+    {
+      "features": [
+        "log_mass",
+        "mean_pstruct",
+        "mean_persist"
+      ],
+      "loo_r2": 0.20795322966840135
+    },
+    {
+      "features": [
+        "frac_near_cat",
+        "mean_pstruct"
+      ],
+      "loo_r2": 0.20683007203731485
+    },
+    {
+      "features": [
+        "frac_near_cat"
+      ],
+      "loo_r2": 0.20089393957601598
+    },
+    {
+      "features": [
+        "frac_near_cat",
+        "mean_pstruct",
+        "mean_persist"
+      ],
+      "loo_r2": 0.19810589877218954
+    },
+    {
+      "features": [
+        "log_mass",
+        "mean_pstruct"
+      ],
+      "loo_r2": 0.18681463015517052
+    },
+    {
+      "features": [
+        "mean_pstruct",
+        "mean_persist"
+      ],
+      "loo_r2": 0.15592116915913334
+    },
+    {
+      "features": [
+        "log_mass",
+        "frac_near_cat",
+        "mean_pstruct"
+      ],
+      "loo_r2": 0.1418849226158314
+    },
+    {
+      "features": [
+        "frac_near_cat",
+        "mean_persist"
+      ],
+      "loo_r2": 0.14067891370145835
+    },
+    {
+      "features": [
+        "log_mass"
+      ],
+      "loo_r2": 0.09844779091192823
+    },
+    {
+      "features": [
+        "mean_pstruct"
+      ],
+      "loo_r2": 0.08485816314224937
+    }
+  ],
+  "maps": [
+    {
+      "id": "h33-2-b2",
+      "public_dti": 0.2778,
+      "log_mass": 10.536194469284657,
+      "mass": 37654.0,
+      "frac_near_cat": 0.057656556367874146,
+      "mean_pstruct": 0.1294870674610138,
+      "mean_persist": 0.8194152116775513,
+      "spacing_proxy": 1.0
+    },
+    {
+      "id": "h27-4-r1-solo-d2-8",
+      "public_dti": 0.2708,
+      "log_mass": 10.601597398675818,
+      "mass": 40199.0,
+      "frac_near_cat": 0.1173163503408432,
+      "mean_pstruct": 0.14010527729988098,
+      "mean_persist": 0.8179723620414734,
+      "spacing_proxy": 1.0
+    },
+    {
+      "id": "dotted-h19-5-d2-8",
+      "public_dti": 0.26,
+      "log_mass": 10.693988278351984,
+      "mass": 44090.0,
+      "frac_near_cat": 0.19521433115005493,
+      "mean_pstruct": 0.15779057145118713,
+      "mean_persist": 0.8159552812576294,
+      "spacing_proxy": 1.0
+    },
+    {
+      "id": "d28-poisson300m-offcat-44090",
+      "public_dti": 0.26,
+      "log_mass": 10.693988278351984,
+      "mass": 44090.0,
+      "frac_near_cat": 0.19521433115005493,
+      "mean_pstruct": 0.15779057145118713,
+      "mean_persist": 0.8159552812576294,
+      "spacing_proxy": 1.0
+    },
+    {
+      "id": "h25-1-dotted-h19-5-d1-5",
+      "public_dti": 0.2477,
+      "log_mass": 11.00324918046076,
+      "mass": 60069.0,
+      "frac_near_cat": 0.19873811304569244,
+      "mean_pstruct": 0.16045796871185303,
+      "mean_persist": 0.8153926730155945,
+      "spacing_proxy": 1.0
+    },
+    {
+      "id": "topo-gap-closure-t-v2-on-d1-5",
+      "public_dti": 0.2449,
+      "log_mass": 11.023991787620336,
+      "mass": 61328.0,
+      "frac_near_cat": 0.1987183690071106,
+      "mean_pstruct": 0.16005612909793854,
+      "mean_persist": 0.8155928254127502,
+      "spacing_proxy": 1.0014674663543701
+    },
+    {
+      "id": "h19-5-powerlaw-budget",
+      "public_dti": 0.1922,
+      "log_mass": 11.704627883569936,
+      "mass": 121131.0,
+      "frac_near_cat": 0.19951127469539642,
+      "mean_pstruct": 0.16594983637332916,
+      "mean_persist": 0.8137686252593994,
+      "spacing_proxy": 3.1923701763153076
+    },
+    {
+      "id": "h19-4-multiline-corroborated",
+      "public_dti": 0.1894,
+      "log_mass": 11.726252996411146,
+      "mass": 123779.0,
+      "frac_near_cat": 0.19790109992027283,
+      "mean_pstruct": 0.1647784411907196,
+      "mean_persist": 0.814016580581665,
+      "spacing_proxy": 3.1538548469543457
+    },
+    {
+      "id": "h20-1-sarnnpu-powerlaw",
+      "public_dti": 0.189,
+      "log_mass": 11.726656860589037,
+      "mass": 123829.0,
+      "frac_near_cat": 0.20071227848529816,
+      "mean_pstruct": 0.16714997589588165,
+      "mean_persist": 0.8130105137825012,
+      "spacing_proxy": 3.1573944091796875
+    },
+    {
+      "id": "h20-5-continuous-pu-proxy",
+      "public_dti": 0.1859,
+      "log_mass": 11.587204672462343,
+      "mass": 107710.75,
+      "frac_near_cat": 0.20722147822380066,
+      "mean_pstruct": 0.171910360455513,
+      "mean_persist": 0.811909019947052,
+      "spacing_proxy": 2.8793487548828125
+    },
+    {
+      "id": "h16-1-topo-geophys-baseline-ridges",
+      "public_dti": 0.1855,
+      "log_mass": 11.727544788063346,
+      "mass": 123939.0,
+      "frac_near_cat": 0.19681456685066223,
+      "mean_pstruct": 0.1645214557647705,
+      "mean_persist": 0.8116917014122009,
+      "spacing_proxy": 3.0995006561279297
+    },
+    {
+      "id": "h28-dotted-ridge",
+      "public_dti": 0.1839,
+      "log_mass": 11.145925977312283,
+      "mass": 69281.0,
+      "frac_near_cat": 0.2670573592185974,
+      "mean_pstruct": 0.17307865619659424,
+      "mean_persist": 0.8189488053321838,
+      "spacing_proxy": 1.0
+    },
+    {
+      "id": "lidarscarp-ridge-top2pct",
+      "public_dti": 0.1461,
+      "log_mass": 11.249727853365448,
+      "mass": 76859.0,
+      "frac_near_cat": 0.22784580290317535,
+      "mean_pstruct": 0.15754708647727966,
+      "mean_persist": 0.8202142119407654,
+      "spacing_proxy": 2.654614210128784
+    },
+    {
+      "id": "h30-arrangement-matched-habitat",
+      "public_dti": 0.1352,
+      "log_mass": 11.424454841980669,
+      "mass": 91533.0,
+      "frac_near_cat": 0.1300077587366104,
+      "mean_pstruct": 0.10324998944997787,
+      "mean_persist": 0.8186355829238892,
+      "spacing_proxy": 1.0
+    },
+    {
+      "id": "r7-nms3-dem10-scarp",
+      "public_dti": 0.1294,
+      "log_mass": 11.545847537112408,
+      "mass": 103347.0,
+      "frac_near_cat": 0.23191770911216736,
+      "mean_pstruct": 0.17406152188777924,
+      "mean_persist": 0.8116743564605713,
+      "spacing_proxy": 1.0
+    },
+    {
+      "id": "h25-ctx-ridge",
+      "public_dti": 0.128,
+      "log_mass": 12.068143023430444,
+      "mass": 174232.0,
+      "frac_near_cat": 0.33102989196777344,
+      "mean_pstruct": 0.19782571494579315,
+      "mean_persist": 0.8150014281272888,
+      "spacing_proxy": 2.6537718772888184
+    },
+    {
+      "id": "dilcond-oof-v1",
+      "public_dti": 0.1223,
+      "log_mass": 11.00323253280017,
+      "mass": 60068.0,
+      "frac_near_cat": 0.14646734297275543,
+      "mean_pstruct": 0.12670809030532837,
+      "mean_persist": 0.8164886236190796,
+      "spacing_proxy": 1.0003995895385742
+    },
+    {
+      "id": "h23-a-dti-optimal-emission-6pct",
+      "public_dti": 0.1002,
+      "log_mass": 12.724506255039286,
+      "mass": 335879.0,
+      "frac_near_cat": 0.1998368501663208,
+      "mean_pstruct": 0.14027275145053864,
+      "mean_persist": 0.821168839931488,
+      "spacing_proxy": 3.4044671058654785
+    },
+    {
+      "id": "h18-3a-topo-geophys-x-complexity",
+      "public_dti": 0.0976,
+      "log_mass": 11.712759446848814,
+      "mass": 122120.0,
+      "frac_near_cat": 0.26743367314338684,
+      "mean_pstruct": 0.20002949237823486,
+      "mean_persist": 0.8131077885627747,
+      "spacing_proxy": 3.300180196762085
+    },
+    {
+      "id": "h20-dem10-scarp-thin",
+      "public_dti": 0.0921,
+      "log_mass": 11.944428621627166,
+      "mass": 153957.0,
+      "frac_near_cat": 0.38403579592704773,
+      "mean_pstruct": 0.22548648715019226,
+      "mean_persist": 0.814113438129425,
+      "spacing_proxy": 3.6475443840026855
+    },
+    {
+      "id": "r13-lattice-s5",
+      "public_dti": 0.0904,
+      "log_mass": 12.23996669717773,
+      "mass": 206895.0,
+      "frac_near_cat": 0.08583580702543259,
+      "mean_pstruct": 0.07476922869682312,
+      "mean_persist": 0.8262261748313904,
+      "spacing_proxy": 1.0
+    },
+    {
+      "id": "h23-b-dti-optimal-emission-10pct",
+      "public_dti": 0.0748,
+      "log_mass": 13.15529125521342,
+      "mass": 516738.0,
+      "frac_near_cat": 0.1668563187122345,
+      "mean_pstruct": 0.12144620716571808,
+      "mean_persist": 0.824303388595581,
+      "spacing_proxy": 3.673710823059082
+    },
+    {
+      "id": "tso1-conj-alteration-mag",
+      "public_dti": 0.0782,
+      "log_mass": 11.512915464920228,
+      "mass": 99999.0,
+      "frac_near_cat": 0.08909089118242264,
+      "mean_pstruct": 0.07675047218799591,
+      "mean_persist": 0.8230389952659607,
+      "spacing_proxy": 1.0291802883148193
+    },
+    {
+      "id": "h16-continuation",
+      "public_dti": 0.0461,
+      "log_mass": 12.644463051155187,
+      "mass": 310042.0,
+      "frac_near_cat": 0.5045864582061768,
+      "mean_pstruct": 0.2828434407711029,
+      "mean_persist": 0.8079725503921509,
+      "spacing_proxy": 6.914502143859863
+    },
+    {
+      "id": "h18-4-usgs-geologic-map-faults-gap",
+      "public_dti": 0.036,
+      "log_mass": 10.964449893752333,
+      "mass": 57783.0,
+      "frac_near_cat": 0.0,
+      "mean_pstruct": 0.06728783249855042,
+      "mean_persist": 0.8205416798591614,
+      "spacing_proxy": 3.0345776081085205
+    },
+    {
+      "id": "H19-C",
+      "public_dti": 0.0297,
+      "log_mass": 13.149562115330285,
+      "mass": 513786.0,
+      "frac_near_cat": 0.20317213237285614,
+      "mean_pstruct": 0.10038674622774124,
+      "mean_persist": 0.8067888617515564,
+      "spacing_proxy": 6.288840293884277
+    },
+    {
+      "id": "gems6-hgb88-topk03",
+      "public_dti": 0.0286,
+      "log_mass": 11.951315870595241,
+      "mass": 155021.0,
+      "frac_near_cat": 0.7307590842247009,
+      "mean_pstruct": 0.36930587887763977,
+      "mean_persist": 0.7950620055198669,
+      "spacing_proxy": 6.8793840408325195
+    },
+    {
+      "id": "structural-area06-v1",
+      "public_dti": 0.0202,
+      "log_mass": 12.747018079192026,
+      "mass": 343526.0,
+      "frac_near_cat": 0.5476062893867493,
+      "mean_pstruct": 0.2764872908592224,
+      "mean_persist": 0.8056458234786987,
+      "spacing_proxy": 6.71515417098999
+    },
+    {
+      "id": "F-ensemble-2pct",
+      "public_dti": 0.0187,
+      "log_mass": 11.545847537112408,
+      "mass": 103347.0,
+      "frac_near_cat": 0.662351131439209,
+      "mean_pstruct": 0.38973426818847656,
+      "mean_persist": 0.7937088012695312,
+      "spacing_proxy": 7.267525672912598
+    },
+    {
+      "id": "r5-geom-horse-ensemble",
+      "public_dti": 0.002,
+      "log_mass": 11.663283246558786,
+      "mass": 116225.0,
+      "frac_near_cat": 0.46453002095222473,
+      "mean_pstruct": 0.23801209032535553,
+      "mean_persist": 0.7965891361236572,
+      "spacing_proxy": 7.3391523361206055
+    },
+    {
+      "id": "Hedge-v2",
+      "public_dti": 0.1563,
+      "log_mass": 12.334936286130548,
+      "mass": 227507.0,
+      "frac_near_cat": 0.40371066331863403,
+      "mean_pstruct": 0.185639888048172,
+      "mean_persist": 0.805393636226654,
+      "spacing_proxy": 3.3932275772094727
+    }
+  ],
+  "note": "Observational, not causal: these 30 maps were not produced by a randomized design, so a descriptor can look predictive because of what it correlates with. Budget (log_mass) is the only descriptor with a large, stable effect."
+}

@@ -1,0 +1,44 @@
+{
+  "generated_utc": "2026-10-05T03:16:32+00:00",
+  "file": "gemsdoe37-h5-standoff-dotted-26k-20261005T031536Z-3d5db2166013.tif",
+  "inputs": {
+    "positive_pixels": 26000,
+    "mean_pstruct": 0.29519736766815186,
+    "spacing_proxy": 1.0
+  },
+  "forecasts": {
+    "descriptor_model_31_maps": {
+      "value": 0.3896178054669893,
+      "loo_r2": 0.554027312812122,
+      "features": [
+        "mean_pstruct",
+        "spacing_proxy"
+      ],
+      "predictors_inside_observed_range": true
+    },
+    "budget_power_law_12_dotted_maps": {
+      "value": 0.372667570219981,
+      "fit": {
+        "intercept": 7.041934723641272,
+        "log_mass_coefficient": -0.7898013228550378
+      },
+      "observed_mass_range": [
+        37654.0,
+        206895.0
+      ],
+      "extrapolating_below_observed_range": true
+    },
+    "physical_recall_model_pessimistic": {
+      "value": 0.27685365077404583,
+      "assumed_truth_pixels": 14000.0,
+      "recall_curve": {
+        "scale": 0.026548766440183766,
+        "exponent": 0.25179321240979774
+      },
+      "assumption": "our ranking is no better than the best previously submitted family"
+    }
+  },
+  "current_owner_best_public_dti": 0.2778,
+  "leaderboard_top_public_dti": 0.3262,
+  "honest_reading": "The pessimistic physical model, which gives our ranking no credit at all, already puts this build at roughly the level of the current owner best. The two observational models are more optimistic but extrapolate below the observed budget range. Treat anything above 0.30 as unverified upside, not a prediction."
+}

@@ -1,0 +1,315 @@
+{
+  "generated_utc": "2026-10-05T02:48:40+00:00",
+  "method": "non-negative fit of the exact DTI linear-functional form to our own scored submissions; basis chosen by forward selection on leave-one-out error",
+  "basis_catalogue": [
+    "uniform",
+    "dcat_1_3",
+    "dcat_3_8",
+    "dcat_8_30",
+    "dcat_30p",
+    "p_struct",
+    "p_struct_top2pct",
+    "p_cat_top2pct",
+    "pers_dem",
+    "pers_mag",
+    "pers_grav",
+    "coh_det_elev",
+    "tip_continuation"
+  ],
+  "selected_basis": [
+    "p_struct",
+    "dcat_8_30"
+  ],
+  "theta": [
+    0.048255677119780085,
+    2.4710048140107714e-32
+  ],
+  "selection_history": [
+    {
+      "added": "p_struct",
+      "columns": [
+        "p_struct"
+      ],
+      "loo_rmse": 0.08734345890507743,
+      "rmse": 0.08564826801775355,
+      "loo_r2": -0.19488238750535358,
+      "r2": -0.14895113060909315
+    },
+    {
+      "added": "dcat_8_30",
+      "columns": [
+        "p_struct",
+        "dcat_8_30"
+      ],
+      "loo_rmse": 0.087343458384236,
+      "rmse": 0.08564826801775359,
+      "loo_r2": -0.19488237325484747,
+      "r2": -0.14895113060909404
+    }
+  ],
+  "n_observations": 30,
+  "r2_in_sample": -0.14895113060909404,
+  "r2_leave_one_out": -0.19488237325484747,
+  "rmse_in_sample": 0.08564826801775359,
+  "rmse_leave_one_out": 0.087343458384236,
+  "estimated_total_truth_pixels": 28076.869140625,
+  "rho_summary": {
+    "max": 0.04825567826628685,
+    "mean": 0.0054334900341928005,
+    "p999": 0.04628249257802963
+  },
+  "observations": [
+    {
+      "id": "h33-2-b2",
+      "dti": 0.2778,
+      "mass": 37654.0,
+      "positive_pixels": 37654,
+      "fitted_dti": 0.09385957377319837,
+      "loo_dti": 0.09318312076202093
+    },
+    {
+      "id": "h27-4-r1-solo-d2-8",
+      "dti": 0.2708,
+      "mass": 40199.0,
+      "positive_pixels": 40199,
+      "fitted_dti": 0.104370230311135,
+      "loo_dti": 0.10353378554699856
+    },
+    {
+      "id": "dotted-h19-5-d2-8",
+      "dti": 0.26,
+      "mass": 44090.0,
+      "positive_pixels": 44090,
+      "fitted_dti": 0.1177061373215137,
+      "loo_dti": 0.11666221007111244
+    },
+    {
+      "id": "d28-poisson300m-offcat-44090",
+      "dti": 0.26,
+      "mass": 44090.0,
+      "positive_pixels": 44090,
+      "fitted_dti": 0.1177061373215137,
+      "loo_dti": 0.11666221007111244
+    },
+    {
+      "id": "h25-1-dotted-h19-5-d1-5",
+      "dti": 0.2477,
+      "mass": 60069.0,
+      "positive_pixels": 60069,
+      "fitted_dti": 0.12102600136648715,
+      "loo_dti": 0.11950182744114003
+    },
+    {
+      "id": "topo-gap-closure-t-v2-on-d1-5",
+      "dti": 0.2449,
+      "mass": 61328.0,
+      "positive_pixels": 61328,
+      "fitted_dti": 0.12308720675226886,
+      "loo_dti": 0.12152954818767465
+    },
+    {
+      "id": "h19-5-powerlaw-budget",
+      "dti": 0.1922,
+      "mass": 121131.0,
+      "positive_pixels": 121131,
+      "fitted_dti": 0.10746503743103944,
+      "loo_dti": 0.10561847526708693
+    },
+    {
+      "id": "h19-4-multiline-corroborated",
+      "dti": 0.1894,
+      "mass": 123779.0,
+      "positive_pixels": 123779,
+      "fitted_dti": 0.10888700760987112,
+      "loo_dti": 0.10704749589765829
+    },
+    {
+      "id": "h20-1-sarnnpu-powerlaw",
+      "dti": 0.189,
+      "mass": 123829.0,
+      "positive_pixels": 123829,
+      "fitted_dti": 0.10998863568854629,
+      "loo_dti": 0.10814291629884053
+    },
+    {
+      "id": "h20-5-continuous-pu-proxy",
+      "dti": 0.1859,
+      "mass": 107710.74831223488,
+      "positive_pixels": 121258,
+      "fitted_dti": 0.10299751000294337,
+      "loo_dti": 0.10152464871372184
+    },
+    {
+      "id": "h16-1-topo-geophys-baseline-ridges",
+      "dti": 0.1855,
+      "mass": 123939.0,
+      "positive_pixels": 123939,
+      "fitted_dti": 0.11027024831477453,
+      "loo_dti": 0.10850605948608653
+    },
+    {
+      "id": "h28-dotted-ridge",
+      "dti": 0.1839,
+      "mass": 65236.0,
+      "positive_pixels": 65236,
+      "fitted_dti": 0.17134266189649458,
+      "loo_dti": 0.17101315270440057
+    },
+    {
+      "id": "lidarscarp-ridge-top2pct",
+      "dti": 0.1461,
+      "mass": 76859.0,
+      "positive_pixels": 76859,
+      "fitted_dti": 0.09519038035144141,
+      "loo_dti": 0.09467503902847273
+    },
+    {
+      "id": "h30-arrangement-matched-habitat",
+      "dti": 0.1352,
+      "mass": 91533.0,
+      "positive_pixels": 91533,
+      "fitted_dti": 0.14607964081220026,
+      "loo_dti": 0.1463862599718
+    },
+    {
+      "id": "r7-nms3-dem10-scarp",
+      "dti": 0.1294,
+      "mass": 103347.0,
+      "positive_pixels": 103347,
+      "fitted_dti": 0.211460083035564,
+      "loo_dti": 0.21723190789064245
+    },
+    {
+      "id": "h25-ctx-ridge",
+      "dti": 0.128,
+      "mass": 161366.0,
+      "positive_pixels": 161366,
+      "fitted_dti": 0.15463726327797556,
+      "loo_dti": 0.1562647926880887
+    },
+    {
+      "id": "dilcond-oof-v1",
+      "dti": 0.1223,
+      "mass": 58670.0,
+      "positive_pixels": 58670,
+      "fitted_dti": 0.09676534399494223,
+      "loo_dti": 0.09658106188880658
+    },
+    {
+      "id": "h23-a-dti-optimal-emission-6pct",
+      "dti": 0.1002,
+      "mass": 335879.0,
+      "positive_pixels": 335879,
+      "fitted_dti": 0.11921150546062367,
+      "loo_dti": 0.12034706910957124
+    },
+    {
+      "id": "h18-3a-topo-geophys-x-complexity",
+      "dti": 0.0976,
+      "mass": 122120.0,
+      "positive_pixels": 122120,
+      "fitted_dti": 0.12416764976888307,
+      "loo_dti": 0.1249620362984019
+    },
+    {
+      "id": "h20-dem10-scarp-thin",
+      "dti": 0.0921,
+      "mass": 143657.0,
+      "positive_pixels": 143657,
+      "fitted_dti": 0.13483873770571528,
+      "loo_dti": 0.1366505085140956
+    },
+    {
+      "id": "r13-lattice-s5",
+      "dti": 0.0904,
+      "mass": 204504.0,
+      "positive_pixels": 204504,
+      "fitted_dti": 0.16074592833085208,
+      "loo_dti": 0.1659595406653221
+    },
+    {
+      "id": "h23-b-dti-optimal-emission-10pct",
+      "dti": 0.0748,
+      "mass": 516738.0,
+      "positive_pixels": 516738,
+      "fitted_dti": 0.10397216766723817,
+      "loo_dti": 0.10556800764521529
+    },
+    {
+      "id": "tso1-conj-alteration-mag",
+      "dti": 0.0782,
+      "mass": 98736.0,
+      "positive_pixels": 98736,
+      "fitted_dti": 0.10972841388302891,
+      "loo_dti": 0.11026612030321394
+    },
+    {
+      "id": "h16-continuation",
+      "dti": 0.0461,
+      "mass": 283532.0,
+      "positive_pixels": 283532,
+      "fitted_dti": 0.12360889509823927,
+      "loo_dti": 0.12890549282791314
+    },
+    {
+      "id": "h18-4-usgs-geologic-map-faults-gap",
+      "dti": 0.036,
+      "mass": 57783.0,
+      "positive_pixels": 57783,
+      "fitted_dti": 0.03201794625780747,
+      "loo_dti": 0.03201488408209475
+    },
+    {
+      "id": "H19-C",
+      "dti": 0.0297,
+      "mass": 452798.0,
+      "positive_pixels": 452798,
+      "fitted_dti": 0.04854216763648147,
+      "loo_dti": 0.04873851210709413
+    },
+    {
+      "id": "gems6-hgb88-topk03",
+      "dti": 0.0286,
+      "mass": 131416.0,
+      "positive_pixels": 131416,
+      "fitted_dti": 0.12513406109900396,
+      "loo_dti": 0.12867773882090802
+    },
+    {
+      "id": "structural-area06-v1",
+      "dti": 0.0202,
+      "mass": 282538.0,
+      "positive_pixels": 282538,
+      "fitted_dti": 0.11963093104338653,
+      "loo_dti": 0.12603907064892558
+    },
+    {
+      "id": "F-ensemble-2pct",
+      "dti": 0.0187,
+      "mass": 90746.0,
+      "positive_pixels": 90746,
+      "fitted_dti": 0.0990875604384657,
+      "loo_dti": 0.10029846880787974
+    },
+    {
+      "id": "Hedge-v2",
+      "dti": 0.1563,
+      "mass": 166519.0,
+      "positive_pixels": 166519,
+      "fitted_dti": 0.11133515137130182,
+      "loo_dti": 0.10992963675077072
+    }
+  ],
+  "skipped": [
+    {
+      "id": "r5-geom-horse-ensemble",
+      "reason": "grid mismatch"
+    }
+  ],
+  "caveats": [
+    "Public scores cover the public chunks only, so rho estimates public-chunk truth density; the private chunks are assumed to share the same structural profile.",
+    "FPw uses the first-order approximation FPw = mass - sum rho*L, exact when truth kernels do not overlap and mildly conservative otherwise.",
+    "Score-to-file associations come from the owner's own records, not from organizer receipts.",
+    "rho is a calibrated prior, not a verified fault map; a high rho pixel is a scoring-optimal bet, not a confirmed fault."
+  ]
+}
