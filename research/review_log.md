@@ -26,4 +26,5 @@
 
 ## Post-merge Pages handoff
 
-- PR #1 was merged to `main` on 2026-10-05 at 01:02:59 UTC. The Pages API currently reports the existing root source as `building`; changing it to `/docs` returned HTTP 403. A small root redirect into the static site was added on the fixed Arena branch so the existing `main:/` configuration can reach the site after that follow-up change is reviewed and merged.
+- PR #1 was merged to `main` on 2026-10-05 at 01:02:59 UTC. The Pages API denied a source-path change with HTTP 403. PR #2, adding a root redirect into `docs/`, was merged at 01:04:22 UTC; Pages still reported `building` immediately afterward, so live propagation of the root redirect remains unconfirmed.
+- A direct live fetch of `/docs/` exposed a stale homepage claim of five hypotheses. Corrected the card to match the four hypotheses in the registered plan: persistence, radiometric alteration ratios, strain-orientation conditioning, and focal-mechanism kinematics. This final content-only fix is being reviewed separately.
