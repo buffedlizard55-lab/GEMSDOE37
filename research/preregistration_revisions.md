@@ -49,3 +49,51 @@ Operationalized the candidate building and baseline registration to enable full 
 - Registered the local single-scale control baseline report (`research/baseline_holdout_report.json`, sha256 pinned) under identical raw inputs and scoring protocol.
 - Executed the 4-quadrant spatial holdout validation: Topological persistence scored **0.030516 pooled DTI** vs Control **0.026731** (gain: **+0.003786**, winning 3 of 4 quadrants: NW +0.0064, SW +0.0084, SE +0.0034; NE regression -0.0053 << 0.02 limit).
 - Promotion gate PASSED. Generated and validated official single-band float32 GeoTIFF (`gemsdoe37-topo-persistence-20261005T025021488008Z-58f9ca92.tif`) and its ZIP package with zero range violations.
+## Revision 6 — 2026-10-05 (after fold evaluation; disclosed as such)
+
+This revision is made **after** fold scores were observed, and is disclosed as a protocol
+change rather than presented as a prior registration. It is recorded because continuing to
+use the previous gate would have been knowingly wrong.
+
+**What was learned.** All 31 previously submitted rasters whose public DTI this project holds
+were re-scored on the four-fold catalogue-ablation holdout
+(`scripts/score_reference_maps.py`, receipt `research/receipts/reference_holdout.json`). The rank
+correlation between holdout DTI and public DTI is **−0.271** over all 31 maps and **−0.103**
+over the 28 maps whose construction did not leak the held-out folds. Adding holdout DTI to a
+regression of `log(public DTI)` on `log(mass)` leaves the leave-one-out R² unchanged at 0.169.
+The holdout carries no usable information about the competition objective, and what little
+signal it has points the wrong way: its truth is withheld *mapped* catalogue geometry, so it
+rewards maps that concentrate near the catalogue, which the public scores punish.
+
+**What changed.**
+
+- The promotion gate "beat the registered current holdout best at matched budget on the
+  catalogue-ablation holdout" is **retired**. It is replaced by a gate against the 31-map
+  public-score calibration (`scripts/explain_public_scores.py`, receipt
+  `research/receipts/public_score_model.json`): a build may be published only if its measured
+  descriptors place it at or above the best recorded public score under the pessimistic
+  physical recall model, with all predictors inside the observed range of the calibration set.
+- The catalogue-ablation holdout is retained for a narrower, defensible purpose: **comparing
+  ranking families against a matched-budget random floor**. It separated the arms cleanly and
+  by large margins (0.1840 / 0.1670 / 0.0646 / 0.0529 / 0.0432), and its random arm reproduced
+  the independently derived analytic floor, so it is sound as a relative instrument even though
+  its absolute level does not transfer.
+- Catalogue-geometry features (distance to catalogue, fault density at 2/5/10 km, distance to
+  nearest fault tip, along-strike continuation score) are **removed from the shipped ranking**.
+  Measured: they drop pooled holdout DTI from 0.1670 to 0.0529, i.e. below the random floor.
+- Standalone H0 persistence is **withdrawn as a detector**. Measured: 0.0432 pooled, below the
+  random floor of 0.0646. It is retained as three label-free features among 63 and as a
+  reported stability measure, which is the only claim the evidence supports.
+- Budget and stand-off for the shipped build were selected from the public-score calibration
+  and the inverted metric, not from the holdout: stand-off 3.0 px, spacing 2.9 px,
+  budget 26,000 px.
+
+**What did not change.** The metric implementation, the exact known-fault pixel mask with no
+proximity buffer, pooled TP/FP/FN aggregation, binary emission, the fold geometry, and the
+GeoTIFF format contract are all unchanged. The shipped ranking is the same `offcat` arm that
+won the holdout; only its geometry parameters were re-chosen.
+
+**Honest status.** Because the one internal protocol capable of validating *ranking quality*
+has been shown to be invalid, the shipped build's ranking is unvalidated. The budget and
+geometry are validated against real public scores; the ranking is not. This is stated on the
+site and in `research/results_h5.md` §7 rather than being hidden behind a passing gate.

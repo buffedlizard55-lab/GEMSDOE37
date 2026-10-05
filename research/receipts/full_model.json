@@ -1,0 +1,20 @@
+{
+  "generated_utc": "2026-10-05T02:47:39+00:00",
+  "catalogue_feature_names": [
+    "cat_distance_px",
+    "cat_log_density_1500m",
+    "cat_log_density_6000m",
+    "cat_tip_distance_px",
+    "cat_tip_continuation"
+  ],
+  "n_catalogue_components": 3199,
+  "n_catalogue_pixels": 60988,
+  "p_struct": {
+    "mean": 0.07484857738018036,
+    "max": 0.8821126222610474
+  },
+  "p_cat": {
+    "mean": 0.011802714318037033,
+    "max": 0.9999977350234985
+  }
+}

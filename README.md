@@ -317,15 +317,27 @@ Go ahead and create a pull request and then merge the pull request onto the main
 
 ## Executive Deliverable & Immediate Download
 
+**Recommended upload — H5, built and calibrated in session 2 (2026-10-05).**
+
 | Item | Details |
 |:---|:---|
-| **Direct GeoTIFF Download** | [Download .tif (86 KB)](docs/downloads/gemsdoe37-rankmix-strain-topo-20261005T030338376116Z-52bf89742e.tif) |
-| **Unique Filename** | `gemsdoe37-rankmix-strain-topo-20261005T030338376116Z-52bf89742e.tif` |
-| **Unique Submission Name** | `GEMSDOE37-H2-RANKMIX-20261005T030338376116Z-52BF89742E` |
-| **DrivenData Note (153 chars)** | `GEMSDOE37-H2-RANKMIX-20261005T030338376116Z-52BF89742E | strain abs×2 + structural + PH prior; 37654 px; exact-mask pooled pseudo-holdout 0.0369; unscored` |
-| **SHA-256 Hash** | `59cbcc4a15108ff5346b50504c6e5ebb95089f45d18bfe835ed6dcbd5f2bfa17` |
-| **Spatial Holdout Pooled DTI** | **0.036928** against a strain-only incumbent at **0.028092** (pooled gain **+0.008836**, positive gains in all 4 folds) |
-| **Format Verification** | Single-band float32, EPSG:32611, 100 m pixel size, 3730×3292 dimensions. All 12,279,160 cells finite in [0.0, 1.0], 0.0 outside footprint, nodata=None. Exact-grid re-read passed with **37,654** positive cells. |
+| **Direct GeoTIFF Download** | [Download .tif (160 KB)](docs/downloads/gemsdoe37-h5-standoff-dotted-26k-20261005T031536Z-3d5db2166013.tif) |
+| **Unique Filename** | `gemsdoe37-h5-standoff-dotted-26k-20261005T031536Z-3d5db2166013.tif` |
+| **Unique Submission Name** | `gemsdoe37-h5-standoff-dotted-26k-20261005T031536Z-3d5db2166013` |
+| **DrivenData Note** | `H5: label-free structural+persistence ranking, 3 px catalogue stand-off, 2.9 px dotting, 26,000 pixels` |
+| **SHA-256** | `b437766e894e7b33378d35513f835d650937464991dc6429701ac11202cfa708` (deterministic rebuild reproduces it) |
+| **Uniqueness** | Max Jaccard **0.032** against all 31 previously submitted rasters (closest `h16-continuation`). Not a copy or a relabel. |
+| **Geometry** | 26,000 binary pixels, 2.9 px minimum spacing (`spacing_proxy` = **1.000**, no two predicted pixels touch), 3.0 px stand-off — **0.0 %** of mass within 300 m of a catalogued fault |
+| **Format Verification** | Single-band float32, EPSG:32611, 100 m, 3730×3292, exact template transform and bounds, no nodata tag, all 12,279,160 cells finite in `[0,1]`, re-read from disk with 26,000 positive cells |
+| **Forecast public DTI** | **0.277** (pessimistic physical model, new ranking given no credit) · 0.373–0.390 (two observational models that extrapolate below the smallest budget ever submitted). Owner best to date 0.2778; leaderboard top at last manual check 0.3262. |
+
+**Alternate candidate — H2 rank-mix, built earlier the same day** (kept for comparison, *not*
+recommended): `docs/downloads/gemsdoe37-rankmix-strain-topo-20261005T030338376116Z-52bf89742e.tif`,
+37,654 px, sha256 `59cbcc4a15108ff5346b50504c6e5ebb95089f45d18bfe835ed6dcbd5f2bfa17`. It was promoted
+on a catalogue-ablation pseudo-holdout gain (0.0369 vs. 0.0281). Session 2 then measured that this
+holdout does not predict the public score (Spearman −0.10 over 28 non-leaking scored maps), so that
+gain is not evidence of competition performance. Both files are format-valid and uploadable; the
+H5 file is the one backed by the public-score calibration.
 
 ---
 

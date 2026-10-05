@@ -1,0 +1,286 @@
+{
+  "generated_utc": "2026-10-05T03:21:09+00:00",
+  "file": "gemsdoe37-h5-standoff-dotted-26k-20261005T031536Z-3d5db2166013.tif",
+  "format_checks": {
+    "driver_is_gtiff": true,
+    "single_band": true,
+    "dtype_float32": true,
+    "shape_matches_template": true,
+    "crs_matches_template": true,
+    "epsg_matches": true,
+    "transform_matches_template": true,
+    "resolution_matches_template": true,
+    "bounds_match_template": true,
+    "nodata_tag_absent": true,
+    "all_cells_finite": true,
+    "min": 0.0,
+    "max": 1.0,
+    "range_0_1_all_cells": true,
+    "positive_pixels": 26000,
+    "sha256": "b437766e894e7b33378d35513f835d650937464991dc6429701ac11202cfa708",
+    "size_bytes": 164067
+  },
+  "descriptors": {
+    "positive_pixels": 26000,
+    "mass": 26000.0,
+    "spacing_proxy": 1.0,
+    "frac_mass_within_3px_of_catalogue": 0.0,
+    "min_catalogue_distance_px": 3.1622776985168457,
+    "mean_pstruct_of_selected": 0.29519736766815186,
+    "mean_pstruct_of_footprint": 0.07484857738018036,
+    "pixels_on_catalogue": 0,
+    "pixels_outside_footprint": 0
+  },
+  "persistence_stability": {
+    "dem": {
+      "mean_scales_survived_selected": 2.838153839111328,
+      "mean_scales_survived_footprint": 2.7857236862182617,
+      "fraction_selected_surviving_2_or_more_scales": 0.9763461538461539,
+      "fraction_footprint_surviving_2_or_more_scales": 0.9592301542776185,
+      "mean_prominence_selected": 0.9144068360328674
+    },
+    "mag": {
+      "mean_scales_survived_selected": 2.871615409851074,
+      "mean_scales_survived_footprint": 2.8741986751556396,
+      "fraction_selected_surviving_2_or_more_scales": 0.9673461538461539,
+      "fraction_footprint_surviving_2_or_more_scales": 0.968946503378022,
+      "mean_prominence_selected": 0.7711665630340576
+    },
+    "grav": {
+      "mean_scales_survived_selected": 2.9490768909454346,
+      "mean_scales_survived_footprint": 2.9488022327423096,
+      "fraction_selected_surviving_2_or_more_scales": 0.9890384615384615,
+      "fraction_footprint_surviving_2_or_more_scales": 0.9895780699399869,
+      "mean_prominence_selected": 0.7183247208595276
+    },
+    "cross_family": {
+      "fraction_selected_stable_in_2_or_more_field_families": 0.9980384615384615,
+      "fraction_selected_stable_in_all_3_field_families": 0.9347307692307693
+    }
+  },
+  "persistence_note": "Scales survived counts how many of the three Gaussian smoothing scales (100/200/400 m) the pixel's H0 superlevel component persisted through. It is a multi-scale stability certificate, not evidence that the structure is a fault: used alone as a ranking, persistence scored 0.0432 on the catalogue-ablation holdout, below the 0.0646 matched-budget random floor.",
+  "uniqueness": {
+    "max_jaccard_vs_31_prior_submissions": 0.03161061566562802,
+    "max_fraction_of_our_pixels_shared": 0.39826923076923076,
+    "is_copy_or_relabel": false,
+    "per_map": [
+      {
+        "id": "h16-continuation",
+        "their_pixels": 310042,
+        "shared_pixels": 10297,
+        "jaccard": 0.03161061566562802,
+        "fraction_of_ours_shared": 0.39603846153846156
+      },
+      {
+        "id": "F-ensemble-2pct",
+        "their_pixels": 103347,
+        "shared_pixels": 3740,
+        "jaccard": 0.029775410606096793,
+        "fraction_of_ours_shared": 0.14384615384615385
+      },
+      {
+        "id": "structural-area06-v1",
+        "their_pixels": 343526,
+        "shared_pixels": 10355,
+        "jaccard": 0.028830278613807908,
+        "fraction_of_ours_shared": 0.39826923076923076
+      },
+      {
+        "id": "gems6-hgb88-topk03",
+        "their_pixels": 155021,
+        "shared_pixels": 4803,
+        "jaccard": 0.027256012439137885,
+        "fraction_of_ours_shared": 0.18473076923076923
+      },
+      {
+        "id": "h20-dem10-scarp-thin",
+        "their_pixels": 153957,
+        "shared_pixels": 4360,
+        "jaccard": 0.024829581370980142,
+        "fraction_of_ours_shared": 0.1676923076923077
+      },
+      {
+        "id": "h18-3a-topo-geophys-x-complexity",
+        "their_pixels": 122120,
+        "shared_pixels": 3348,
+        "jaccard": 0.02312601884342276,
+        "fraction_of_ours_shared": 0.12876923076923077
+      },
+      {
+        "id": "r5-geom-horse-ensemble",
+        "their_pixels": 116225,
+        "shared_pixels": 3174,
+        "jaccard": 0.022826157309188716,
+        "fraction_of_ours_shared": 0.12207692307692308
+      },
+      {
+        "id": "h25-ctx-ridge",
+        "their_pixels": 174232,
+        "shared_pixels": 3755,
+        "jaccard": 0.01911165174549693,
+        "fraction_of_ours_shared": 0.14442307692307693
+      },
+      {
+        "id": "h20-5-continuous-pu-proxy",
+        "their_pixels": 121258,
+        "shared_pixels": 2669,
+        "jaccard": 0.01845921888940376,
+        "fraction_of_ours_shared": 0.10265384615384615
+      },
+      {
+        "id": "h20-1-sarnnpu-powerlaw",
+        "their_pixels": 123829,
+        "shared_pixels": 2652,
+        "jaccard": 0.018019119835300353,
+        "fraction_of_ours_shared": 0.102
+      },
+      {
+        "id": "h19-5-powerlaw-budget",
+        "their_pixels": 121131,
+        "shared_pixels": 2533,
+        "jaccard": 0.017517531362812765,
+        "fraction_of_ours_shared": 0.09742307692307692
+      },
+      {
+        "id": "h16-1-topo-geophys-baseline-ridges",
+        "their_pixels": 123939,
+        "shared_pixels": 2562,
+        "jaccard": 0.017383988003555506,
+        "fraction_of_ours_shared": 0.09853846153846153
+      },
+      {
+        "id": "h19-4-multiline-corroborated",
+        "their_pixels": 123779,
+        "shared_pixels": 2546,
+        "jaccard": 0.017292318977403163,
+        "fraction_of_ours_shared": 0.09792307692307692
+      },
+      {
+        "id": "r7-nms3-dem10-scarp",
+        "their_pixels": 103347,
+        "shared_pixels": 2135,
+        "jaccard": 0.0167830078923372,
+        "fraction_of_ours_shared": 0.08211538461538462
+      },
+      {
+        "id": "h23-a-dti-optimal-emission-6pct",
+        "their_pixels": 335879,
+        "shared_pixels": 5027,
+        "jaccard": 0.014087072511853654,
+        "fraction_of_ours_shared": 0.19334615384615383
+      },
+      {
+        "id": "h28-dotted-ridge",
+        "their_pixels": 69281,
+        "shared_pixels": 1285,
+        "jaccard": 0.013670794501893697,
+        "fraction_of_ours_shared": 0.049423076923076924
+      },
+      {
+        "id": "h33-2-b2",
+        "their_pixels": 37654,
+        "shared_pixels": 830,
+        "jaccard": 0.013211511524258245,
+        "fraction_of_ours_shared": 0.03192307692307692
+      },
+      {
+        "id": "topo-gap-closure-t-v2-on-d1-5",
+        "their_pixels": 61328,
+        "shared_pixels": 1138,
+        "jaccard": 0.013203387864021348,
+        "fraction_of_ours_shared": 0.04376923076923077
+      },
+      {
+        "id": "h25-1-dotted-h19-5-d1-5",
+        "their_pixels": 60069,
+        "shared_pixels": 1121,
+        "jaccard": 0.013196308329801761,
+        "fraction_of_ours_shared": 0.04311538461538462
+      },
+      {
+        "id": "h27-4-r1-solo-d2-8",
+        "their_pixels": 40199,
+        "shared_pixels": 830,
+        "jaccard": 0.012697150025241322,
+        "fraction_of_ours_shared": 0.03192307692307692
+      },
+      {
+        "id": "lidarscarp-ridge-top2pct",
+        "their_pixels": 76859,
+        "shared_pixels": 1222,
+        "jaccard": 0.012023180534647815,
+        "fraction_of_ours_shared": 0.047
+      },
+      {
+        "id": "d28-poisson300m-offcat-44090",
+        "their_pixels": 44090,
+        "shared_pixels": 830,
+        "jaccard": 0.011983829049956684,
+        "fraction_of_ours_shared": 0.03192307692307692
+      },
+      {
+        "id": "dotted-h19-5-d2-8",
+        "their_pixels": 44090,
+        "shared_pixels": 830,
+        "jaccard": 0.011983829049956684,
+        "fraction_of_ours_shared": 0.03192307692307692
+      },
+      {
+        "id": "h23-b-dti-optimal-emission-10pct",
+        "their_pixels": 516738,
+        "shared_pixels": 5950,
+        "jaccard": 0.011084450472067185,
+        "fraction_of_ours_shared": 0.22884615384615384
+      },
+      {
+        "id": "Hedge-v2",
+        "their_pixels": 227507,
+        "shared_pixels": 2527,
+        "jaccard": 0.010068531357080246,
+        "fraction_of_ours_shared": 0.09719230769230769
+      },
+      {
+        "id": "dilcond-oof-v1",
+        "their_pixels": 60068,
+        "shared_pixels": 799,
+        "jaccard": 0.009370345612121639,
+        "fraction_of_ours_shared": 0.03073076923076923
+      },
+      {
+        "id": "h30-arrangement-matched-habitat",
+        "their_pixels": 91533,
+        "shared_pixels": 870,
+        "jaccard": 0.007457377231855859,
+        "fraction_of_ours_shared": 0.03346153846153846
+      },
+      {
+        "id": "h18-4-usgs-geologic-map-faults-gap",
+        "their_pixels": 57783,
+        "shared_pixels": 604,
+        "jaccard": 0.007261448202070234,
+        "fraction_of_ours_shared": 0.023230769230769232
+      },
+      {
+        "id": "r13-lattice-s5",
+        "their_pixels": 206895,
+        "shared_pixels": 1037,
+        "jaccard": 0.004472565104503619,
+        "fraction_of_ours_shared": 0.039884615384615386
+      },
+      {
+        "id": "H19-C",
+        "their_pixels": 513786,
+        "shared_pixels": 2311,
+        "jaccard": 0.004299734871389367,
+        "fraction_of_ours_shared": 0.08888461538461538
+      },
+      {
+        "id": "tso1-conj-alteration-mag",
+        "their_pixels": 99999,
+        "shared_pixels": 519,
+        "jaccard": 0.0041361173095313996,
+        "fraction_of_ours_shared": 0.01996153846153846
+      }
+    ]
+  }
+}

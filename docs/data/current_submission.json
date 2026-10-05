@@ -1,18 +1,55 @@
 {
   "schema_version": 1,
-  "status": "HOLDOUT_GATE_PASSED_UNSCORED",
-  "candidate_id": "GEMSDOE37-H2-STRAIN-STRUCT-TOPO-RANKMIX",
-  "generated_utc": "2026-10-05T03:03:37+00:00",
-  "download_path": "downloads/gemsdoe37-rankmix-strain-topo-20261005T030338376116Z-52bf89742e.tif",
-  "holdout_report_path": "reports/GEMSDOE37-H2-RANKMIX-20261005T030338376116Z-52BF89742E/holdout-report.json",
-  "filename": "gemsdoe37-rankmix-strain-topo-20261005T030338376116Z-52bf89742e.tif",
-  "submission_name": "GEMSDOE37-H2-RANKMIX-20261005T030338376116Z-52BF89742E",
-  "submission_note": "GEMSDOE37-H2-RANKMIX-20261005T030338376116Z-52BF89742E | strain abs\u00d72 + structural + PH prior; 37654 px; exact-mask pooled pseudo-holdout 0.0369; unscored",
-  "sha256": "59cbcc4a15108ff5346b50504c6e5ebb95089f45d18bfe835ed6dcbd5f2bfa17",
-  "positive_pixels": 37654,
-  "public_catalogue_holdout_pooled_dti": 0.03692793767492934,
+  "status": "CALIBRATION_GATE_PASSED_UNSCORED",
+  "candidate_id": "GEMSDOE37-H5-STANDOFF-DOTTED",
+  "generated_utc": "2026-10-05T03:15:37+00:00",
+  "download_path": "downloads/gemsdoe37-h5-standoff-dotted-26k-20261005T031536Z-3d5db2166013.tif",
+  "holdout_report_path": "downloads/checks-gemsdoe37-h5-standoff-dotted-26k-20261005T031536Z-3d5db2166013.json",
+  "filename": "gemsdoe37-h5-standoff-dotted-26k-20261005T031536Z-3d5db2166013.tif",
+  "submission_name": "gemsdoe37-h5-standoff-dotted-26k-20261005T031536Z-3d5db2166013",
+  "submission_note": "H5: label-free structural+persistence ranking, 3 px catalogue stand-off, 2.9 px dotting, 26,000 pixels",
+  "positive_pixels": 26000,
+  "public_catalogue_holdout_pooled_dti": 0.16550082631878002,
   "organizer_score": null,
-  "format_receipt": {
+  "sha256": "b437766e894e7b33378d35513f835d650937464991dc6429701ac11202cfa708",
+  "size_bytes": 164067,
+  "configuration": {
+    "ranking": "struct",
+    "spacing_px": 2.9,
+    "budget_pixels": 26000,
+    "catalogue_standoff_px": 3.0,
+    "values": "binary 1.0 at selected pixels, 0.0 elsewhere"
+  },
+  "warning": "Internal holdout numbers are reported for transparency only. This session measured that the catalogue-ablation holdout is NOT predictive of the public score (Spearman -0.10 over 28 non-leaking scored maps), so the build was selected from the 31-map public-score calibration instead. No organizer score exists for this file.",
+  "published_utc": "2026-10-05T03:21:22+00:00",
+  "status_copy": "A unique, format-validated GeoTIFF is ready to upload. It was built by this repository's own model: a label-free structural + multi-scale-persistence ranking of all 19 GEMS bands, a 3 px stand-off from every catalogued fault pixel, 2.9 px dotting, and a 26,000-pixel budget chosen from a calibration of 31 previously scored maps. It shares at most 3.2% of its pixels (Jaccard) with any previous submission, so it is not a copy or a relabel. No organizer score exists for it yet.",
+  "verification_path": "downloads/verification-gemsdoe37-h5-standoff-dotted-26k-20261005T031536Z-3d5db2166013.json",
+  "forecast_path": "downloads/forecast-gemsdoe37-h5-standoff-dotted-26k-20261005T031536Z-3d5db2166013.json",
+  "descriptors": {
+    "positive_pixels": 26000,
+    "mass": 26000.0,
+    "spacing_proxy": 1.0,
+    "frac_mass_within_3px_of_catalogue": 0.0,
+    "min_catalogue_distance_px": 3.1622776985168457,
+    "mean_pstruct_of_selected": 0.29519736766815186,
+    "mean_pstruct_of_footprint": 0.07484857738018036,
+    "pixels_on_catalogue": 0,
+    "pixels_outside_footprint": 0
+  },
+  "uniqueness": {
+    "max_jaccard_vs_prior_submissions": 0.03161061566562802,
+    "closest_prior_map": "h16-continuation",
+    "is_copy_or_relabel": false
+  },
+  "forecast": {
+    "pessimistic": 0.27685365077404583,
+    "descriptor_model": 0.3896178054669893,
+    "budget_power_law": 0.372667570219981,
+    "owner_best_so_far": 0.2778,
+    "leaderboard_top": 0.3262,
+    "reading": "The pessimistic physical model, which gives our ranking no credit at all, already puts this build at roughly the level of the current owner best. The two observational models are more optimistic but extrapolate below the observed budget range. Treat anything above 0.30 as unverified upside, not a prediction."
+  },
+  "format_checks": {
     "driver_is_gtiff": true,
     "single_band": true,
     "dtype_float32": true,
@@ -27,10 +64,35 @@
     "min": 0.0,
     "max": 1.0,
     "range_0_1_all_cells": true,
-    "positive_pixels": 37654,
-    "positive_pixels_match_budget": true,
-    "sha256": "59cbcc4a15108ff5346b50504c6e5ebb95089f45d18bfe835ed6dcbd5f2bfa17",
-    "size_bytes": 87681
+    "positive_pixels": 26000,
+    "sha256": "b437766e894e7b33378d35513f835d650937464991dc6429701ac11202cfa708",
+    "size_bytes": 164067
   },
-  "warning": "This TIFF is unique to GEMSDOE37 and passed the repository's exact-mask pseudo-holdout gate against the registered strain-only incumbent. It is not an organizer score or a guarantee of private-label performance."
+  "persistence_stability": {
+    "dem": {
+      "mean_scales_survived_selected": 2.838153839111328,
+      "mean_scales_survived_footprint": 2.7857236862182617,
+      "fraction_selected_surviving_2_or_more_scales": 0.9763461538461539,
+      "fraction_footprint_surviving_2_or_more_scales": 0.9592301542776185,
+      "mean_prominence_selected": 0.9144068360328674
+    },
+    "mag": {
+      "mean_scales_survived_selected": 2.871615409851074,
+      "mean_scales_survived_footprint": 2.8741986751556396,
+      "fraction_selected_surviving_2_or_more_scales": 0.9673461538461539,
+      "fraction_footprint_surviving_2_or_more_scales": 0.968946503378022,
+      "mean_prominence_selected": 0.7711665630340576
+    },
+    "grav": {
+      "mean_scales_survived_selected": 2.9490768909454346,
+      "mean_scales_survived_footprint": 2.9488022327423096,
+      "fraction_selected_surviving_2_or_more_scales": 0.9890384615384615,
+      "fraction_footprint_surviving_2_or_more_scales": 0.9895780699399869,
+      "mean_prominence_selected": 0.7183247208595276
+    },
+    "cross_family": {
+      "fraction_selected_stable_in_2_or_more_field_families": 0.9980384615384615,
+      "fraction_selected_stable_in_all_3_field_families": 0.9347307692307693
+    }
+  }
 }
