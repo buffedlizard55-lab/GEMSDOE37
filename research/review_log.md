@@ -151,6 +151,48 @@ in the README: yes. Three passes, PR, merge, remaining work: this log, then the 
 
 ---
 
+# Session 3 — H6 supervised physics ranker · 2026-10-05 UTC
+
+**Working branch:** `arena/01a10a4f-gemsdoe37`.
+
+## Pass 1 — implement and measure
+
+- Restored the competition rasters without any manual input or credentials by cloning the
+  hash-pinned `data/bridge` of the sibling `buffedlizard55-lab/GEMSDOE` repository with a
+  sparse, blobless checkout and reassembling the 5 parts. All three SHA-256 digests match
+  the manifest pins exactly (`4371c82e…`, `7ba308cc…`, `2176d08e…`).
+- Verified the official metric, submission format and the live leaderboard by fetching the
+  organizer pages, and re-derived `DTI = TP/(0.8|G| + 0.2TP + 0.2FP)` from the published
+  definition. Binary emission is therefore provably optimal for a fixed support.
+- Built a 94-column label-free feature stack (`scripts/h6_build_features.py`), streamed one
+  column per file after an initial out-of-memory kill on this 3 GB sandbox.
+- Ran two holdouts and a 33-configuration emission sweep; promoted `b80000_s2.9_o3.0`
+  (pooled DTI 0.21383, first in 3/3 folds) and published a unique 80,000-dot GeoTIFF.
+
+## Pass 2 — review, defects, edge cases
+
+- Found and fixed: OOM in the feature builder; a module-import failure in the segment
+  holdout; dead stand-off code in the quadrant holdout; a backslash-in-f-string syntax error.
+- Investigated the bit-identical `physics_geom` and `geom_only` arms and established it is
+  **not a bug**: catalogue positives sit at distance 0, so the geometry feature separates the
+  training set perfectly and the booster discards the physics columns.
+- Established that historical maps **cannot** be compared on this holdout (their full-catalogue
+  stand-off puts every dot beyond the 300 m kernel from hidden segments) and recorded it so the
+  ~0.005 and 0.000 numbers are never read as a win.
+- Re-downloaded the published file over HTTP from the served site and re-validated it from
+  those bytes: SHA-256 identical, all 12,279,160 cells finite in `[0,1]`, grid exact.
+- Added 15 tests (54 total, all passing), including metric-identity and binary-dominance tests
+  and consistency checks binding the site record to the actual raster.
+
+## Pass 3 — reconcile against the original request
+
+- README carries the verbatim prompt and now records the deliverable, derivations, receipts,
+  limits and next steps; the site leads with the download on both the home and executive pages.
+- 5 ranked hypotheses registered in `research/hypotheses_h6.md`, with external-source
+  obtainability verified for the two that need new data.
+- Irregularities flagged: the mirrored `example_submission.tif` is not an all-zero raster;
+  6 catalogue pixels fall outside the template footprint; sandbox egress reaches only github.com.
+- No organizer score is claimed for the published file.
 ## Session 4 (2026-10-05) — CSP build, instrument inversion, multi-pass review
 
 **Pass 1 — implement and verify.** Built the 4-fold blocked out-of-fold belief field over 234
@@ -204,3 +246,12 @@ receipt and `method.html`). Explanation of why 0.2778 scored highest and whether
 beaten: `research/results_csp.md` §2–4. Prompt preserved in the README: yes. Full autonomy,
 no organizer-score claims, limitations listed: yes. PR and merge follow this entry.
 
+
+## Session 3 / session 4 reconciliation
+
+Two sessions published candidates on this branch on 2026-10-05. Both artifacts are kept.
+The recommendation was decided by measurement: the CSP emission geometry (37,000 dots,
+3.0 px spacing, 6 px stand-off) was re-run through the identical ranker, folds and metric as
+H6 and scored **0.16651** pooled, behind H6's **0.21383**, in 3 of 3 folds
+(`research/receipts/h6_sweep_csp_geometry.json`). `docs/data/current_submission.json`
+therefore advertises the H6 file; the CSP file remains downloadable and documented.

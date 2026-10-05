@@ -1,4 +1,4 @@
-"""Fail-closed checks on the recommended CSP deliverable and its receipts.
+"""Fail-closed checks on every published deliverable and its receipts.
 
 These tests pin the bytes that the site points at, so a stale
 ``docs/data/current_submission.json`` (or a half-written TIFF) cannot silently ship.
@@ -53,7 +53,7 @@ def test_csp_geotiff_contract():
         values = src.read(1)
     assert np.all(np.isfinite(values))
     assert float(values.min()) >= 0.0 and float(values.max()) <= 1.0
-    assert int((values > 0.0).sum()) == int(RECORD["positive_pixels"]) == 37_000
+    assert int((values > 0.0).sum()) == int(RECORD["positive_pixels"])
     assert set(np.unique(values)).issubset({0.0, 1.0})
 
 
@@ -73,3 +73,33 @@ def test_csp_uniqueness_and_note_are_honest():
     assert 0 < len(note) <= 200
     assert "unscored" in note.lower()
     assert "no organizer score" in RECORD["warning"].lower()
+
+
+CSP_FILENAME = "gemsdoe37-csp-concealed-persistence-20261005T060000Z-8ba2edb16e5c.tif"
+CSP_TIF = DOCS / "downloads" / CSP_FILENAME
+
+
+def test_alternative_csp_artifact_is_still_present_and_valid():
+    """The superseded CSP candidate is kept, not deleted, and must stay valid."""
+    assert CSP_TIF.exists()
+    with rasterio.open(CSP_TIF) as src:
+        assert src.count == 1
+        assert src.dtypes[0] == "float32"
+        assert src.crs.to_epsg() == 32611
+        assert src.shape == (3730, 3292)
+        values = src.read(1)
+    assert np.all(np.isfinite(values))
+    assert float(values.min()) >= 0.0 and float(values.max()) <= 1.0
+    assert int((values > 0.0).sum()) == 37_000
+
+
+def test_recommended_candidate_beats_the_alternative_geometry_on_the_same_holdout():
+    """The recommendation is justified by a measurement, not by preference."""
+    sweep = json.loads(
+        (ROOT / "research/receipts/h6_sweep.json").read_text()
+    )["pooled"]["b80000_s2.9_o3.0"]["pooled_dti"]
+    csp = json.loads(
+        (ROOT / "research/receipts/h6_sweep_csp_geometry.json").read_text()
+    )["pooled"]["b37000_s3.0_o6.0"]["pooled_dti"]
+    assert sweep > csp
+    assert RECORD["positive_pixels"] == 80_000

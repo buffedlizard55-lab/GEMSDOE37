@@ -1,0 +1,23 @@
+{
+ "driver_is_gtiff": true,
+ "single_band": true,
+ "dtype_float32": true,
+ "shape_matches_template": true,
+ "crs_matches_template": true,
+ "epsg_matches": true,
+ "transform_matches_template": true,
+ "resolution_matches_template": true,
+ "bounds_match_template": true,
+ "nodata_tag_absent": true,
+ "all_cells_finite": true,
+ "min": 0.0,
+ "max": 1.0,
+ "range_0_1_all_cells": true,
+ "positive_pixels": 80000,
+ "positive_pixels_match_budget": true,
+ "sha256": "ce749a992baec603460dfeddd068758855cb8b12978268e6ef94f6e23ffd9ee7",
+ "size_bytes": 338973,
+ "file": "gemsdoe37-h6-physics-dotted-80k-20261005T055000Z-0bef9211631c.tif",
+ "submission_name": "gemsdoe37-h6-physics-dotted-80k-20261005T055000Z-0bef9211631c",
+ "generated_utc": "2026-10-05T05:50:02.891673+00:00"
+}

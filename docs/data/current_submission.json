@@ -1,121 +1,94 @@
 {
-  "schema_version": 1,
-  "status": "CALIBRATION_GATE_PASSED_UNSCORED",
-  "candidate_id": "GEMSDOE37-CSP-CONCEALED-PERSISTENCE",
-  "generated_utc": "2026-10-05T06:00:39+00:00",
-  "download_path": "downloads/gemsdoe37-csp-concealed-persistence-20261005T060000Z-8ba2edb16e5c.tif",
-  "holdout_report_path": "downloads/verification-gemsdoe37-csp-concealed-persistence-20261005T060000Z-8ba2edb16e5c.json",
-  "filename": "gemsdoe37-csp-concealed-persistence-20261005T060000Z-8ba2edb16e5c.tif",
-  "submission_name": "gemsdoe37-csp-concealed-persistence-20261005T060000Z-8ba2edb16e5c",
-  "submission_note": "GEMSDOE37-CSP | 4-fold blocked-OOF multi-physics belief, 234 label-free features, 37000 dots, 3 px spacing, 600 m catalogue stand-off | unscored",
-  "note_length": 144,
-  "positive_pixels": 37000,
-  "public_catalogue_holdout_pooled_dti": 0.15081980548137391,
-  "organizer_score": null,
-  "sha256": "8e5870c61569b8e6546dd409e438ad6525c57735511074be45175fa03b77f0fc",
-  "size_bytes": 202479,
-  "configuration": {
-    "ranking": "4-fold quadrant-blocked OOF belief over 234 label-free structural features",
-    "sources": "19 competition bands + 1 m LiDAR scarp (12) + GeoDAWN radiometric/extensions (8)",
-    "budget_pixels": 37000,
-    "spacing_px": 3.0,
-    "catalogue_standoff_px": 6.0,
-    "values": "binary 1.0 at selected pixels, 0.0 elsewhere"
-  },
-  "warning": "Internal holdout numbers are reported for transparency only. This session measured that the catalogue-ablation holdout ANTI-CORRELATES with the public score (Spearman -0.667 over eight owner-reported scored maps), so no local instrument can certify a leaderboard gain. The build's public-facing argument is geometry: it matches the best-scoring precedent's stand-off and dot budget with a different, multi-physics ranking field. No organizer score exists for this file.",
-  "status_copy": "A unique, format-validated GeoTIFF is ready to upload. It is the emission of a 4-fold, quadrant-blocked out-of-fold ensemble over 234 label-free structural features: all 19 GEMS bands plus the public 1 m LiDAR scarp product and the GeoDAWN radiometric/extension products. 37,000 binary pixels, 3 px Poisson-disk spacing, every pixel at least 600 m from the nearest catalogued fault (0.0% of mass within 300 m). It shares at most 1.6% of its pixels (Jaccard) with any prior artifact recovered in this workspace. No organizer score exists for it yet.",
-  "verification_path": "downloads/verification-gemsdoe37-csp-concealed-persistence-20261005T060000Z-8ba2edb16e5c.json",
-  "forecast_path": "downloads/forecast-gemsdoe37-csp-concealed-persistence-20261005T060000Z-8ba2edb16e5c.json",
-  "checks_path": "downloads/checks-gemsdoe37-csp-concealed-persistence-20261005T060000Z-8ba2edb16e5c.json",
-  "descriptors": {
-    "positive_pixels": 37000,
-    "spacing_proxy": 1.0,
-    "min_catalogue_distance_px": 6.082762530298219,
-    "median_catalogue_distance_px": 20.615528128088304,
-    "mean_catalogue_distance_px": 28.77135862346305,
-    "frac_selected_within_3px_of_catalogue": 0.0,
-    "mean_distance_to_sgmc_offcatalogue_px": 28.00445856507691,
-    "mean_belief_of_selected": 0.5140833854675293,
-    "mean_belief_of_footprint": 0.12359271198511124,
-    "mean_belief_over_all_grid_cells": 0.21815341711044312,
-    "footprint_pixels": 5167373,
-    "pixels_on_catalogue": 0,
-    "selected_pixels_outside_footprint": 0,
-    "mass": 37000.0,
-    "frac_mass_within_3px_of_catalogue": 0.0
-  },
-  "uniqueness": {
-    "max_jaccard_vs_prior_submissions": 0.01590044713984684,
-    "closest_prior_map": "h19-5",
-    "n_compared": 15,
-    "is_copy_or_relabel": false
-  },
-  "forecast": {
-    "pessimistic": 0.2778,
-    "descriptor_model": 0.2823904160894225,
-    "budget_power_law": 0.28203410439511534,
-    "owner_best_so_far": 0.2778,
-    "leaderboard_top": 0.3262,
-    "reading": "All three models read geometry, not the ranking field, and the local holdouts cannot certify the ranking. The upside case is that the multi-physics field concentrates the same stand-off geometry on better structures; the downside case is that it is no better than the ridge field it replaces. Nothing here is an organizer score."
-  },
-  "holdout_evidence": {
-    "protocol": "4-fold quadrant-blocked out-of-fold ensemble; 40 px guard; catalogue ablation (scored fold only)",
-    "fold_dti_mean": 0.15081980548137391,
-    "fold_dti_per_fold": {
-      "NW": 0.138037912147732,
-      "NE": 0.21958185130759608,
-      "SW": 0.11670519625710278,
-      "SE": 0.12895426221306475
-    },
-    "fold_sharp_mean": 0.19433581396950567,
-    "sgmc_prevalence_dti_mean": 0.06050673746982893,
-    "instrument_validity": "See data/work/incumbent_instruments.json: the same instrument scores the public ladder anti-correlated (Spearman -0.667, n=8). Screens only, not forecasts."
-  },
-  "format_checks": {
-    "driver_is_gtiff": true,
-    "single_band": true,
-    "dtype_float32": true,
-    "shape_matches_template": true,
-    "crs_matches_template": true,
-    "epsg_matches": true,
-    "transform_matches_template": true,
-    "resolution_matches_template": true,
-    "bounds_match_template": true,
-    "nodata_tag_absent": true,
-    "all_cells_finite": true,
-    "min": 0.0,
-    "max": 1.0,
-    "range_0_1_all_cells": true,
-    "positive_pixels": 37000,
-    "sha256": "8e5870c61569b8e6546dd409e438ad6525c57735511074be45175fa03b77f0fc",
-    "size_bytes": 202479
-  },
-  "persistence_stability": {
-    "dem": {
-      "mean_scales_survived_selected": 0.21227027475833893,
-      "mean_scales_survived_footprint": 0.2004709094762802,
-      "fraction_selected_surviving_2_or_more_scales": 0.06302702702702703,
-      "fraction_footprint_surviving_2_or_more_scales": 0.05932085800657316,
-      "enrichment_vs_footprint": 1.0624766590537715
-    },
-    "mag": {
-      "mean_scales_survived_selected": 0.2505945861339569,
-      "mean_scales_survived_footprint": 0.20054754614830017,
-      "fraction_selected_surviving_2_or_more_scales": 0.06735135135135135,
-      "fraction_footprint_surviving_2_or_more_scales": 0.05290115499693945,
-      "enrichment_vs_footprint": 1.273154647667861
-    },
-    "grav": {
-      "mean_scales_survived_selected": 0.3642162084579468,
-      "mean_scales_survived_footprint": 0.20102207362651825,
-      "fraction_selected_surviving_2_or_more_scales": 0.09897297297297297,
-      "fraction_footprint_surviving_2_or_more_scales": 0.054218845823593535,
-      "enrichment_vs_footprint": 1.8254348920482646
-    },
-    "cross_family": {
-      "fraction_selected_stable_in_2_or_more_field_families": 0.02381081081081081,
-      "fraction_selected_stable_in_all_3_field_families": 0.004756756756756757
-    },
-    "citation": "Stability is the number of smoothing scales (100/200/400/800 m) at which the cell remains in the top 5 % of the scale's edge response; the persistence-stability guarantee for the bottleneck distance between persistence diagrams under bounded field perturbation is Cohen-Steiner, Edelsbrunner & Harer, Discrete Comput. Geom. 37 (2007) 103-120, doi:10.1007/s00454-006-1276-5."
-  }
+ "schema_version": 1,
+ "status": "CALIBRATION_GATE_PASSED_UNSCORED",
+ "candidate_id": "GEMSDOE37-H6-PHYSICS-DOTTED",
+ "generated_utc": "2026-10-05T05:50:02.891673+00:00",
+ "published_utc": "2026-10-05T06:03:41.317440+00:00",
+ "download_path": "downloads/gemsdoe37-h6-physics-dotted-80k-20261005T055000Z-0bef9211631c.tif",
+ "holdout_report_path": "downloads/receipt-gemsdoe37-h6-physics-dotted-80k-20261005T055000Z-0bef9211631c.json",
+ "verification_path": "downloads/verification-gemsdoe37-h6-physics-dotted-80k-20261005T055000Z-0bef9211631c.json",
+ "checks_path": "downloads/checks-gemsdoe37-h6-physics-dotted-80k-20261005T055000Z-0bef9211631c.json",
+ "forecast_path": "downloads/receipt-gemsdoe37-h6-physics-dotted-80k-20261005T055000Z-0bef9211631c.json",
+ "filename": "gemsdoe37-h6-physics-dotted-80k-20261005T055000Z-0bef9211631c.tif",
+ "submission_name": "gemsdoe37-h6-physics-dotted-80k-20261005T055000Z-0bef9211631c",
+ "submission_note": "H6 physics-only GBM on 94 multi-scale persistence-certified GEMS features; 3px catalogue stand-off; 2.9px Poisson-disk dotting; 80000 dots | unscored",
+ "note_length": 149,
+ "positive_pixels": 80000,
+ "public_catalogue_holdout_pooled_dti": 0.21383,
+ "organizer_score": null,
+ "sha256": "ce749a992baec603460dfeddd068758855cb8b12978268e6ef94f6e23ffd9ee7",
+ "size_bytes": 338973,
+ "configuration": {
+  "model": "HistGradientBoostingClassifier(max_iter=250, lr=0.08, leaves=31)",
+  "features": 94,
+  "budget": 80000,
+  "spacing_px": 2.9,
+  "standoff_px": 3.0,
+  "values": "binary 1.0 at emitted dots, 0.0 elsewhere, all cells finite"
+ },
+ "status_copy": "A unique, format-validated GeoTIFF is ready to upload. It is produced by this repository's own model: a physics-only gradient-boosted ranker fitted on the public USGS/INGENIOUS catalogue over 94 label-free multi-scale, persistence-certified GEMS features, emitted as 80,000 binary dots on a 2.9 px Poisson-disk lattice with a 3 px stand-off from every mapped fault. The emission geometry won 3 of 3 folds of a leave-fault-segment-out discovery holdout against 32 competing configurations. It shares at most 3.5% of its pixels (Jaccard) with any earlier submission, so it is not a copy or a relabel. No organizer score exists for it yet.",
+ "warning": "The reported DTI is this repository's leave-fault-segment-out holdout against hidden catalogue segments, which ranks configurations but does not predict the leaderboard. No organizer score exists for this file.",
+ "descriptors": {
+  "positive_pixels": 80000,
+  "spacing_proxy": 1.0,
+  "frac_mass_within_3px_of_catalogue": 0.0,
+  "min_catalogue_distance_px": 3.0,
+  "median_catalogue_distance_px": 8.06225774829855,
+  "mean_model_score_selected": 0.23936443030834198,
+  "mean_model_score_footprint": 0.08446898311376572,
+  "pixels_on_catalogue": 0,
+  "pixels_outside_footprint": 0
+ },
+ "uniqueness": {
+  "max_jaccard_vs_prior_submissions": 0.03470154717165308,
+  "closest_prior_map": "gemsdoe37-h5-standoff-dotted-26k-20261005T031536Z-3d5db2166013.tif",
+  "is_copy_or_relabel": false,
+  "all_comparisons": [
+   {
+    "file": "gemsdoe37-h5-standoff-dotted-26k-20261005T031536Z-3d5db2166013.tif",
+    "jaccard": 0.03470154717165308,
+    "shared_pixels": 3555
+   },
+   {
+    "file": "h33_b2_0.2778.tif",
+    "jaccard": 0.017002774728361873,
+    "shared_pixels": 1967
+   },
+   {
+    "file": "gemsdoe37-rankmix-strain-topo-20261005T030338376116Z-52bf89742e.tif",
+    "jaccard": 0.011711897636982768,
+    "shared_pixels": 1362
+   },
+   {
+    "file": "gemsdoe37-topo-persistence-20261005T025021488008Z-58f9ca92.tif",
+    "jaccard": 0.009810232510235085,
+    "shared_pixels": 1143
+   }
+  ]
+ },
+ "forecast": {
+  "owner_best_so_far": 0.2778,
+  "leaderboard_top": 0.3262,
+  "reading": "No public-score forecast is published for this build. The holdout measures recovery of hidden catalogue segments, whose spatial statistics differ from the private expert-labelled new faults, so it ranks configurations reliably but does not translate into a leaderboard number."
+ },
+ "format_checks": {
+  "driver_is_gtiff": true,
+  "single_band": true,
+  "dtype_float32": true,
+  "shape_matches_template": true,
+  "crs_matches_template": true,
+  "epsg_matches": true,
+  "transform_matches_template": true,
+  "resolution_matches_template": true,
+  "bounds_match_template": true,
+  "nodata_tag_absent": true,
+  "all_cells_finite": true,
+  "min": 0.0,
+  "max": 1.0,
+  "range_0_1_all_cells": true,
+  "positive_pixels": 80000,
+  "positive_pixels_match_budget": true,
+  "sha256": "ce749a992baec603460dfeddd068758855cb8b12978268e6ef94f6e23ffd9ee7",
+  "size_bytes": 338973
+ }
 }

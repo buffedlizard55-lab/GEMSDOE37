@@ -1,0 +1,38 @@
+{
+ "h33_b2_0.2778.tif": {
+  "pooled_dti": 0.005293988367218746,
+  "positive_pixels": 37654,
+  "per_fold": [
+   {
+    "fold": 0,
+    "dti": 0.005851083530841032
+   },
+   {
+    "fold": 1,
+    "dti": 0.004871839727529219
+   },
+   {
+    "fold": 2,
+    "dti": 0.005159644993224007
+   }
+  ]
+ },
+ "gemsdoe37-h5-standoff-dotted-26k-20261005T031536Z-3d5db2166013.tif": {
+  "pooled_dti": 0.0,
+  "positive_pixels": 26000,
+  "per_fold": [
+   {
+    "fold": 0,
+    "dti": 0.0
+   },
+   {
+    "fold": 1,
+    "dti": 0.0
+   },
+   {
+    "fold": 2,
+    "dti": 0.0
+   }
+  ]
+ }
+}

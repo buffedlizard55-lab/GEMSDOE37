@@ -20,6 +20,8 @@ htmlcov/
 .venv/
 venv/
 *.egg-info/
+data/raw
+data/work
 
 # Local clone cache used by scripts/fetch_open_data.sh (regenerable)
 .data_bridge/
