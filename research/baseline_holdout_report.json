@@ -1,0 +1,24 @@
+{
+  "schema_version": 2,
+  "candidate_id": "GEMSDOE37-CONTROL-SINGLE-SCALE",
+  "generated_utc": "2026-10-05T00:00:00Z",
+  "input_hashes_sha256": {
+    "features": "4371c82e3b8339b807bdffcf4ef59a225520fe2988d521be208ae33743123bc5",
+    "labels": "7ba308ccdc4418b31a178f4f1ef21aaa6e152e4028f2f6f64b01f7eb25ae4093",
+    "template": "2176d08e485aa2cd2860ce8df539db4faf4d76163b38a4dd8c30a40454d35cbc"
+  },
+  "validation_protocol_sha256": "646904928457ddfa226e52d0faa9c3a9dd7f4a20f297ea8a9876b4f0de7a974a",
+  "budget_positive_pixels": 37654,
+  "summaries": {
+    "topological_candidate": {
+      "pooled_dti": 0.026730727780584856,
+      "per_fold_dti": {
+        "NW": 0.02406338586152588,
+        "NE": 0.039478825421337765,
+        "SW": 0.032604186392439935,
+        "SE": 0.011714078830185904
+      }
+    }
+  },
+  "note": "Registered local single-scale control baseline report (sigma=2.0 px)."
+}
