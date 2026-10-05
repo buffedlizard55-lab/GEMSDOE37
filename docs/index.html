@@ -56,7 +56,7 @@
         <div><span class="small">Unique filename</span><div id="submission-filename" class="mono"></div></div>
         <div><span class="small">Unique submission ID</span><div id="submission-name" class="mono"></div></div>
         <div><span class="small">Matched positive pixels</span><div id="submission-pixels" class="mono"></div></div>
-        <div><span class="small">Public catalogue holdout mean DTI</span><div id="submission-holdout" class="mono"></div></div>
+        <div><span class="small">Public catalogue holdout pooled DTI (not organizer score)</span><div id="submission-holdout" class="mono"></div></div>
         <div style="grid-column:1/-1"><span class="small">SHA-256 receipt</span><div id="submission-hash" class="mono" style="overflow-wrap:anywhere"></div></div>
         <div style="grid-column:1/-1"><a id="holdout-report-link" href="#" target="_blank" rel="noopener">View detailed spatial-fold receipt →</a></div>
         <div style="grid-column:1/-1"><label class="small" for="submission-note">Unique submission note (copy into the optional DrivenData note field)</label><div class="copy-row"><input id="submission-note" class="copy-input" readonly><button class="copy-btn" type="button" data-copy-note>Copy note</button></div></div>
@@ -70,28 +70,23 @@
       <div><span class="section-kicker">Research question</span><h2 id="research-title">Can geological persistence improve targeting?</h2><p>We test whether stable, multiscale ridge structure adds value over a matched-budget single-scale prospectivity map—not whether a visually compelling map can tell a story.</p></div>
     </div>
     <div class="grid grid-3">
-      <article class="card"><span class="badge">01 · Geology</span><h3 style="margin-top:12px">Four distinct hypotheses</h3><p>Topological persistence, radiometric alteration ratios, strain-orientation conditioning, and focal-mechanism kinematics are ranked before evaluation.</p><p><a href="hypotheses.html">Read the ranking →</a></p></article>
-      <article class="card"><span class="badge">02 · Stability</span><h3 style="margin-top:12px">Persistence across scale</h3><p>H0 superlevel persistence checks whether ridge-like highs survive 100, 200, and 400 m smoothing scales. Agreement is an explicit heuristic, not formal multiparameter persistence.</p><p><a href="method.html#persistence">Inspect the detector →</a></p></article>
-      <article class="card"><span class="badge">03 · Validation</span><h3 style="margin-top:12px">Spatial blocks first</h3><p>Four guarded catalogue folds, a matched positive-pixel budget, a historical educational reference, and a same-budget single-scale control gate the candidate.</p><p><a href="method.html#holdout">See the preregistered gate →</a></p></article>
+      <article class="card"><span class="badge">01 · Geology</span><h3 style="margin-top:12px">Four distinct hypotheses</h3><p>H0 persistence, raw GeoDAWN flight-line repeatability, Sentinel-1 deformation discontinuities, and USGS focal-mechanism concordance are ranked with prior-work overlap disclosed.</p><p><a href="hypotheses.html">Read the ranking →</a></p></article>
+      <article class="card"><span class="badge">02 · Stability</span><h3 style="margin-top:12px">Persistence is not geology</h3><p>H0 bars are connected-component maxima. Current code paints small peak neighborhoods; it has no explicit line-continuity test and no cross-scale stability theorem.</p><p><a href="method.html#persistence">Inspect the detector →</a></p></article>
+      <article class="card"><span class="badge">03 · Validation</span><h3 style="margin-top:12px">Spatial blocks first</h3><p>Four guarded catalogue folds use pooled DTI, exact known-pixel masking, a matched budget, and a fail-closed requirement for a registered current holdout-best baseline.</p><p><a href="method.html#holdout">See the preregistered gate →</a></p></article>
     </div>
   </section>
 
   <section class="section" aria-labelledby="leaderboard-title">
     <div class="section-heading">
-      <div><span class="section-kicker">Official public board · dated snapshot</span><h2 id="leaderboard-title">The current benchmark</h2><p>These are public leaderboard values captured <time data-leaderboard-date datetime="2026-10-05">2026-10-05</time>. The board changes; the linked official page is authoritative.</p></div>
-      <a href="leaderboard.html">Full snapshot & refresh notes →</a>
+      <div><span class="section-kicker">Organizer source · live page</span><h2 id="leaderboard-title">Check the official benchmark</h2><p>The public board changes and does not show submission filenames. No cached rows or automated refresh are maintained here because of the organizer's Terms of Use.</p></div>
+      <a href="leaderboard.html">Leaderboard access policy →</a>
     </div>
-    <div class="stat-row">
-      <div class="stat"><strong>0.3262</strong><span>Public leader · nchuzhoy · dated snapshot</span></div>
-      <div class="stat"><strong>0.3222</strong><span>Second · kinghorton42 · dated snapshot</span></div>
-      <div class="stat"><strong>0.3195</strong><span>Third · DARD · dated snapshot</span></div>
-    </div>
-    <p class="small" style="margin-top:12px">The competition’s evaluation and leaderboard are organizer-controlled. This project has no verified score, submitted entry, or proven win. <a data-leaderboard-source href="https://www.drivendata.org/competitions/306/competition-doe-gems/leaderboard/" rel="noopener">Open official leaderboard ↗</a></p>
+    <p class="small">Open the <a href="https://www.drivendata.org/competitions/306/competition-doe-gems/leaderboard/" rel="noopener">official DrivenData leaderboard ↗</a> for the current values. A one-time review on 2026-10-05 found the task's stated 0.3195 was not the highest score in that snapshot; see the evidence-graded analysis for the caveat.</p>
   </section>
 
   <section class="section" aria-labelledby="prior-results-title">
-    <div class="section-heading"><div><span class="section-kicker">Learning from prior work</span><h2 id="prior-results-title">Separate leaderboard facts from owner claims</h2><p>The visible leaderboard does not expose model or TIFF filenames. We document the sibling team's reported sparse-thinning and H33 results as owner claims, and do not attribute a matching 0.2778 row without evidence.</p></div><a href="results-analysis.html">Read the score autopsy →</a></div>
-    <div class="grid grid-3"><article class="card"><span class="badge">Official board</span><h3 style="margin-top:12px">0.3262 · nchuzhoy</h3><p>Top public score on the dated snapshot. Method and file unknown from the board.</p></article><article class="card"><span class="badge badge-amber">Owner report</span><h3 style="margin-top:12px">0.2600 · H19-5</h3><p>Prior project's reported best; not an organizer-verified score in the report we reviewed.</p></article><article class="card"><span class="badge badge-amber">Unresolved claim</span><h3 style="margin-top:12px">0.2778 · H33 association</h3><p>User-provided file-score pairing; owner site instead called its H33 projection 0.2747 and unscored.</p></article></div>
+    <div class="section-heading"><div><span class="section-kicker">Learning from prior work</span><h2 id="prior-results-title">Separate official scores from owner claims</h2><p>The leaderboard does not expose model or TIFF filenames. The H33 0.2778 pairing remains user-reported; the owner page describes a 0.2747 projection and an unscored proxy.</p></div><a href="results-analysis.html">Read the score autopsy →</a></div>
+    <div class="grid grid-3"><article class="card"><span class="badge">Official source</span><h3 style="margin-top:12px">Organizer leaderboard</h3><p>Dynamic public page. Verify the current row directly; GEMSDOE37 does not cache it.</p></article><article class="card"><span class="badge badge-amber">Owner report</span><h3 style="margin-top:12px">H19-5 · 0.2600 reported</h3><p>Prior project's reported best; not an organizer-verified score in the report reviewed.</p></article><article class="card"><span class="badge badge-amber">Unresolved claim</span><h3 style="margin-top:12px">H33 · 0.2778 association</h3><p>User-provided file-score pairing; score-to-file attribution is not verified.</p></article></div>
   </section>
 
   <section class="section" aria-labelledby="principles-title">

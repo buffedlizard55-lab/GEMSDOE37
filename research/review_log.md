@@ -24,6 +24,47 @@
 - Recorded the unresolved requirement for a competitor-authenticated data download, local provenance/grid/band checks, and metric parity against the organizer's worked example. The Pages settings API denied a source-path change from the repository's current `main:/` setting, so a root redirect into `docs/` is included to make the existing Pages configuration serve the site.
 - **Decision:** do not spend a weekly submission slot. The current repository state is intentionally **not submission-ready**.
 
+---
+
+# Continuation review — 2026-10-05 UTC
+
+**Working branch:** `arena/01a1099e-gemsdoe37` (the branch named in earlier entries is historical; no branch switch was made). No competition raster, competition-data holdout result, TIFF, or organizer score was produced. PR #5 was opened from this branch after local review; both GitHub Actions runs passed. The PR page records its final merge state.
+
+## Pass 1 — implement
+
+- Corrected `distance_weighted_tversky` to accept an exact pixel exclusion mask, with synthetic cases proving the masked pixel is ignored while an adjacent pixel remains scored.
+- Corrected fold scoring to exclude only exact visible-known pixels, select matched budgets outside those exact pixels, and pool TP/FP/FN across the four spatial blocks before computing the summary DTI.
+- Removed the full-catalogue H33 B=2 raster from the promotion comparator because its deletion buffer used held-out labels; fixed the 37,654 reported count as a budget only.
+- Added a fail-closed, hash-pinned current-holdout-best registration. It is currently null, so even a future control pass cannot authorize a weekly slot until a compatible best report exists.
+- Kept the existing conservative GeoTIFF writer: all cells must be finite and within `[0,1]`, with no nodata tag. The authentic sample template and portal are unavailable, so exact outside-footprint handling remains unverified.
+- Re-registered scoring mask, pooled aggregation, 300 m guard limitation, current-best gate, budget, and output semantics in preregistration revisions 3–4 before any raster evaluation.
+- Reconciled H33 owner claims, exact mask rule, prior-method overlap, and four ranked hypotheses. Added source audits for broad Sentinel-1 and ComCat queries; neither establishes exact-footprint predictive availability.
+- Removed the leaderboard parser and scheduled workflow after reviewing DrivenData's Terms of Use. The site now links to the official board without cached rows. Added a Python test workflow for CI.
+
+## Pass 2 — review and defect check
+
+- Corrected the prior claim that B=2 catalogue-flank pruning follows the organizer's evaluation mask. Staff say only exact known-fault pixels are masked and new truth may lie nearby.
+- Corrected the old arithmetic mean-of-fold summary: organizer aggregation is pooled, so local reporting now sums TP/FP/FN first. Per-fold DTI is retained for stability safeguards only.
+- Found that a static H33 reference is label-leaky in spatial folds; it is removed as a fold baseline. A proposed NaN/nodata output revision was reverted after review because authentic sample-template semantics were not verified. The existing all-cell finite/range check is retained as a conservative guard, not claimed as portal-tested.
+- Added regression tests for exact-mask behavior, adjacent scoreability, pooled aggregation, fail-closed current-best registration, and report hash matching. The existing GeoTIFF tests retain strict all-cell finite/range requirements.
+- Installed package/test dependencies in the ignored `.venv` and ran `.venv/bin/python -m pytest -q`: **37 passed in 0.80 s** (2026-10-05 UTC). GitHub Actions PR check `test` passed (run 37252335117, 28 s).
+- No synthetic test has been presented as competition-data validation or organizer parity.
+
+## Pass 3 — reconcile and hand off
+
+- Updated README and charter with the preserved prompt, current blockers, official exact-mask/pooling rules, H0 limitations, and no-scraping policy.
+- Updated site home, results, hypotheses, method, leaderboard link, source register, and executive upload guide. The status JSON says `NOT_READY`; download remains disabled. No generated TIFF or placeholder was added.
+- Verified local HTML links/fragments, JavaScript, JSON and Python/shell syntax. Started the site preview and confirmed HTTP 200 responses for all principal pages and the status JSON.
+- A one-time board review found the task's stated 0.3195 was not the leader; no exact board rows are retained, and the site no longer copies or polls rows. The H33-to-0.2778 association remains user-reported and unverified.
+- Opened PR #5 from `arena/01a1099e-gemsdoe37`; both GitHub Actions `test` checks passed. Its GitHub page records merge state.
+- Rechecked the user request: 3–5 ranked candidates are registered, the leading candidate is not claimed to have passed holdout, the current-best report is absent, the upload note/name only exist as future generation rules, and no weekly slot is spent.
+
+## Remaining blockers
+
+1. Obtain authorized competition rasters without requesting/storing credentials; authenticate their provenance, grid, and layer metadata.
+2. Establish a same-input, same-protocol current holdout-best report before H1 scoring; then run the registered pooled spatial holdout at matched budget.
+3. Exercise the writer against the real sample template and organizer portal; no file is currently eligible for download/upload or competition entry.
+
 ## Post-merge Pages handoff
 
 - PR #1 was merged to `main` on 2026-10-05 at 01:02:59 UTC. The Pages API denied a source-path change with HTTP 403. PR #2, adding a root redirect into `docs/`, was merged at 01:04:22 UTC; Pages still reported `building` immediately afterward.

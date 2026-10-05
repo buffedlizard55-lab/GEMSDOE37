@@ -45,7 +45,7 @@
         safeText($("#submission-status-label"), ready ? "Spatial gate passed · organizer-unscored" : "Not submission-ready");
         safeText($("#submission-status-title"), ready ? "A validated candidate is available" : "No validated TIFF is available");
         safeText($("#submission-status-copy"), ready
-          ? "The candidate has passed the preregistered public-catalogue pseudo-holdout and GeoTIFF format checks. That is not an organizer score or proof of hidden-label performance."
+          ? "The candidate passed the preregistered pooled spatial pseudo-holdout and GeoTIFF checks. The exact known-fault pixels are excluded; there is no proximity buffer. This is not an organizer score or proof of hidden-label performance."
           : (record.warning || "No candidate has passed the preregistered holdout and output checks."));
         const download = $("#candidate-download");
         if (download) {
@@ -68,7 +68,7 @@
           safeText($("#submission-name"), record.submission_name);
           safeText($("#submission-hash"), record.sha256);
           safeText($("#submission-pixels"), Number(record.positive_pixels).toLocaleString());
-          safeText($("#submission-holdout"), Number(record.public_catalogue_holdout_mean_dti).toFixed(4));
+          safeText($("#submission-holdout"), Number(record.public_catalogue_holdout_pooled_dti).toFixed(4));
           const reportLink = $("#holdout-report-link");
           if (reportLink && record.holdout_report_path) reportLink.href = record.holdout_report_path;
           const note = $("#submission-note");
@@ -76,36 +76,7 @@
         }
       })
       .catch((error) => {
-        safeText($("#submission-status-copy"), `Status feed unavailable (${error.message}). Treat this page as not submission-ready until the repository status file can be checked.`);
+        safeText($("#submission-status-copy"), `Submission status unavailable (${error.message}). Treat this page as not submission-ready until the status file can be checked.`);
       });
-  }
-
-  const leaderboard = $(`[data-leaderboard]`);
-  if (leaderboard) {
-    fetch("data/leaderboard.json", { cache: "no-store" })
-      .then((response) => {
-        if (!response.ok) throw new Error(`status ${response.status}`);
-        return response.json();
-      })
-      .then((feed) => {
-        const body = $("[data-leaderboard-body]");
-        if (body && Array.isArray(feed.rows)) {
-          body.replaceChildren(...feed.rows.map((row) => {
-            const tr = document.createElement("tr");
-            for (const value of [row.rank, row.participant, Number(row.score).toFixed(4)]) {
-              const td = document.createElement("td");
-              td.textContent = value;
-              if (typeof value === "string" && /^\d+\.\d{4}$/.test(value)) td.className = "numeric";
-              tr.appendChild(td);
-            }
-            return tr;
-          }));
-        }
-        safeText($("[data-leaderboard-date]"), feed.captured_utc || "unknown");
-        safeText($("[data-leaderboard-note]"), feed.note || "");
-        const link = $("[data-leaderboard-source]");
-        if (link && feed.source) link.href = feed.source;
-      })
-      .catch((error) => safeText($("[data-leaderboard-note]"), `Snapshot feed unavailable (${error.message}); verify directly at DrivenData.`));
   }
 })();

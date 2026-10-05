@@ -1,71 +1,68 @@
 # Score autopsy and strategy for improvement
 
-**Status:** research synthesis; not a claim of a new score. Checked against the official competition pages and the public site materials on **2026-10-05 UTC**.
+**Status:** evidence-graded research synthesis, not a claim of a new score. Sources checked 2026-10-05 UTC. The board state below is a one-time review; the official leaderboard is dynamic.
 
-## 1. Correct the leaderboard premise
+## 1. Current official board versus the H33 owner claim
 
-The user-provided history identifies `h33-h33-2-b2-20261004T220000Z-e5eb6e7e-zeros` as a 0.2778 result and treats 0.3195 as the current leader. The official public leaderboard fetched for this work instead displayed:
+A one-time review on 2026-10-05 found that the highest public-board entry was above the task's stated 0.3195; the official leaderboard is dynamic and its current value must be checked at the [organizer page](https://www.drivendata.org/competitions/306/competition-doe-gems/leaderboard/). The board does not identify submitted TIFF filenames or methods, so a score row cannot authenticate a named artifact. This repository does not mirror leaderboard rows or run an automated monitor; see the [DrivenData Terms of Use](https://www.drivendata.org/termsofuse/).
 
-| Official public rank | Participant | DW-Tversky | Relevance |
-|---:|---|---:|---|
-| 1 | nchuzhoy | **0.3262** | Current visible leader at snapshot time |
-| 2 | kinghorton42 | 0.3222 | Second |
-| 3 | DARD | 0.3195 | The user-stated 0.3195 value is present, but is not the highest in this snapshot |
-| 13 | extradr19 | 0.2778 | Same numerical score as the user-reported H33 result, but the public table does not expose artifact filenames |
+The user-supplied score ledger associates the file `h33-h33-2-b2-20261004T220000Z-e5eb6e7e-zeros` with 0.2778. The [GEMSDOE32 owner site](https://buffedlizard55-lab.github.io/GEMSDOE32/docs/index.html) instead describes H33-2-B2 as a 37,654-pixel removal-only candidate, reports an owner-side four-fold proxy gain of +0.004870 over a reported 0.2708 base, projects 0.2747, and states that the artifacts were not organizer-scored when its page was published. The 0.2778 file-to-score association is therefore **unverified**, not an organizer-confirmed H33 result.
 
-Source: [official public leaderboard](https://www.drivendata.org/competitions/306/competition-doe-gems/leaderboard/). Scores can change; this is a dated snapshot, not a live score promise.
+## 2. What the official DTI does
 
-**Attribution irregularity:** the user's message associates a named H33 TIFF with 0.2778. The current [GEMSDOE32 owner site](https://buffedlizard55-lab.github.io/GEMSDOE32/docs/index.html) described H33-2-B2 as a primary candidate with a **projected** 0.2747 and explicitly said no organizer score existed for artifacts in that repository at the time that page was published. The public leaderboard displays a participant at 0.2778 but not the submitted filename. Therefore we cannot independently prove that the H33 TIFF is the artifact that received 0.2778. Treat the association as **user-reported**, not official.
+For the organizer's valid evaluation pixels, let `G` be the new-fault truth, `p(x) in [0,1]` the prediction, `R = 300 m`, and
 
-## 2. What the metric rewards
+`k(d) = max(1 - d/R, 0)`.
 
-The official problem description defines a distance-weighted Tversky index. With ground truth pixels `G`, prediction field `p(x) in [0,1]`, `R=300 m`, and triangular kernel
+The official description defines distance-weighted components equivalent to
 
-`k(d) = max(1 - d/R, 0)`,
+- `TP_w = sum_g max_x p(x) k(d(x,g))`,
+- `FN_w = sum_g [1 - max_x p(x) k(d(x,g))]`, and
+- `FP_w = sum_x p(x) [1 - max_g k(d(x,g))]`,
 
-it defines
+with `alpha = 0.2` and `beta = 0.8`, so
 
-- `TP_w = sum_g max_x p(x) k(d(x,g))` over prediction pixels within the support,
-- `FP_w = sum_x p(x) [1 - max_g k(d(x,g))]`, and
-- `FN_w = sum_g [1 - max_x p(x) k(d(x,g))]`.
+`DTI = TP_w / (TP_w + 0.2 FP_w + 0.8 FN_w)`.
 
-The score is `TP_w / (TP_w + 0.2 FP_w + 0.8 FN_w + epsilon)`. Thus a prediction close to an as-yet-unmatched truth line contributes more than a prediction farther away; a prediction more than 300 m away contributes no distance-weighted true-positive credit but can still add false-positive mass. The official weights deliberately penalize missed faults more than false positives, but they do **not** make arbitrary dense output optimal because every unsupported positive adds `FP_w`.
+The local proxy adds a deterministic `1e-8` denominator epsilon for numerical safety; its exact scorer implementation remains organizer-controlled. The local code is checked against the published worked example, not a replacement for the official scorer.
 
-For a narrow, marginal addition that raises one truth pixel's current maximum and adds its corresponding FP mass, and with `alpha + beta = 1`, the score-improving condition simplifies to `k > alpha * current_DTI`. At `alpha=0.2`, this is `k > 0.2 * DTI`. This is a useful **conditional marginal rule**, not a universal threshold: the full metric must be used when pixels compete for the same truth maximum, affect multiple truth pixels, or are clipped by an existing prediction.
+DrivenData staff clarified the masking rule: only the **exact provided known-fault pixels** are masked/excluded. There is no distance buffer around those pixels. Predictions on adjacent unmasked pixels are scored normally, and new truth may lie within 300 m of known traces, including corrections, continuations, and splays. See the [scoring clarification](https://community.drivendata.org/t/scoring-clarification-are-known-usgs-ingenious-faults-masked-when-scoring-and-are-they-in-the-final-round-label-set/11516/4) and [new-fault definition](https://community.drivendata.org/t/where-do-you-draw-the-line/11536/2).
 
-The practical objective is to improve the spatial distribution and credit-per-emitted-mass of candidate fault pixels—not merely to increase an uncalibrated probability, choose a single favorable gradient threshold, or emit the thickest possible ridge. This explains why sparse thinning, high-precision ranking, and a distance-aware budget can outperform a high-volume surface. It does not identify which geological detector is best.
+The official public score pools all public-subset pixels into one calculation; the same single pooled Tversky aggregation is used on private pixels, and final re-evaluation covers the entire GeoDAWN area. Therefore a local cross-fold summary should sum `TP_w`, `FP_w`, and `FN_w` across non-overlapping folds before computing one DTI; the arithmetic mean of fold DTIs is descriptive only. Source: [leaderboard aggregation clarification](https://community.drivendata.org/t/leaderboard-aggregation-pooled-over-public-test-pixels-or-mean-of-per-chunk-scores/11550/2).
 
-Source: [official problem/metric/submission description](https://www.drivendata.org/competitions/306/competition-doe-gems/page/967/).
+A narrow marginal calculation can simplify to `k > alpha * current_DTI` when an added prediction raises one truth pixel's current maximum by its kernel-weighted amount, adds the corresponding FP mass, and `alpha + beta = 1`. At `alpha=0.2`, this is `k > 0.2 * DTI`. It is **not** a universal per-pixel rule; overlapping truths, existing maxima, and competition between predictions require evaluating the full metric.
 
-## 3. What can and cannot be inferred about the 0.2778 report
+## 3. Why H33-2-B2's 200 m pruning cannot be explained by the official mask
 
-If the file-score association supplied by the user is correct, a plausible mechanism is that H33-2-B2 removed low-value candidate dots near the existing catalogue from a previously successful sparse detector. That can reduce `FP_w` while sacrificing only small amounts of `TP_w`, which can raise DTI under the asymmetric metric. The GEMSDOE32 page says H33-2-B2 was a **removal-only** operation on a user-reported 0.2708 base, and its independent site receipt reports 37,654 emitted pixels and four-fold owner-side proxy calculations. Those are owner-site measurements, not organizer-verified results.
+The owner site describes H33-2-B2 as removing points within 2 pixels (200 m) of catalogue geometry. Under the official rule:
 
-What we **cannot** claim from the available evidence:
+- Predictions on the **exact** known-fault pixels are excluded and do not contribute to TP/FP/FN.
+- Predictions within 100–200 m but **outside** the exact pixel mask remain in the scoring domain. They may help if close to a new/corrected/splayed truth, or hurt if unsupported.
+- The new-truth kernel extends to 300 m, and staff explicitly say new geometry may be within that distance.
 
-- that H33-2-B2 caused the official 0.2778 leaderboard result;
-- that the reported 4-fold holdout predicts the private expert labels;
-- that the 0.2778 result is the current competition high score;
-- that removing pixels near the catalogue is universally beneficial; or
-- that high persistence in a scalar field proves a subsurface fault.
+So a 200 m deletion is not required by the evaluator and is not guaranteed to improve DTI. The earlier explanation that all removed B=2 predictions earned zero TP and only penalty was not supported by the official rules. If the file-score association is accurate, a generic sparse-emission effect is plausible: removing redundant, low-marginal-credit predictions can lower `FP_w` more than it reduces `TP_w`. But the owner-reported proxy, not the organizer score, is the only evidence for that mechanism. No causal attribution to the B=2 rule is established.
 
-The linked previous site itself cautions that its visible-catalogue holdout cannot reward a genuinely new fault. This is scientifically appropriate. Use such holdouts as a proxy/ablation, not as ground-truth discovery validation.
+The official H33 owner page and user history also disagree in evidence status: owner projection 0.2747 versus user-reported organizer association 0.2778. The public board does not identify TIFF filenames, so it cannot bridge that gap or verify the file-score association.
 
-## 4. Why a persistence-based method is a reasonable experiment
+## 4. What H0 persistence does—and does not—say
 
-A conventional response such as Hessian curvature, gradient magnitude, or a tilt/edge transform gives a score at a chosen smoothing scale and threshold. It is vulnerable to threshold-specific artifacts and to changes caused by smoothing. A one-parameter superlevel persistence diagram instead records births and deaths of connected components as the response threshold sweeps through its full range. For a fixed transformed raster, the persistence lifetime is `birth - death` in response units. The stability theorem of Cohen-Steiner, Edelsbrunner, and Harer bounds the bottleneck distance between persistence diagrams by the sup-norm perturbation of the underlying scalar functions. Therefore, if a bar has lifetime greater than `2 epsilon`, it cannot be matched to the diagonal under a perturbation bounded by `epsilon`.
+For a fixed response raster `f`, a one-parameter H0 superlevel filtration follows connected components of `{x : f(x) >= t}` as threshold `t` decreases. A finite bar has birth/death thresholds and lifetime `birth - death`. The stability result of Cohen-Steiner, Edelsbrunner & Harer (2007) bounds the bottleneck distance between diagrams by the sup-norm perturbation of the underlying functions. Thus a bar of persistence greater than `2 epsilon` cannot be matched to the diagonal under a perturbation bounded by `epsilon`.
 
-Important limits:
+Limits matter in GEMSDOE37:
 
-1. The theorem applies to the specified scalar response field and filtration. It does not certify a geological interpretation.
-2. A spatial match of bars between separately smoothed rasters is an empirical cross-scale tracker. A rigorous guarantee for a two-parameter filtration would require an explicitly defined multiparameter persistence framework; this project will not present adjacent-scale matching as that theorem.
-3. A numerical perturbation bound must be stated and justified. If sensor/model uncertainty is not known, the output is conditional on a sensitivity parameter, not a measured confidence interval.
-4. `H0` bars track connected components of superlevel sets. To interpret them as candidate ridges, require elongated/line-like geometry, persistence across scales, cross-layer agreement, and spatial holdout evidence; do not equate every persistent peak with a fault.
+1. The theorem is conditional on a fixed transformed scalar field and a justified `epsilon`. The current `epsilon=0.01` is a registered sensitivity assumption, **not a measured sensor/model error bound**.
+2. Matching representative peak coordinates between separately smoothed rasters within 2 pixels is a greedy spatial heuristic. It is not a formal multiparameter persistence result.
+3. H0 bars identify connected-component maxima. The current implementation paints a small neighborhood around matched peaks; it contains **no explicit elongation or line-continuity test**. It cannot certify that a candidate is a fault or even a line.
+4. The DEM Hessian-anisotropy response is a geomorphic lineament proxy; magnetic/gravity gradient responses can mark lithologic boundaries, acquisition artifacts, or other geology. Cross-layer support is a hypothesis to test, not a geological label.
 
-Source: [Cohen-Steiner et al. (2007), *Stability of Persistence Diagrams*](https://doi.org/10.1007/s00454-006-1276-5); bibliographic record and stability statement also available from [ISTA Research Explorer](https://research-explorer.ista.ac.at/record/3972).
+Source: [Cohen-Steiner et al. (2007), *Stability of Persistence Diagrams*](https://doi.org/10.1007/s00454-006-1276-5); see also the [ISTA research record](https://research-explorer.ista.ac.at/record/3972).
 
-## 5. Path to a result above the current leader
+## 5. What is new enough to test next
 
-The visible gap from a correctly attributed 0.2778 artifact to the 2026-10-05 official public leader at 0.3262 is 0.0484 DTI. That gap is not evidence that any one new transform can close it. First reproduce the reported baseline on the same grid and metric, then run a preregistered spatially blocked comparison at matched positive-pixel budget. Require a positive paired improvement with no catastrophic fold and a minimum practical margin selected before seeing the holdout. Keep a second, independent proxy such as newer official fault traces or expert verification separate from the catalogue-only validation.
+The current H1 implementation is algorithmically differentiated from inspected multiscale scarp/ridge work only by explicit per-scale H0 birth/death accounting plus heuristic cross-scale peak tracking. H35-06 already tests multiscale DEM curvature/slope breaks; GEMSDOE30 registered 1 m scarp and drainage methods; GEMSDOE35 registered tilt, geodetic, gravity–magnetic, and radiometric arms; GEMSDOE36 explores Anderson/PINN, gravity, and geothermal evidence. Those are not to be relabeled as new. The distinct remaining candidates are raw GeoDAWN flight-line repeatability, Sentinel-1 InSAR deformation, and USGS moment-tensor orientation; all are conditional on source coverage and remain unimplemented in GEMSDOE37. See the [ranked register](hypotheses.md).
 
-The best novel test in this repository is the registered **multiscale topological ridge-persistence** experiment in [`hypotheses.md`](hypotheses.md). It is not yet validated because this checkout initially contained no rasters, no baseline holdout data, and no working pipeline. Until that changes, the slot status is **BLOCKED / NOT ELIGIBLE**. This is a deliberate win-probability decision, not a completed score improvement.
+The GEMSDOE37 promotion gate now requires a same-budget comparison against the single-scale control **and** a separately registered, hash-pinned local current holdout-best report under identical raw inputs and scoring protocol. The current-best slot is empty. The public-catalogue spatial proxy is not proof of hidden expert-fault discovery, especially for truths close to visible mapped traces.
+
+## 6. Current result and blockers
+
+No authenticated competition raster, complete spatial holdout, measured DTI, current holdout-best report, validated submission TIFF, or organizer score exists in the checkout. The 37,654-pixel H33 count is used only as a fixed matched-budget setting from an owner report; no H33 pixels are reused. Do not infer the candidate has beaten the user-supplied 0.2778 association or any dynamic public-board entry. The [official leaderboard link](https://www.drivendata.org/competitions/306/competition-doe-gems/leaderboard/) is the source for any later one-time check; no scheduled polling is run because the [DrivenData Terms of Use](https://www.drivendata.org/termsofuse/) prohibit robots/spiders and manual monitoring/copying without prior written consent.

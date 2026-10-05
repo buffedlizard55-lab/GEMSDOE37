@@ -1,8 +1,9 @@
 {
-  "schema_version": 1,
+  "schema_version": 2,
   "candidate_id": "GEMSDOE37-H1-TOPO-PERSISTENCE",
   "registered_utc": "2026-10-05T00:25:03Z",
-  "revision_log": "research/preregistration_revisions.md (revisions 1 and 2 recorded before any raster evaluation)",
+  "protocol_revision_date": "2026-10-05",
+  "revision_log": "research/preregistration_revisions.md (revisions 1–4 recorded before competition-raster evaluation)",
   "status": "pre-registered, not yet run on GEMS input data",
   "hypothesis": "Line-like responses supported by DEM curvature and at least one potential-field gradient, with H0 persistence greater than 2 epsilon at at least two adjacent smoothing scales, rank above single-scale threshold artifacts at matched prediction budget.",
   "layers": {
@@ -45,9 +46,12 @@
     "normalization": "robust percentiles per field; output score is a rank signal, not a calibrated probability"
   },
   "evaluation": {
-    "truth": "public catalogue labels only; catalogue pseudo-holdout, not expert-only fault truth",
+    "truth": "public catalogue labels used only for a spatial pseudo-holdout; not the expert-only hidden fault truth",
     "spatial_blocks": ["NW", "NE", "SW", "SE"],
     "guard_distance_m": 300,
+    "guard_interpretation": "Validation-only boundary guard to reduce cross-block metric-kernel leakage; not an organizer scoring buffer. It also means this pseudo-holdout does not test corrections or splays within 300 m of a visible known trace.",
+    "known_fault_mask_rule": "Apply the organizer-confirmed exact provided training-fault pixel mask only; no proximity buffer. New/corrected/splayed fault truth may occur within 300 m of known traces. In each spatial fold, only catalogue pixels outside the full held-out quadrant are visible-known; the held-out quadrant labels are withheld.",
+    "aggregation": "Sum TP, FP, and FN over all four non-overlapping evaluation blocks, then calculate one pooled DTI; per-fold DTIs are descriptive and used only for paired-regression safeguards.",
     "metric": {
       "name": "distance-weighted Tversky",
       "alpha": 0.2,
@@ -57,22 +61,35 @@
       "denominator_epsilon": 1e-8
     },
     "normalization_fit_scope": "Within each fold, fit robust input and response percentiles on the other three full quadrants only; apply those fixed transforms across the complete unsupervised feature grid. No catalogue labels enter fit masks or transformations.",
-    "matched_positive_pixel_budget": "positive pixel count of the pinned educational H33-2-B2 reference TIFF",
-    "top_budget_rule": "select exactly k highest positive ranking scores; ties resolved by ascending row-major flat index; emit binary 1/0 values",
+    "matched_positive_pixel_budget": 37654,
+    "budget_source": "Fixed count reported for the owner-side H33-2-B2 artifact in the supplied GEMSDOE32 project record. The artifact-to-organizer-score association is unverified; this count is used only as a fixed matched-budget comparator, never as a pixel source.",
+    "top_budget_rule": "For each fold, omit only exact visible-known fault pixels from candidate eligibility; no distance dilation. Select exactly k highest positive ranking scores; ties resolved by ascending row-major flat index; emit binary 1/0 values. For the eventual full-grid map, omit exact provided training-fault pixels only.",
     "primary_control": "single-scale DEM-curvature + magnetic-edge + gravity-edge ranking at sigma=2 pixels",
-    "historical_control": "H33-2-B2 public owner artifact, used only as an evaluation baseline; score/file attribution not organizer-verified",
+    "historical_control_status": "H33-2-B2 is excluded as a fold-wise promotion comparator: its B=2 catalogue-buffer pruning used labels from the complete area, including held-out quadrants, and would leak holdout truth into the fixed baseline. Its owner-reported leaderboard association is not organizer-verified.",
+    "current_holdout_best": null,
+    "current_holdout_best_registration_rule": "Before any weekly slot, register a hash-pinned local holdout report with identical raw input hashes, metric, fold/guard protocol, exact mask rule, matched pixel budget, and a validation-protocol digest covering the validator, metric, and fold/budget implementation hashes. If no compatible current-best report is registered, the slot gate fails closed.",
     "promotion_gate": {
-      "mean_dti_gain_over_historical_control": 0.005,
+      "minimum_pooled_dti_gain_over_single_scale_control": 0.005,
+      "minimum_pooled_dti_gain_over_current_holdout_best": 0.005,
       "minimum_positive_folds": 3,
       "maximum_allowed_single_fold_regression": 0.02,
       "requires_single_scale_control_to_be_beaten": true,
+      "requires_registered_current_holdout_best_to_be_beaten": true,
       "slot_eligible_only_after_full_format_validation": true
     }
   },
+  "submission_format": {
+    "grid": "exact sample-submission dimensions, CRS, and affine transform",
+    "all_stored_cells": "single-band float32 finite values in [0,1]; current local writer omits a nodata tag",
+    "outside_footprint_encoding": "not verified against an authenticated competition template or portal; do not claim the conservative local policy is organizer-confirmed",
+    "known_fault_pixels": "may be zero; they are excluded exactly by the organizer mask and do not justify suppressing nearby pixels"
+  },
   "important_limits": [
-    "The persistence theorem certifies diagram stability conditional on epsilon for each fixed transformed scalar field, not geological fault identity.",
+    "H0 persistence tracks births and deaths of connected components in superlevel sets of a scalar response; it does not prove line-shaped geometry or geological fault identity.",
+    "The persistence theorem certifies diagram stability conditional on epsilon for each fixed transformed scalar field; epsilon=0.01 is a preregistered assumption, not an empirically measured perturbation bound.",
     "Spatial matching of bars across Gaussian sigmas is heuristic; it has no formal multiparameter stability claim.",
-    "The public-catalogue holdout is not a direct proxy for new expert-only faults.",
-    "Parameters are fixed before the input rasters are available; changes after observing holdout results require a new preregistration and untouched evaluation data."
+    "The public-catalogue spatial holdout is not a direct proxy for hidden new faults, especially near known traces, and does not predict the private leaderboard.",
+    "Parameters are fixed before the input rasters are available; changes after observing holdout results require a new preregistration and untouched evaluation data.",
+    "No current holdout-best baseline report, authenticated competition raster, validated result, or eligible submission exists in the workspace."
   ]
 }
