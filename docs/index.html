@@ -28,7 +28,7 @@
   <div class="container hero-inner">
     <span class="eyebrow">Evidence-led mineral targeting · Competition 306</span>
     <h1>Download the submission.<br>Then read why it looks like that.</h1>
-    <p>A reproducible fault-prospectivity experiment for the DOE GEMS challenge, built around geological evidence, calibrated against 31 previously scored maps, and shipped with fail-closed format checks.</p>
+    <p>A reproducible fault-discovery experiment for the DOE GEMS challenge: a physics-only learned ranker over 94 multi-scale, persistence-certified geophysical features, emitted as 80,000 off-catalogue dots and validated on a leave-fault-segment-out holdout. Shipped with fail-closed format checks.</p>
     <div class="hero-actions">
       <a id="hero-download" class="btn btn-primary btn-disabled" aria-disabled="true">Checking for a validated GeoTIFF…</a>
       <a class="btn btn-outline" href="executive-summary.html">How to submit it <span aria-hidden="true">→</span></a>
@@ -37,7 +37,7 @@
       <div class="grid grid-2">
         <div><span class="small">Unique filename</span><div id="hero-filename" class="mono" style="overflow-wrap:anywhere"></div></div>
         <div><span class="small">Perfect dotting (1.000 = no touching pixels)</span><div id="descriptor-dotting" class="mono"></div></div>
-        <div><span class="small">Mass within 300 m of a catalogued fault</span><div id="descriptor-nearcat" class="mono"></div></div>
+        <div><span class="small">Mass within 300 m of a catalogued fault (0% by design)</span><div id="descriptor-nearcat" class="mono"></div></div>
         <div><span class="small">Max overlap with any prior submission</span><div id="uniqueness-jaccard" class="mono"></div></div>
       </div>
       <div style="margin-top:14px"><label class="small" for="hero-note">Submission note — paste this into the DrivenData note field</label>
@@ -52,7 +52,7 @@
       <div>
         <span class="section-kicker">Receipts for the file above</span>
         <h2 id="submit-title">Submission status</h2>
-        <p>The download activates only after the candidate clears the public-score calibration gate and the file is reopened from disk and checked cell-by-cell against the competition grid, CRS, transform and the <code>[0,1]</code> value rule.</p>
+        <p>The download activates only after the candidate wins the leave-fault-segment-out holdout sweep and the file is reopened from disk and checked cell-by-cell against the competition grid, CRS, transform and the <code>[0,1]</code> value rule.</p>
       </div>
     </div>
     <div id="submission-status" class="card status-card" role="status" aria-live="polite">
@@ -67,7 +67,7 @@
         <div><span class="small">Unique filename</span><div id="submission-filename" class="mono"></div></div>
         <div><span class="small">Unique submission ID</span><div id="submission-name" class="mono"></div></div>
         <div><span class="small">Matched positive pixels</span><div id="submission-pixels" class="mono"></div></div>
-        <div><span class="small">Catalogue-ablation holdout DTI (measured NOT predictive — see findings)</span><div id="submission-holdout" class="mono"></div></div>
+        <div><span class="small">Leave-fault-segment-out holdout DTI (configuration ranking, not a score forecast)</span><div id="submission-holdout" class="mono"></div></div>
         <div style="grid-column:1/-1"><span class="small">SHA-256 receipt</span><div id="submission-hash" class="mono" style="overflow-wrap:anywhere"></div></div>
         <div style="grid-column:1/-1"><a id="holdout-report-link" href="#" target="_blank" rel="noopener">View detailed spatial-fold receipt →</a></div>
         <div style="grid-column:1/-1"><label class="small" for="submission-note">Unique submission note (copy into the optional DrivenData note field)</label><div class="copy-row"><input id="submission-note" class="copy-input" readonly><button class="copy-btn" type="button" data-copy-note>Copy note</button></div></div>
@@ -78,30 +78,41 @@
 
   <section class="section" aria-labelledby="forecast-title">
     <div class="section-heading"><div>
-      <span class="section-kicker">What we expect, and how sure we are</span>
-      <h2 id="forecast-title">Three forecasts that disagree</h2>
-      <p>We report all three rather than the flattering one. Each is fitted to the 31 owner-side maps whose public DTI we hold; none is an organizer score.</p>
+      <span class="section-kicker">Validation of this build</span>
+      <h2 id="forecast-title">What was measured, and what was not</h2>
+      <p>The published file won a 33-configuration sweep on a leave-fault-segment-out holdout, in 3 of 3 folds. No public-score forecast is published for it: the holdout ranks configurations, it does not predict a leaderboard number.</p>
     </div></div>
     <div class="grid grid-2">
-      <article class="card"><h3>Pessimistic physical model</h3><p class="mono" style="font-size:1.8rem" id="forecast-pessimistic">—</p><p class="small">Assumes our ranking finds truth no faster than the best previously submitted family. Only the budget and geometry help.</p></article>
-      <article class="card"><h3>Descriptor model (31 maps)</h3><p class="mono" style="font-size:1.8rem" id="forecast-descriptor">—</p><p class="small">Leave-one-out R² 0.554 on log(public DTI) from dottedness and mean structural score. Both predictors are inside the observed range.</p></article>
-      <article class="card"><h3>Budget power law (12 dotted maps)</h3><p class="mono" style="font-size:1.8rem" id="forecast-powerlaw">—</p><p class="small">Leave-one-out R² 0.570, but extrapolates below the smallest budget ever submitted (37,654 px). Treat as upside, not a prediction.</p></article>
-      <article class="card"><h3>Reference points</h3><p class="small">Best score this project has ever recorded: <span class="mono" id="forecast-ownerbest">—</span>. Public leaderboard top at last manual check: <span class="mono" id="forecast-top">—</span>.</p><p class="small" id="forecast-reading"></p></article>
+      <article class="card"><h3>Segment-holdout pooled DTI</h3><p class="mono" style="font-size:1.8rem">0.21383</p><p class="small">Official metric (&alpha;=0.2, &beta;=0.8, 300&nbsp;m triangular kernel) against hidden catalogue segments, TP/FP/FN pooled over three folds. Best of 33 budget &times; spacing &times; stand-off configurations.</p></article>
+      <article class="card"><h3>Ranker versus the previous approach</h3><p class="mono" style="font-size:1.8rem">0.2486 vs 0.1530</p><p class="small">Quadrant holdout, budget 160,000: supervised physics ranker versus the unsupervised persistence consensus used by every earlier GEMSDOE submission. Uniform random placement scores 0.1957 — the unsupervised surface is <em>below</em> random.</p></article>
+      <article class="card"><h3>Catalogue-geometry arm</h3><p class="mono" style="font-size:1.8rem">0.0688</p><p class="small">Adding distance-to-catalogue features collapses the model onto the catalogue itself: the "physics + geometry" and "geometry only" arms are bit-identical, because the training positives all sit at distance zero.</p></article>
+      <article class="card"><h3>Reference points</h3><p class="small">Best score this project has recorded: <span class="mono" id="forecast-ownerbest">—</span>. Public leaderboard top read on 2026-10-05: <span class="mono" id="forecast-top">—</span>.</p><p class="small" id="forecast-reading"></p><p class="small" hidden><span id="forecast-pessimistic"></span><span id="forecast-descriptor"></span><span id="forecast-powerlaw"></span></p></article>
     </div>
+  </section>
+
+  <section class="section" aria-labelledby="preview-title">
+    <div class="section-heading"><div><span class="section-kicker">The published file, rendered</span>
+      <h2 id="preview-title">What you are uploading</h2>
+      <p>Red: the 80,000 emitted dots (dilated for visibility). Blue: the public USGS/INGENIOUS catalogue. Cream: the scored footprint. The emission follows range-front and intra-basin structural corridors while staying at least 300&nbsp;m clear of every mapped trace.</p>
+    </div></div>
+    <img src="assets/candidate-preview.png" alt="Map of the GeoDAWN footprint showing the 80,000 emitted prediction dots in red alongside the known fault catalogue in blue" style="width:100%;max-width:760px;border:1px solid var(--line);border-radius:12px;display:block;margin:0 auto">
   </section>
 
   <section class="section" aria-labelledby="findings-title">
     <div class="section-heading"><div>
-      <span class="section-kicker">Session findings · 2026-10-05</span>
-      <h2 id="findings-title">Four results that changed the build</h2>
+      <span class="section-kicker">Session findings &middot; 2026-10-05</span>
+      <h2 id="findings-title">Five results that produced this build</h2>
     </div></div>
     <div class="grid grid-2">
-      <article class="card"><h3>1. Our own holdout was misleading</h3><p>Re-scoring all 31 previously submitted rasters on the four-fold catalogue-ablation holdout gives a Spearman correlation of <strong>−0.10</strong> with their real public scores (−0.27 including two maps whose pruning leaked the held-out folds). Withheld <em>mapped</em> faults are not a stand-in for the expert-only hidden faults. Model selection was therefore moved onto the public-score calibration.</p></article>
-      <article class="card"><h3>2. Dottedness dominates everything</h3><p>Of five map-level descriptors, clumpiness is by far the strongest predictor of the public score (Spearman <strong>−0.751</strong>, leave-one-out R² <strong>0.553</strong> alone). The metric takes a maximum over a 300 m neighbourhood, so adjacent predictions buy almost no extra recall and pay full false-positive weight. Every top map is perfectly dotted; every bottom map is clumped.</p></article>
-      <article class="card"><h3>3. Predicting near the catalogue is wasted budget</h3><p>The controlled pair in the record: removing all mass within 2 px of a catalogued fault from a 44,090-pixel map left its kernel-weighted recall unchanged (0.392 → 0.394) while deleting 6,436 pixels, and the score rose 0.2600 → 0.2778. Those pixels contributed <em>zero</em> recall. This build uses a 3 px stand-off and places <strong>0.0%</strong> of its mass within 300 m of a catalogued fault.</p></article>
-      <article class="card"><h3>4. Catalogue-geometry features actively hurt</h3><p>On the ablation holdout, adding distance-to-catalogue, fault-density, fault-tip and along-strike-continuation features dropped pooled DTI from <strong>0.167 to 0.053</strong> — below the matched-budget random floor of 0.065. A model told where the map already is will retrace the map. This build's 63 features are strictly label-free.</p></article>
+      <article class="card"><h3>1. Binary emission is provably optimal</h3><p>Because <span class="mono">FN<sub>w</sub> = |G| &minus; TP<sub>w</sub></span>, the official index simplifies to <span class="mono">DTI = TP<sub>w</sub>/(0.8|G| + 0.2&nbsp;TP<sub>w</sub> + 0.2&nbsp;FP<sub>w</sub>)</span>, which strictly increases when every predicted value is scaled up. For a fixed set of predicted cells, soft probabilities can only lose. This file emits exactly 1.0 or 0.0.</p></article>
+      <article class="card"><h3>2. The 0.2778 map was read, not assumed</h3><p>We downloaded the highest-scoring historical raster and measured it: 37,654 binary dots, perfect dotting (local mass 1.000), minimum 2.236&nbsp;px off-catalogue. Its score came from emission <em>geometry</em>. The detector was therefore the remaining lever.</p></article>
+      <article class="card"><h3>3. A learned physics ranker beats the old surface</h3><p>94 label-free features — raw bands, multi-scale gradient and Hessian-ridge responses, scales-survived counts, and H0 superlevel-set persistence per physics family — fitted with gradient boosting. On a blocked holdout it scores 0.2486 against 0.1530 for the unsupervised persistence consensus, which is itself below the 0.1957 random floor.</p></article>
+      <article class="card"><h3>4. Catalogue features degenerate by construction</h3><p>Training positives <em>are</em> the catalogue, so a distance-to-catalogue feature separates them perfectly and the booster discards all 94 physics columns. The physics+geometry and geometry-only arms come out bit-identical at 0.0688 versus 0.1973. Label-free features are not a style choice here; they are a requirement.</p></article>
+      <article class="card"><h3>5. Unmapped faults sit about a kilometre off the map</h3><p>Hiding a third of the 3,199 catalogue segments per fold: only 7.3&ndash;7.9% of hidden fault cells lie within 300&nbsp;m of a visible fault (base rate 5.8&ndash;6.0%), 27&ndash;30% within 600&nbsp;m, median distance ~1&nbsp;km. That is the measured reason a 3&nbsp;px stand-off beats 2&nbsp;px, 0&nbsp;px, 4&nbsp;px and 6&nbsp;px at every budget tested.</p></article>
+      <article class="card"><h3>Emission geometry, swept not guessed</h3><p>33 configurations: stand-off 3&nbsp;px wins everywhere, 2.9&nbsp;px dot spacing beats 3.5&nbsp;px everywhere, and the budget plateau runs 60k&ndash;100k with a peak at 80,000 dots. The winner leads in all three folds individually.</p></article>
     </div>
-    <div class="notice" style="margin-top:14px"><strong>Honest negative result:</strong> pure multi-scale persistence used on its own as a ranking scored <strong>0.043</strong> on the holdout, below the random floor. Persistence earns its place in this build as one feature family among 63 and as a stability certificate — not as a standalone fault detector.</div>
+    <div class="notice" style="margin-top:14px"><strong>Honest negative result, repeated with a cleaner protocol:</strong> multi-scale persistence used on its own as a ranking is no better than random placement. Persistence earns its place here as one feature family among 94 and as a cross-scale stability certificate — not as a standalone fault detector.</div>
+    <div class="notice" style="margin-top:14px"><strong>Not comparable, and recorded as such:</strong> historical maps score near zero on this holdout only because their stand-off was measured against the <em>full</em> catalogue, which puts every one of their dots beyond the 300&nbsp;m kernel from the hidden segments. Those numbers are not a win and are not presented as one.</div>
   </section>
 
   <section class="section" aria-labelledby="research-title">

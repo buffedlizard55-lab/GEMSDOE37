@@ -1,0 +1,68 @@
+{
+ "generated_utc": "2026-10-05T05:50:02.891673+00:00",
+ "submission_name": "gemsdoe37-h6-physics-dotted-80k-20261005T055000Z-0bef9211631c",
+ "file": "gemsdoe37-h6-physics-dotted-80k-20261005T055000Z-0bef9211631c.tif",
+ "submission_note": "H6 physics-only GBM on 94 multi-scale persistence-certified GEMS features; 3px catalogue stand-off; 2.9px Poisson-disk dotting; 80000 dots",
+ "configuration": {
+  "model": "HistGradientBoostingClassifier(max_iter=250, lr=0.08, leaves=31)",
+  "features": 94,
+  "budget": 80000,
+  "spacing_px": 2.9,
+  "standoff_px": 3.0,
+  "values": "binary 1.0 at emitted dots, 0.0 elsewhere, all cells finite"
+ },
+ "segment_holdout_pooled_dti": 0.21383,
+ "organizer_score": null,
+ "format_checks": {
+  "driver_is_gtiff": true,
+  "single_band": true,
+  "dtype_float32": true,
+  "shape_matches_template": true,
+  "crs_matches_template": true,
+  "epsg_matches": true,
+  "transform_matches_template": true,
+  "resolution_matches_template": true,
+  "bounds_match_template": true,
+  "nodata_tag_absent": true,
+  "all_cells_finite": true,
+  "min": 0.0,
+  "max": 1.0,
+  "range_0_1_all_cells": true,
+  "positive_pixels": 80000,
+  "positive_pixels_match_budget": true,
+  "sha256": "ce749a992baec603460dfeddd068758855cb8b12978268e6ef94f6e23ffd9ee7",
+  "size_bytes": 338973
+ },
+ "descriptors": {
+  "positive_pixels": 80000,
+  "spacing_proxy_local_mass": 1.0,
+  "min_catalogue_distance_px": 3.0,
+  "median_catalogue_distance_px": 8.06225774829855,
+  "pixels_outside_footprint": 0,
+  "pixels_on_catalogue": 0,
+  "mean_model_score_selected": 0.23936443030834198,
+  "mean_model_score_footprint": 0.08446898311376572
+ },
+ "uniqueness_vs_prior_submissions": [
+  {
+   "file": "gemsdoe37-h5-standoff-dotted-26k-20261005T031536Z-3d5db2166013.tif",
+   "jaccard": 0.03470154717165308,
+   "shared_pixels": 3555
+  },
+  {
+   "file": "h33_b2_0.2778.tif",
+   "jaccard": 0.017002774728361873,
+   "shared_pixels": 1967
+  },
+  {
+   "file": "gemsdoe37-rankmix-strain-topo-20261005T030338376116Z-52bf89742e.tif",
+   "jaccard": 0.011711897636982768,
+   "shared_pixels": 1362
+  },
+  {
+   "file": "gemsdoe37-topo-persistence-20261005T025021488008Z-58f9ca92.tif",
+   "jaccard": 0.009810232510235085,
+   "shared_pixels": 1143
+  }
+ ]
+}

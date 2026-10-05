@@ -1,0 +1,399 @@
+{
+ "protocol": "leave-fault-segment-out; 1/3 of catalogue segments hidden per fold",
+ "metric": "official distance-weighted Tversky, alpha=0.2, beta=0.8, R=300 m",
+ "spacing_px": 2.9,
+ "segments": 3199,
+ "halo_statistics": [
+  {
+   "fold": 0,
+   "hidden_pixels": 20047,
+   "visible_pixels": 40941,
+   "hidden_within_3px_of_visible": 0.0787150197036963,
+   "hidden_within_6px_of_visible": 0.2964533346635407,
+   "hidden_within_20px_of_visible": 0.7761759864318851,
+   "median_hidden_distance_px": 9.486832980505138,
+   "footprint_within_3px_of_visible": 0.05981472597391363,
+   "footprint_within_6px_of_visible": 0.11804470085670224
+  },
+  {
+   "fold": 1,
+   "hidden_pixels": 19718,
+   "visible_pixels": 41270,
+   "hidden_within_3px_of_visible": 0.07475403184907191,
+   "hidden_within_6px_of_visible": 0.2812151333806674,
+   "hidden_within_20px_of_visible": 0.7707171112688914,
+   "median_hidden_distance_px": 10.04987562112089,
+   "footprint_within_3px_of_visible": 0.059780859636027826,
+   "footprint_within_6px_of_visible": 0.1177081662190827
+  },
+  {
+   "fold": 2,
+   "hidden_pixels": 21223,
+   "visible_pixels": 39765,
+   "hidden_within_3px_of_visible": 0.0732224473448617,
+   "hidden_within_6px_of_visible": 0.26791688262733826,
+   "hidden_within_20px_of_visible": 0.7522970362342741,
+   "median_hidden_distance_px": 10.44030650891055,
+   "footprint_within_3px_of_visible": 0.057946271732270925,
+   "footprint_within_6px_of_visible": 0.11430237375935509
+  }
+ ],
+ "pooled": {
+  "physics": {
+   "20000": {
+    "pooled_dti": 0.09964946928371494,
+    "tp": 6123.185150069319,
+    "fp": 57161.0296578499,
+    "fn": 54864.81484993068,
+    "selected": 60000,
+    "mean_local_mass": 1.0
+   },
+   "40000": {
+    "pooled_dti": 0.1594621793209019,
+    "tp": 11804.603567220784,
+    "fp": 114381.43221947139,
+    "fn": 49183.39643277922,
+    "selected": 120000,
+    "mean_local_mass": 1.0
+   },
+   "80000": {
+    "pooled_dti": 0.19727304480375873,
+    "tp": 19482.672122377353,
+    "fp": 230364.97855362156,
+    "fn": 41505.32787762264,
+    "selected": 240000,
+    "mean_local_mass": 1.0
+   },
+   "160000": {
+    "pooled_dti": 0.1864754440116453,
+    "tp": 27499.66717935636,
+    "fp": 465901.9110654824,
+    "fn": 33488.33282064364,
+    "selected": 480000,
+    "mean_local_mass": 1.0
+   }
+  },
+  "physics_geom": {
+   "20000": {
+    "pooled_dti": 0.048536787538476664,
+    "tp": 2963.288118949773,
+    "fp": 58346.78928993104,
+    "fn": 58024.71188105023,
+    "selected": 60000,
+    "mean_local_mass": 1.0
+   },
+   "40000": {
+    "pooled_dti": 0.06823321036575357,
+    "tp": 4997.5109292190355,
+    "fp": 117258.59377746639,
+    "fn": 55990.48907078097,
+    "selected": 120000,
+    "mean_local_mass": 1.0
+   },
+   "80000": {
+    "pooled_dti": 0.06880917555845165,
+    "tp": 6700.070118583333,
+    "fp": 236206.7001112527,
+    "fn": 54287.92988141667,
+    "selected": 240000,
+    "mean_local_mass": 1.0
+   },
+   "160000": {
+    "pooled_dti": 0.07367027494835175,
+    "tp": 10731.908272179448,
+    "fp": 473690.4787993563,
+    "fn": 50256.09172782055,
+    "selected": 480000,
+    "mean_local_mass": 1.0
+   }
+  },
+  "geom_only": {
+   "20000": {
+    "pooled_dti": 0.048536787538476664,
+    "tp": 2963.288118949773,
+    "fp": 58346.78928993104,
+    "fn": 58024.71188105023,
+    "selected": 60000,
+    "mean_local_mass": 1.0
+   },
+   "40000": {
+    "pooled_dti": 0.06823321036575357,
+    "tp": 4997.5109292190355,
+    "fp": 117258.59377746639,
+    "fn": 55990.48907078097,
+    "selected": 120000,
+    "mean_local_mass": 1.0
+   },
+   "80000": {
+    "pooled_dti": 0.06880917555845165,
+    "tp": 6700.070118583333,
+    "fp": 236206.7001112527,
+    "fn": 54287.92988141667,
+    "selected": 240000,
+    "mean_local_mass": 1.0
+   },
+   "160000": {
+    "pooled_dti": 0.07367027494835175,
+    "tp": 10731.908272179448,
+    "fp": 473690.4787993563,
+    "fn": 50256.09172782055,
+    "selected": 480000,
+    "mean_local_mass": 1.0
+   }
+  }
+ },
+ "per_fold": [
+  {
+   "fold": 0,
+   "arm": "physics",
+   "budget": 20000,
+   "selected": 20000,
+   "dti": 0.10387744967716477
+  },
+  {
+   "fold": 0,
+   "arm": "physics",
+   "budget": 40000,
+   "selected": 40000,
+   "dti": 0.16647868669531407
+  },
+  {
+   "fold": 0,
+   "arm": "physics",
+   "budget": 80000,
+   "selected": 80000,
+   "dti": 0.20378444632452747
+  },
+  {
+   "fold": 0,
+   "arm": "physics",
+   "budget": 160000,
+   "selected": 160000,
+   "dti": 0.1891735158273945
+  },
+  {
+   "fold": 0,
+   "arm": "physics_geom",
+   "budget": 20000,
+   "selected": 20000,
+   "dti": 0.04880299330936433
+  },
+  {
+   "fold": 0,
+   "arm": "physics_geom",
+   "budget": 40000,
+   "selected": 40000,
+   "dti": 0.06926748628147378
+  },
+  {
+   "fold": 0,
+   "arm": "physics_geom",
+   "budget": 80000,
+   "selected": 80000,
+   "dti": 0.07266157746811923
+  },
+  {
+   "fold": 0,
+   "arm": "physics_geom",
+   "budget": 160000,
+   "selected": 160000,
+   "dti": 0.07782586264600432
+  },
+  {
+   "fold": 0,
+   "arm": "geom_only",
+   "budget": 20000,
+   "selected": 20000,
+   "dti": 0.04880299330936433
+  },
+  {
+   "fold": 0,
+   "arm": "geom_only",
+   "budget": 40000,
+   "selected": 40000,
+   "dti": 0.06926748628147378
+  },
+  {
+   "fold": 0,
+   "arm": "geom_only",
+   "budget": 80000,
+   "selected": 80000,
+   "dti": 0.07266157746811923
+  },
+  {
+   "fold": 0,
+   "arm": "geom_only",
+   "budget": 160000,
+   "selected": 160000,
+   "dti": 0.07782586264600432
+  },
+  {
+   "fold": 1,
+   "arm": "physics",
+   "budget": 20000,
+   "selected": 20000,
+   "dti": 0.10224259960504464
+  },
+  {
+   "fold": 1,
+   "arm": "physics",
+   "budget": 40000,
+   "selected": 40000,
+   "dti": 0.16180634798658833
+  },
+  {
+   "fold": 1,
+   "arm": "physics",
+   "budget": 80000,
+   "selected": 80000,
+   "dti": 0.19606581806278123
+  },
+  {
+   "fold": 1,
+   "arm": "physics",
+   "budget": 160000,
+   "selected": 160000,
+   "dti": 0.1828017475312205
+  },
+  {
+   "fold": 1,
+   "arm": "physics_geom",
+   "budget": 20000,
+   "selected": 20000,
+   "dti": 0.050347037654043365
+  },
+  {
+   "fold": 1,
+   "arm": "physics_geom",
+   "budget": 40000,
+   "selected": 40000,
+   "dti": 0.07114857037184158
+  },
+  {
+   "fold": 1,
+   "arm": "physics_geom",
+   "budget": 80000,
+   "selected": 80000,
+   "dti": 0.06714670166095899
+  },
+  {
+   "fold": 1,
+   "arm": "physics_geom",
+   "budget": 160000,
+   "selected": 160000,
+   "dti": 0.07241340351138595
+  },
+  {
+   "fold": 1,
+   "arm": "geom_only",
+   "budget": 20000,
+   "selected": 20000,
+   "dti": 0.050347037654043365
+  },
+  {
+   "fold": 1,
+   "arm": "geom_only",
+   "budget": 40000,
+   "selected": 40000,
+   "dti": 0.07114857037184158
+  },
+  {
+   "fold": 1,
+   "arm": "geom_only",
+   "budget": 80000,
+   "selected": 80000,
+   "dti": 0.06714670166095899
+  },
+  {
+   "fold": 1,
+   "arm": "geom_only",
+   "budget": 160000,
+   "selected": 160000,
+   "dti": 0.07241340351138595
+  },
+  {
+   "fold": 2,
+   "arm": "physics",
+   "budget": 20000,
+   "selected": 20000,
+   "dti": 0.09315903438148934
+  },
+  {
+   "fold": 2,
+   "arm": "physics",
+   "budget": 40000,
+   "selected": 40000,
+   "dti": 0.1504627804049673
+  },
+  {
+   "fold": 2,
+   "arm": "physics",
+   "budget": 80000,
+   "selected": 80000,
+   "dti": 0.19210177750632978
+  },
+  {
+   "fold": 2,
+   "arm": "physics",
+   "budget": 160000,
+   "selected": 160000,
+   "dti": 0.1874092349174726
+  },
+  {
+   "fold": 2,
+   "arm": "physics_geom",
+   "budget": 20000,
+   "selected": 20000,
+   "dti": 0.04657539962798985
+  },
+  {
+   "fold": 2,
+   "arm": "physics_geom",
+   "budget": 40000,
+   "selected": 40000,
+   "dti": 0.06446124052113861
+  },
+  {
+   "fold": 2,
+   "arm": "physics_geom",
+   "budget": 80000,
+   "selected": 80000,
+   "dti": 0.06666640292262214
+  },
+  {
+   "fold": 2,
+   "arm": "physics_geom",
+   "budget": 160000,
+   "selected": 160000,
+   "dti": 0.0708178289747118
+  },
+  {
+   "fold": 2,
+   "arm": "geom_only",
+   "budget": 20000,
+   "selected": 20000,
+   "dti": 0.04657539962798985
+  },
+  {
+   "fold": 2,
+   "arm": "geom_only",
+   "budget": 40000,
+   "selected": 40000,
+   "dti": 0.06446124052113861
+  },
+  {
+   "fold": 2,
+   "arm": "geom_only",
+   "budget": 80000,
+   "selected": 80000,
+   "dti": 0.06666640292262214
+  },
+  {
+   "fold": 2,
+   "arm": "geom_only",
+   "budget": 160000,
+   "selected": 160000,
+   "dti": 0.0708178289747118
+  }
+ ]
+}

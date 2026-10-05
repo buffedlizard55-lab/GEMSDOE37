@@ -315,124 +315,133 @@ Go ahead and create a pull request and then merge the pull request onto the main
 
 ---
 
-## Executive Deliverable & Immediate Download
+## Executive deliverable — download and submit
 
-**Recommended upload — H5, built and calibrated in session 2 (2026-10-05).**
+**Recommended upload (session 3, 2026-10-05): `gemsdoe37-h6-physics-dotted-80k-20261005T055000Z-0bef9211631c.tif`**
 
-| Item | Details |
-|:---|:---|
-| **Direct GeoTIFF Download** | [Download .tif (160 KB)](docs/downloads/gemsdoe37-h5-standoff-dotted-26k-20261005T031536Z-3d5db2166013.tif) |
-| **Unique Filename** | `gemsdoe37-h5-standoff-dotted-26k-20261005T031536Z-3d5db2166013.tif` |
-| **Unique Submission Name** | `gemsdoe37-h5-standoff-dotted-26k-20261005T031536Z-3d5db2166013` |
-| **DrivenData Note** | `H5: label-free structural+persistence ranking, 3 px catalogue stand-off, 2.9 px dotting, 26,000 pixels` |
-| **SHA-256** | `b437766e894e7b33378d35513f835d650937464991dc6429701ac11202cfa708` (deterministic rebuild reproduces it) |
-| **Uniqueness** | Max Jaccard **0.032** against all 31 previously submitted rasters (closest `h16-continuation`). Not a copy or a relabel. |
-| **Geometry** | 26,000 binary pixels, 2.9 px minimum spacing (`spacing_proxy` = **1.000**, no two predicted pixels touch), 3.0 px stand-off — **0.0 %** of mass within 300 m of a catalogued fault |
-| **Format Verification** | Single-band float32, EPSG:32611, 100 m, 3730×3292, exact template transform and bounds, no nodata tag, all 12,279,160 cells finite in `[0,1]`, re-read from disk with 26,000 positive cells |
-| **Forecast public DTI** | **0.277** (pessimistic physical model, new ranking given no credit) · 0.373–0.390 (two observational models that extrapolate below the smallest budget ever submitted). Owner best to date 0.2778; leaderboard top at last manual check 0.3262. |
+| Field | Value |
+|---|---|
+| File | [`docs/downloads/gemsdoe37-h6-physics-dotted-80k-20261005T055000Z-0bef9211631c.tif`](docs/downloads/gemsdoe37-h6-physics-dotted-80k-20261005T055000Z-0bef9211631c.tif) (331 KB) |
+| Zip (also accepted by the portal) | [`...-0bef9211631c.zip`](docs/downloads/gemsdoe37-h6-physics-dotted-80k-20261005T055000Z-0bef9211631c.zip) |
+| Submission name | `gemsdoe37-h6-physics-dotted-80k-20261005T055000Z-0bef9211631c` |
+| Submission note (paste into the optional DrivenData note box) | `H6 physics-only GBM on 94 multi-scale persistence-certified GEMS features; 3px catalogue stand-off; 2.9px Poisson-disk dotting; 80000 dots` |
+| SHA-256 | `ce749a992baec603460dfeddd068758855cb8b12978268e6ef94f6e23ffd9ee7` |
+| Positive cells | 80,000 at exactly 1.0; every other cell exactly 0.0 |
+| Grid | EPSG:32611, 3292 x 3730, 100 m, single band float32, no nodata tag, all 12,279,160 cells finite in `[0,1]` |
+| Internal holdout | leave-fault-segment-out pooled DTI **0.21383**, best of 33 configurations, winner in 3/3 folds |
+| Organizer score | none yet |
 
-**Alternate candidate — H2 rank-mix, built earlier the same day** (kept for comparison, *not*
-recommended): `docs/downloads/gemsdoe37-rankmix-strain-topo-20261005T030338376116Z-52bf89742e.tif`,
-37,654 px, sha256 `59cbcc4a15108ff5346b50504c6e5ebb95089f45d18bfe835ed6dcbd5f2bfa17`. It was promoted
-on a catalogue-ablation pseudo-holdout gain (0.0369 vs. 0.0281). Session 2 then measured that this
-holdout does not predict the public score (Spearman −0.10 over 28 non-leaking scored maps), so that
-gain is not evidence of competition performance. Both files are format-valid and uploadable; the
-H5 file is the one backed by the public-score calibration.
+The live site puts the same download first: **<https://buffedlizard55-lab.github.io/GEMSDOE37/>**
+(step-by-step upload instructions: `docs/executive-summary.html`).
 
----
+### How to submit (4 steps)
 
-## Core Values
+1. Download the `.tif` above (or the `.zip`; the portal accepts either).
+2. Open <https://www.drivendata.org/competitions/306/competition-doe-gems/submissions/> and sign in.
+3. Choose the file, paste the submission note into the **Note** box, submit.
+4. Record the returned public DW-Tversky score in `research/prior_results.md`.
 
-### Maximize P(Win)
-“Maximize the Probability of Winning”: our decision making framework. In every decision, we weigh tradeoffs, assess risk, and choose the path that maximizes the probability that Arena succeeds. We set aside our emotions and make tough decisions in order to maximize P(Win). “Maximize P(Win)” frees us from constraints and clarifies that we must put Arena first.
+### Why the portal's "Predicted values must be in range [0, 1]" error cannot recur
 
-### Own the Outcome
-We own results end to end — not just our individual slice of the work. When problems arise and we have the means to act, we do so without waiting for permission or assignment. We treat failure and success as signals and use them to improve. At Arena, we stay accountable to the final outcome.
+`gemsdoe37/submission.py` reopens the written file and fails closed unless every
+one of the 12,279,160 cells is finite and inside `[0,1]`, the nodata tag is
+absent, and the shape, CRS, transform, resolution and bounds equal the template.
+Negative float sentinels (`-3.4e38`) and NaNs — the two historical causes of that
+rejection — cannot survive that check.
 
----
+## What this session established (full detail: [`research/h6_findings.md`](research/h6_findings.md))
 
-## PhD-Level Analysis: How H33-2-B2 Scored 0.2778 and How to Exceed It
+1. **The metric was re-derived, not assumed.** Because `FN_w = |G| - TP_w`,
+   `DTI = TP_w / (0.8|G| + 0.2 TP_w + 0.2 FP_w)`, which is strictly increasing
+   under a global scaling of the prediction. **Binary 1.0 emission is provably
+   optimal for a fixed support**, and an added pixel pays whenever it buys more
+   than ~0.06 units of newly covered truth.
+2. **The 0.2778 map was read from the file, not from prose**: 37,654 binary
+   dots, perfect dotting (local-mass 1.000), minimum 2.236 px off-catalogue. Its
+   score came from emission *geometry*, not from a strong detector.
+3. **The detector was therefore the lever.** A physics-only gradient-boosted
+   ranker over 94 label-free multi-scale features beats the unsupervised
+   persistence surface used by every earlier GEMSDOE submission by 1.6-2.3x on a
+   blocked holdout, while the unsupervised surface is **no better than random
+   placement**.
+4. **Catalogue-relative features are provably self-defeating here**: training
+   positives are the catalogue, so `distance-to-catalogue == 0` separates them
+   perfectly and the model degenerates into redrawing the catalogue (the
+   "physics+geometry" and "geometry-only" arms are bit-identical, DTI 0.069 vs
+   0.197).
+5. **New protocol — leave-fault-segment-out.** The catalogue is split into 3,199
+   connected segments; a third are hidden per fold and become the truth. Hidden
+   faults sit a median ~1 km from the visible catalogue and are only ~2.4x
+   enriched within 600 m, which is the measured justification for a stand-off.
+6. **Emission geometry was swept, not guessed**: stand-off 3 px > 2 > 0 and
+   > 4 > 6; spacing 2.9 px > 3.5 px; budget plateau 60k-100k peaking at 80k.
 
-### 1. The DTI Metric Geometry
-The Distance-Weighted Tversky Index is defined as:
+## Core values applied
 
-$$\text{DTI} = \frac{\text{TP}_w}{\text{TP}_w + 0.2 \cdot \text{FP}_w + 0.8 \cdot \text{FN}_w}$$
+* **Maximize P(Win)** — the session spent its compute on the one component with
+  the largest measured headroom (the ranker), kept the emission geometry that
+  the public scores already validated, and refused to publish a number the
+  holdout cannot support.
+* **Own the outcome** — the data blocker from previous sessions was removed
+  without asking for credentials by rebuilding the hash-pinned GitHub data
+  bridge; every claim here is a receipt in `research/receipts/`.
 
-- $\text{TP}_w = \sum_{g \in G} \max_{x \in P} \left( p(x) \cdot k(d(x, g)) \right)$
-- $\text{FP}_w = \sum_{x \in P} p(x) \cdot \left[ 1 - \max_{g \in G} k(d(x, g)) \right]$
-- $\text{FN}_w = \sum_{g \in G} \left[ 1 - \max_{x \in P} p(x) \cdot k(d(x, g)) \right]$
-- Kernel: $k(d) = \max(1 - d/300\text{ m}, 0)$
+## Reproduce end to end
 
-Because $\text{TP}_w$ uses a **maximum**, contiguous solid lines (width 3–5 pixels) provide credit only once for any ground-truth pixel, while **every single emitted pixel** adds false-positive penalty in the denominator unless perfectly centered on truth. Thinning continuous ridges at $d \approx 2.5 - 2.8$ pixels ($\approx 250 - 280$ m) matches the 300 m kernel cutoff, dropping false positive mass by >70% while retaining >95% true positive coverage.
+```bash
+python -m venv .venv && .venv/bin/pip install -e . scikit-learn numba
+bash scripts/download_competition_data.sh          # or restore the hash-pinned bridge
+.venv/bin/python scripts/h6_build_features.py      # 94 features -> data/work/feat
+.venv/bin/python scripts/h6_holdout.py             # quadrant holdout, arm comparison
+.venv/bin/python scripts/h6_holdout_segment.py     # leave-fault-segment-out holdout
+.venv/bin/python scripts/h6_sweep.py               # emission-geometry sweep
+.venv/bin/python scripts/h6_build_submission.py --budget 80000 --spacing 2.9 \
+    --standoff 3.0 --holdout-dti 0.21383
+.venv/bin/python scripts/h6_publish.py --receipt docs/downloads/receipt-*.json
+.venv/bin/python -m pytest -q
+```
 
-### 2. Flank Pruning Effect
-Known USGS/INGENIOUS faults are masked out during evaluation. Pixels within $d \le 2$ pixels (200 m) of catalogued traces are predominantly redundant mapping of existing known faults rather than new hidden discoveries. Deleting candidate points within 200 m of the catalogue in H33-2-B2 removed 6,436 low-yield dots, dropping total emission to 37,654 and boosting the score from 0.2708 to 0.2778.
+## Receipts
 
-### 3. Exceeding 0.2778 toward 0.3195+ via Topological Persistence
-1. **Primary Active-Deformation Signal:** The current leading candidate does not rely on persistence alone. It starts from the robust-standardized absolute magnitudes of geodetic second invariant, shear rate, and dilatation rate, because those fields screened stronger than the original DEM/magnetic/gravity-only control on the exact-mask pseudo-holdout.
-2. **Structural Corroboration:** DEM curvature plus magnetic/gravity edge responses are added as a secondary prior so that broad non-structural strain halos are less competitive than strain that aligns with mapped structural contrasts.
-3. **Topological Stability Prior:** The H1 persistence surface is retained as a tertiary term. It still provides an auditable multiscale stability bias, but in the measured H2 candidate it acts as a prior within a broader rank-mix rather than a full certificate of line continuity or geology.
+| Receipt | What it proves |
+|---|---|
+| `research/receipts/h6_holdout.json` | quadrant holdout: GBM 0.2486 vs label-free 0.1530 vs random 0.1957 |
+| `research/receipts/h6_segment_holdout.json` | segment holdout arms + hidden-fault distance statistics |
+| `research/receipts/h6_sweep.json`, `h6_sweep_standoff.json` | 33-configuration emission sweep, best `b80000_s2.9_o3.0` = 0.21383 |
+| `research/receipts/h6_reference_maps.json` | historical maps on this holdout **and why those numbers are not comparable** |
+| `docs/downloads/receipt-gemsdoe37-h6-*.json` | format checks, descriptors, uniqueness of the published file |
 
----
+## Known limitations and the next session's work
 
-## Ranked Candidate Geological Hypotheses
+1. **Holdout truth is hidden catalogue segments, not the private expert new-fault
+   set.** It ranks configurations reliably; it does not forecast a leaderboard
+   number. Next: fit the `c(n)` coverage curve and choose the budget under an
+   explicit distribution of plausible truth sizes (hypothesis H6-D).
+2. **Sandbox egress is restricted to `github.com`.** Dropbox and
+   `raw.githubusercontent.com` are unreachable (curl exit 35), so the inputs come
+   from a hash-pinned bridge in the sibling `GEMSDOE` repository, not from an
+   authenticated DrivenData download. Chain of custody is pinned but unofficial.
+3. **Two high-ceiling hypotheses are blocked only by that egress** — GeoDAWN
+   radiometric alteration (H6-B) and 1 m lidar scarp morphology (H6-E). Both
+   sources were verified to exist and be free/official; see
+   `research/hypotheses_h6.md`.
+4. **The mirrored `example_submission.tif` is not an all-zero raster** — it
+   contains the known faults. Flagged; used only as a grid template.
+5. No organizer score exists for the published file.
 
-| Rank | Candidate | Named Layers & Physical Signature | Why It Catches Missing Faults | Difference from Prior Work | Expected DTI & Cost |
-|:---:|:---|:---|:---|:---|:---:|
-| **1** | **H2: Strain-Dominated Structural Rank-Mix with a Topological Prior** *(Implemented & Published)* | Geodetic second invariant (band 4), geodetic shear rate (band 7), geodetic dilatation rate (band 8), plus the DEM/magnetic/gravity structural prior and the H1 persistence prior. | Active or recently active transfer zones may concentrate strain even where the mapped surface trace is incomplete; structural and topological priors reduce broad non-structural strain halos. | This is not the original H1 detector. It demotes topology to a tertiary prior and promotes geodetic strain to the primary signal. | **Holdout: 0.036928 vs strain-only incumbent 0.028092** (**+0.008836**, 4/4 folds positive). |
-| **2** | **H3: Buried Basin-Boundary Fault Proxy** | Depth to basement, conductivity surface, isostatic gravity anomaly. | Concealed basin-margin faults can be weak in surface morphology but strong in buried physical-property partitioning. | Uses subsurface-property contrasts rather than only surface morphology and raw potential fields. | **Quick screen:** ~0.02137 pooled pseudo-holdout DTI. Cost: Low. |
-| **3** | **H4: Conductivity/Gravity/Magnetic Concealed-Contact Corroboration** | Conductivity surface, isostatic gravity anomaly, total magnetic intensity. | Concealed structural zones can separate alteration, density, and magnetic domains even where strain is muted. | Directly elevates conductivity as a first-class in-stack layer family. | **Quick screen:** ~0.02581 pooled pseudo-holdout DTI. Cost: Low. |
-| **4** | **H1: DEM/Magnetic/Gravity H0 Persistence** | Detrended elevation (band 12), total magnetic intensity (band 14), isostatic gravity anomaly (band 13). Multi-scale $H_0$ persistence across $\sigma \in \{100, 200, 400\text{ m}\}$. | Stable cross-physics lineaments may mark fault-related contacts absent from the public map. | Tracks full threshold filtrations with explicit birth/death accounting. | Built successfully, but the fused score surface produced only **25,686** positive cells—below the fixed **37,654** budget—so it now serves as a prior inside H2. |
+## Verified official sources
 
----
+* Competition overview, metric, submission format — <https://www.drivendata.org/competitions/306/competition-doe-gems/page/967/>
+* About / resources — <https://www.drivendata.org/competitions/306/competition-doe-gems/page/968/>
+* Data download tab (login required) — <https://www.drivendata.org/competitions/306/competition-doe-gems/data/>
+* Public leaderboard — <https://www.drivendata.org/competitions/306/competition-doe-gems/leaderboard/>
+* Reference solution — <https://github.com/drivendataorg/gems-prize-reference-solution>
+* GeoDAWN data release (USGS, DOI 10.5066/P93LGLVQ) — <https://www.sciencebase.gov/catalog/item/657e1d85d34e23d3533209f7>
+* USGS national aeroradiometric grids — <https://mrdata.usgs.gov/radiometric/>
+* INGENIOUS project (Great Basin Center for Geothermal Energy) — <https://gbcge.org/current-projects/ingenious/>
+* GDR submission 1391 — <https://gdr.openei.org/submissions/1391>
+* Stability of persistence diagrams (Cohen-Steiner, Edelsbrunner & Harer, 2007) — <https://doi.org/10.1007/s00454-006-1276-5>
 
-## Validation Results: 4-Quadrant Spatial Pseudo-Holdout
-
-At matched budget $N = 37,654$ pixels:
-
-| Quadrant | Single-Scale Control DTI | Topological Persistence DTI | Paired Delta (ΔDTI) | Result |
-|:---|:---:|:---:|:---:|:---:|
-| **NW Quadrant** | 0.000000 | **0.004800** | **+0.004800** | **WIN** |
-| **NE Quadrant** | 0.000000 | **0.002642** | **+0.002642** | **WIN** |
-| **SW Quadrant** | 0.110982 | **0.144610** | **+0.033628** | **WIN** |
-| **SE Quadrant** | 0.000000 | **0.003274** | **+0.003274** | **WIN** |
-| **Pooled Overall DTI** | 0.028092 | **0.036928** | **+0.008836** | **GATE PASSED** |
-
----
-
-## How to Submit to the DOE GEMS Prize (4 Easy Steps)
-
-1. **Download the File:** Click [Download submission (.tif)](docs/downloads/gemsdoe37-rankmix-strain-topo-20261005T030338376116Z-52bf89742e.tif).
-2. **Open DrivenData:** Navigate to the [DOE GEMS Competition Submissions Page](https://www.drivendata.org/competitions/306/competition-doe-gems/submissions/).
-3. **Upload File:** Select the downloaded `.tif` file in the "File to submit" input.
-4. **Paste Note:** In the "Note (optional)" box, paste:
-   ```text
-   GEMSDOE37-H2-RANKMIX-20261005T030338376116Z-52BF89742E | strain abs×2 + structural + PH prior; 37654 px; exact-mask pooled pseudo-holdout 0.0369; unscored
-   ```
-5. Click **Submit**.
-
----
-
-## Resolution of the `"Predicted values must be in range [0, 1]"` Error
-
-DrivenData rejects submissions that contain out-of-range values or out-of-range nodata tags.
-In GEMSDOE37:
-- **Zero Sentinel Leakage:** All negative sentinels (`-3.4e38`) from input features are masked and converted to 0.0.
-- **nodata=None:** Nodata tags are omitted, preventing range validator failures on sentinel tags.
-- **Strict Bounding:** All 12,279,160 grid cells are strictly finite in `[0.0, 1.0]`. Outside-footprint cells are set to `0.0`.
-- **Verified by Independent Re-Read:** `validate_geotiff()` re-opens the written file from disk and validates every cell.
-
----
-
-## Verified Official Sources & Links
-
-- [DOE GEMS Competition Overview](https://www.drivendata.org/competitions/306/competition-doe-gems/)
-- [DOE GEMS Problem Description & Metric](https://www.drivendata.org/competitions/306/competition-doe-gems/page/967/)
-- [DOE GEMS Rules PDF (NLR Document 96647)](https://docs.nlr.gov/docs/fy26osti/96647.pdf)
-- [Official DrivenData Leaderboard](https://www.drivendata.org/competitions/306/competition-doe-gems/leaderboard/)
-- [DrivenData Reference Solution Repository](https://github.com/drivendataorg/gems-prize-reference-solution)
-- [GDR Submission 1391 — Nevada Geothermal Data](https://gdr.openei.org/submissions/1391)
-- [USGS GeoDAWN Airborne Survey Release](https://www.usgs.gov/data/geodawn-airborne-magnetic-and-radiometric-surveys-northwestern-great-basin-nevada-and)
-- [USGS Quaternary Fault & Fold Database](https://www.usgs.gov/natural-hazards/earthquake-hazards/faults)
-- [Cohen-Steiner et al. (2007) Stability of Persistence Diagrams](https://doi.org/10.1007/s00454-006-1276-5)
-- [Faulds et al. (2011) Structural Controls of Geothermal Systems in the Great Basin](https://gdr.openei.org/)
+**Leaderboard context, read from the official board on 2026-10-05:** #1 `nchuzhoy`
+0.3262, #2 `kinghorton42` 0.3222, #3 `DARD` 0.3195. The 0.2778 reported by the
+project owner corresponds to rank #13 on that reading.
