@@ -186,7 +186,8 @@ re-read from disk and validated cell-by-cell.
 6. *Data provenance.* `scripts/fetch_open_data.sh` re-derives every raster in `data/raw`
    from the sibling bridge repos with sha256 assertions, so the 520 MB input set is
    reproducible in a fresh checkout instead of being treated as an opaque artifact.
-7. *Leaderboard policy.* No leaderboard content is copied or scraped; only the source link is
+7. *Footprint statistic mislabelled.* The first verification receipt reported `mean_belief_of_footprint` as the mean over all 12,279,160 grid cells (0.2182) although belief is only meaningful inside the footprint. Corrected to the footprint mean 0.1236, with the all-cell figure and `footprint_pixels` 5,167,373 published separately, plus `selected_pixels_outside_footprint` = 0. Reconciliation note: `labels.tif`'s own valid mask is 5,167,373 px / 60,988 positive px, while `scripts/prepare_data.py` derives the stricter 5,164,312 px / 60,894 px conservative footprint (it also requires the DEM, magnetic and gravity bands to be valid). Both are correct under their stated definitions; the emitter uses the labels mask and no dot can sit outside it.
+8. *Leaderboard policy.* No leaderboard content is copied or scraped; only the source link is
    mirrored, and the H33 0.2778 association remains labelled user-reported.
 
 **Pass 3 — reconcile against the standing brief.** Unique non-copied TIF (max Jaccard 0.016,

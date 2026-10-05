@@ -132,6 +132,7 @@ def main() -> int:
     belief = np.load(WORK / "belief_oof.npy")
     block = uniform_filter(selected.astype(np.float32), size=3, mode="constant") * 9.0
 
+    footprint = load(DATA / "labels.tif", binary=False) >= 0  # labels nodata -1
     descriptors = {
         "positive_pixels": int(mass),
         "spacing_proxy": float(block[selected].mean()),
@@ -141,8 +142,11 @@ def main() -> int:
         "frac_selected_within_3px_of_catalogue": float((cat_distance[selected] <= 3.0).mean()),
         "mean_distance_to_sgmc_offcatalogue_px": float(sgmc_distance[selected].mean()),
         "mean_belief_of_selected": float(belief[selected].mean()),
-        "mean_belief_of_footprint": float(belief.mean()),
+        "mean_belief_of_footprint": float(belief[footprint].mean()),
+        "mean_belief_over_all_grid_cells": float(belief.mean()),
+        "footprint_pixels": int(footprint.sum()),
         "pixels_on_catalogue": int((selected & catalogue).sum()),
+        "selected_pixels_outside_footprint": int((selected & ~footprint).sum()),
     }
     generated = datetime.now(timezone.utc).isoformat(timespec="seconds")
     verification = {
@@ -151,7 +155,7 @@ def main() -> int:
         "sha256": sha256_file(tif),
         "format_checks": validate_geotiff(tif, DATA / "sample_submission.tif"),
         "descriptors": descriptors,
-        "persistence_stability": persistence_stability(selected, load(DATA / "labels.tif", binary=False) >= 0),
+        "persistence_stability": persistence_stability(selected, footprint),
         "uniqueness": uniqueness(selected, tif),
         "honest_caveats": [
             "No organizer score exists for this file.",
