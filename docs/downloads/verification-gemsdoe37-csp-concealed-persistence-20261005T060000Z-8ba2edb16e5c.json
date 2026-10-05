@@ -1,0 +1,109 @@
+{
+  "generated_utc": "2026-10-05T05:57:50+00:00",
+  "file": "gemsdoe37-csp-concealed-persistence-20261005T060000Z-8ba2edb16e5c.tif",
+  "sha256": "8e5870c61569b8e6546dd409e438ad6525c57735511074be45175fa03b77f0fc",
+  "format_checks": {
+    "driver_is_gtiff": true,
+    "single_band": true,
+    "dtype_float32": true,
+    "shape_matches_template": true,
+    "crs_matches_template": true,
+    "epsg_matches": true,
+    "transform_matches_template": true,
+    "resolution_matches_template": true,
+    "bounds_match_template": true,
+    "nodata_tag_absent": true,
+    "all_cells_finite": true,
+    "min": 0.0,
+    "max": 1.0,
+    "range_0_1_all_cells": true,
+    "positive_pixels": 37000,
+    "sha256": "8e5870c61569b8e6546dd409e438ad6525c57735511074be45175fa03b77f0fc",
+    "size_bytes": 202479
+  },
+  "descriptors": {
+    "positive_pixels": 37000,
+    "spacing_proxy": 1.0,
+    "min_catalogue_distance_px": 6.082762530298219,
+    "median_catalogue_distance_px": 20.615528128088304,
+    "mean_catalogue_distance_px": 28.77135862346305,
+    "frac_selected_within_3px_of_catalogue": 0.0,
+    "mean_distance_to_sgmc_offcatalogue_px": 28.00445856507691,
+    "mean_belief_of_selected": 0.5140833854675293,
+    "mean_belief_of_footprint": 0.21815341711044312,
+    "pixels_on_catalogue": 0
+  },
+  "persistence_stability": {
+    "dem": {
+      "mean_scales_survived_selected": 0.21227027475833893,
+      "mean_scales_survived_footprint": 0.2004709094762802,
+      "fraction_selected_surviving_2_or_more_scales": 0.06302702702702703,
+      "fraction_footprint_surviving_2_or_more_scales": 0.05932085800657316,
+      "enrichment_vs_footprint": 1.0624766590537715
+    },
+    "mag": {
+      "mean_scales_survived_selected": 0.2505945861339569,
+      "mean_scales_survived_footprint": 0.20054754614830017,
+      "fraction_selected_surviving_2_or_more_scales": 0.06735135135135135,
+      "fraction_footprint_surviving_2_or_more_scales": 0.05290115499693945,
+      "enrichment_vs_footprint": 1.273154647667861
+    },
+    "grav": {
+      "mean_scales_survived_selected": 0.3642162084579468,
+      "mean_scales_survived_footprint": 0.20102207362651825,
+      "fraction_selected_surviving_2_or_more_scales": 0.09897297297297297,
+      "fraction_footprint_surviving_2_or_more_scales": 0.054218845823593535,
+      "enrichment_vs_footprint": 1.8254348920482646
+    },
+    "cross_family": {
+      "fraction_selected_stable_in_2_or_more_field_families": 0.02381081081081081,
+      "fraction_selected_stable_in_all_3_field_families": 0.004756756756756757
+    },
+    "citation": "Stability is the number of smoothing scales (100/200/400/800 m) at which the cell remains in the top 5 % of the scale's edge response; the persistence-stability guarantee for the bottleneck distance between persistence diagrams under bounded field perturbation is Cohen-Steiner, Edelsbrunner & Harer, Discrete Comput. Geom. 37 (2007) 103-120, doi:10.1007/s00454-006-1276-5."
+  },
+  "uniqueness": {
+    "n_compared": 15,
+    "max_jaccard": 0.01590044713984684,
+    "closest": [
+      {
+        "id": "h19-5",
+        "their_pixels": 121131,
+        "shared_pixels": 2475,
+        "jaccard": 0.01590044713984684,
+        "fraction_of_ours_shared": 0.06689189189189189
+      },
+      {
+        "id": "ens12",
+        "their_pixels": 172974,
+        "shared_pixels": 2473,
+        "jaccard": 0.011918014852940468,
+        "fraction_of_ours_shared": 0.06683783783783784
+      },
+      {
+        "id": "h25-ctx-ridge",
+        "their_pixels": 174232,
+        "shared_pixels": 2466,
+        "jaccard": 0.011812268281233534,
+        "fraction_of_ours_shared": 0.06664864864864865
+      },
+      {
+        "id": "h25-dotted-d15",
+        "their_pixels": 60069,
+        "shared_pixels": 1119,
+        "jaccard": 0.011662324127149556,
+        "fraction_of_ours_shared": 0.030243243243243245
+      },
+      {
+        "id": "h27-gapclosure",
+        "their_pixels": 61328,
+        "shared_pixels": 1122,
+        "jaccard": 0.011542497376705142,
+        "fraction_of_ours_shared": 0.030324324324324324
+      }
+    ]
+  },
+  "honest_caveats": [
+    "No organizer score exists for this file.",
+    "Blocked local holdouts measured this session anti-correlate with the public ladder (Spearman -0.667 over eight owner-reported scored maps); they can falsify an emission but cannot certify a gain."
+  ]
+}

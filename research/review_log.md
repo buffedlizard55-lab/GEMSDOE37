@@ -148,3 +148,58 @@ found wanting, which is reported. Explanation of the 0.2778 result and how to ex
 `results_h5.md` sections 4-6. Persistence reported as a formal stability measure alongside the
 score: `results_h5.md` section 8, including its failure to discriminate. Full prompt preserved
 in the README: yes. Three passes, PR, merge, remaining work: this log, then the PR.
+
+---
+
+## Session 4 (2026-10-05) — CSP build, instrument inversion, multi-pass review
+
+**Pass 1 — implement and verify.** Built the 4-fold blocked out-of-fold belief field over 234
+label-free features (19 competition bands + 12-band public LiDAR scarp stack + 8 GeoDAWN
+radiometric/extension bands), delivered by `scripts/build_belief_field.py oof` (exit 0) and
+emitted by `scripts/build_csp_candidate.py`; receipts written by
+`scripts/verify_csp_submission.py`. Added `gemsdoe37/dti.py` (exact metric, marginal arithmetic),
+`gemsdoe37/belief.py` (blocked OOF ensemble, Poisson-disk emitter), `scripts/fetch_open_data.sh`
+(reproduces the whole external-input set with hash checks) and `research/metric_algebra.md`.
+The shipped file is `docs/downloads/gemsdoe37-csp-concealed-persistence-20261005T060000Z-8ba2edb16e5c.tif`
+(sha256 `8e5870c61569b8e6546dd409e438ad6525c57735511074be45175fa03b77f0fc`, 37,000 px),
+re-read from disk and validated cell-by-cell.
+
+**Pass 2 — review and fix.** Defects found and corrected:
+
+1. *Instrument invalidity discovered and published rather than hidden.* The catalogue-fold
+   screen anti-correlates with the public ladder (Spearman −0.667, n = 8) and the SGMC screen
+   is flat (+0.143). The promotion rule was rewritten as a falsification gate
+   (`research/instrument_validity.md`) and the site text that presented the pseudo-holdout as
+   a gate was corrected on `index.html`, `method.html`, `results-analysis.html` and
+   `executive-summary.html`.
+2. *Stale recommended deliverable.* The previously recommended H5 file has a mean
+   catalogue distance of only 9.5 px against the 29.0 px that the ladder rewards. It is
+   demoted to an alternate in `README.md` and `docs/data/current_submission.json`.
+3. *Truncated submission note.* The first CSP note was cut mid-sentence at the 200-character
+   boundary; replaced with a complete 144-character note and the truncation guard removed.
+4. *Uniqueness field inverted.* `is_copy_or_relabel` was set from `max_jaccard < 0.10`
+   (True) instead of `>= 0.10`; corrected to False with the 0.016 Jaccard recorded.
+5. *Masked-out emission arithmetic.* An early fold sweep emitted every candidate at a 6 px
+   stand-off against in-fold catalogue truth, which makes credit impossible by construction
+   (fold DTI identically 0). The protocol now excludes only *other* folds' catalogue pixels,
+   and the meaningless sweep was discarded.
+6. *Data provenance.* `scripts/fetch_open_data.sh` re-derives every raster in `data/raw`
+   from the sibling bridge repos with sha256 assertions, so the 520 MB input set is
+   reproducible in a fresh checkout instead of being treated as an opaque artifact.
+7. *Leaderboard policy.* No leaderboard content is copied or scraped; only the source link is
+   mirrored, and the H33 0.2778 association remains labelled user-reported.
+
+**Pass 3 — reconcile against the standing brief.** Unique non-copied TIF (max Jaccard 0.016,
+closest `h19-5`): yes. One-band float32 on the exact template grid, every cell finite in
+`[0,1]`, no nodata: yes, re-read from disk. Download obvious at the top of the site hero and
+of the executive summary, with a unique filename and a copyable note: yes. 3–5 ranked untried
+hypotheses with all required fields and verified obtainability: yes, H5–H9 in
+`research/h5_register.md` plus the session-4 obtainability addendum. Top candidate validated
+before spending a weekly slot: the validation *instrument* was tested and found invalid, which
+is reported instead of concealed; the shipped geometry is matched to the best publicly scored
+map and the screens are used only to falsify. Multi-scale persistence used as a formal
+stability measure with the Cohen-Steiner/Edelsbrunner/Harer citation: yes (verification
+receipt and `method.html`). Explanation of why 0.2778 scored highest and whether it can be
+beaten: `research/results_csp.md` §2–4. Prompt preserved in the README: yes. Full autonomy,
+no organizer-score claims, limitations listed: yes. PR and merge follow this entry.
+
