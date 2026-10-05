@@ -1,0 +1,78 @@
+{
+  "schema_version": 1,
+  "candidate_id": "GEMSDOE37-H1-TOPO-PERSISTENCE",
+  "registered_utc": "2026-10-05T00:25:03Z",
+  "revision_log": "research/preregistration_revisions.md (revisions 1 and 2 recorded before any raster evaluation)",
+  "status": "pre-registered, not yet run on GEMS input data",
+  "hypothesis": "Line-like responses supported by DEM curvature and at least one potential-field gradient, with H0 persistence greater than 2 epsilon at at least two adjacent smoothing scales, rank above single-scale threshold artifacts at matched prediction budget.",
+  "layers": {
+    "dem": "metadata-identified detrended elevation",
+    "magnetic": "metadata-identified total magnetic intensity or reduced-to-pole magnetic anomaly",
+    "gravity": "metadata-identified isostatic gravity anomaly"
+  },
+  "transform": {
+    "input_robust_percentiles": [2.0, 98.0],
+    "response_robust_percentiles": [50.0, 99.5],
+    "clipping_range": [0.0, 1.0],
+    "gaussian_support_floor": 0.95,
+    "gaussian_truncation_sigma": 3.0,
+    "dem": "mask-aware Gaussian smoothing then scale-normalized Hessian anisotropy",
+    "magnetic": "mask-aware Gaussian smoothing then scale-normalized horizontal gradient magnitude",
+    "gravity": "mask-aware Gaussian smoothing then scale-normalized horizontal gradient magnitude",
+    "constant_response_rule": "if the fitted response 99.5th percentile is not above its median, use zero response"
+  },
+  "persistence": {
+    "homology_dimension": 0,
+    "filtration": "superlevel sets of robustly normalized nonnegative ridge/edge response",
+    "connectivity": 8,
+    "gaussian_sigma_pixels": [1.0, 2.0, 4.0],
+    "pixel_size_m": 100.0,
+    "minimum_bar_persistence": 0.05,
+    "maximum_bars_per_scale": 250000,
+    "conditional_sup_norm_perturbation_epsilon": 0.01,
+    "minimum_stability_margin": 0.03,
+    "cross_scale_match_max_peak_distance_pixels": 2.0,
+    "minimum_adjacent_scales": 2,
+    "cross_scale_match_is_formal_multiparameter_persistence": false
+  },
+  "fusion": {
+    "minimum_independent_layer_families": 2,
+    "peak_neighborhood_radius_pixels": 2,
+    "layer_aggregation": "arithmetic mean of positive persistence-weighted family scores where minimum layer support is met",
+    "three_family_agreement_multiplier": "0.75 + 0.25 * supported_family_count/3 (only with three configured families)",
+    "scale_aggregation": "maximum persistence-weighted response over the configured scales",
+    "track_strength": "min(1, stability_margin/minimum_bar_persistence) * track_scale_count/number_of_scales",
+    "normalization": "robust percentiles per field; output score is a rank signal, not a calibrated probability"
+  },
+  "evaluation": {
+    "truth": "public catalogue labels only; catalogue pseudo-holdout, not expert-only fault truth",
+    "spatial_blocks": ["NW", "NE", "SW", "SE"],
+    "guard_distance_m": 300,
+    "metric": {
+      "name": "distance-weighted Tversky",
+      "alpha": 0.2,
+      "beta": 0.8,
+      "radius_m": 300.0,
+      "pixel_size_m": 100.0,
+      "denominator_epsilon": 1e-8
+    },
+    "normalization_fit_scope": "Within each fold, fit robust input and response percentiles on the other three full quadrants only; apply those fixed transforms across the complete unsupervised feature grid. No catalogue labels enter fit masks or transformations.",
+    "matched_positive_pixel_budget": "positive pixel count of the pinned educational H33-2-B2 reference TIFF",
+    "top_budget_rule": "select exactly k highest positive ranking scores; ties resolved by ascending row-major flat index; emit binary 1/0 values",
+    "primary_control": "single-scale DEM-curvature + magnetic-edge + gravity-edge ranking at sigma=2 pixels",
+    "historical_control": "H33-2-B2 public owner artifact, used only as an evaluation baseline; score/file attribution not organizer-verified",
+    "promotion_gate": {
+      "mean_dti_gain_over_historical_control": 0.005,
+      "minimum_positive_folds": 3,
+      "maximum_allowed_single_fold_regression": 0.02,
+      "requires_single_scale_control_to_be_beaten": true,
+      "slot_eligible_only_after_full_format_validation": true
+    }
+  },
+  "important_limits": [
+    "The persistence theorem certifies diagram stability conditional on epsilon for each fixed transformed scalar field, not geological fault identity.",
+    "Spatial matching of bars across Gaussian sigmas is heuristic; it has no formal multiparameter stability claim.",
+    "The public-catalogue holdout is not a direct proxy for new expert-only faults.",
+    "Parameters are fixed before the input rasters are available; changes after observing holdout results require a new preregistration and untouched evaluation data."
+  ]
+}

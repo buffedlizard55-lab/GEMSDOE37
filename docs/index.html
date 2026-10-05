@@ -1,0 +1,110 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="Evidence-led GEMS DOE mineral prospectivity research, spatial holdout validation, and an easy-to-submit GeoTIFF workflow.">
+  <meta name="theme-color" content="#183f32">
+  <title>GEMS DOE Prospectivity Lab — GEMSDOE37</title>
+  <link rel="stylesheet" href="assets/site.css">
+  <script defer src="assets/site.js"></script>
+</head>
+<body>
+<header class="site-header">
+  <div class="container header-inner">
+    <a class="brand" href="index.html"><span class="brand-mark">G37</span><span>GEMS Prospectivity Lab</span></a>
+    <button class="menu-toggle" type="button" aria-expanded="false" aria-controls="main-nav">Menu</button>
+    <nav id="main-nav" class="nav" aria-label="Main navigation">
+      <a href="index.html">Overview</a>
+      <a href="executive-summary.html">Submit guide</a>
+      <a href="hypotheses.html">Hypotheses</a>
+      <a href="method.html">Method</a>
+      <a href="leaderboard.html">Leaderboard</a><a href="results-analysis.html">Results</a>
+      <a href="sources.html">Sources</a>
+    </nav>
+  </div>
+</header>
+<section class="hero">
+  <div class="container hero-inner">
+    <span class="eyebrow">Evidence-led mineral targeting · Competition 306</span>
+    <h1>Test the geology.<br>Earn the submission.</h1>
+    <p>A reproducible prospectivity experiment for the DOE GEMS challenge—built around geological evidence, spatially blocked holdout validation, and fail-closed submission checks.</p>
+    <div class="hero-actions">
+      <a class="btn btn-primary" href="executive-summary.html">Read the 2-minute submission guide <span aria-hidden="true">→</span></a>
+      <a class="btn btn-outline" href="hypotheses.html">Explore the hypotheses</a>
+    </div>
+  </div>
+</section>
+<main class="container">
+  <section class="section" aria-labelledby="submit-title">
+    <div class="section-heading">
+      <div>
+        <span class="section-kicker">First: check the gate</span>
+        <h2 id="submit-title">Submission status</h2>
+        <p>The download activates only after the leading hypothesis clears the preregistered spatial pseudo-holdout and the output is checked against the competition grid and value rules.</p>
+      </div>
+    </div>
+    <div id="submission-status" class="card status-card" role="status" aria-live="polite">
+      <span id="submission-status-label" class="status-label">Not submission-ready</span>
+      <h3 id="submission-status-title" class="status-title">No validated TIFF is available</h3>
+      <p id="submission-status-copy" class="status-copy">No competition raster, registered baseline evaluation, spatial holdout pass, or submission TIFF is present in this checkout. Do not upload a placeholder.</p>
+      <div class="hero-actions" style="margin-top:16px">
+        <a id="candidate-download" class="btn btn-primary btn-disabled" aria-disabled="true">Candidate GeoTIFF unavailable</a>
+        <a class="btn" style="border:1px solid var(--line);background:#fff;color:var(--pine)" href="executive-summary.html">How to submit</a>
+      </div>
+      <div id="candidate-details" class="grid grid-2" style="margin-top:20px" hidden>
+        <div><span class="small">Unique filename</span><div id="submission-filename" class="mono"></div></div>
+        <div><span class="small">Unique submission ID</span><div id="submission-name" class="mono"></div></div>
+        <div><span class="small">Matched positive pixels</span><div id="submission-pixels" class="mono"></div></div>
+        <div><span class="small">Public catalogue holdout mean DTI</span><div id="submission-holdout" class="mono"></div></div>
+        <div style="grid-column:1/-1"><span class="small">SHA-256 receipt</span><div id="submission-hash" class="mono" style="overflow-wrap:anywhere"></div></div>
+        <div style="grid-column:1/-1"><a id="holdout-report-link" href="#" target="_blank" rel="noopener">View detailed spatial-fold receipt →</a></div>
+        <div style="grid-column:1/-1"><label class="small" for="submission-note">Unique submission note (copy into the optional DrivenData note field)</label><div class="copy-row"><input id="submission-note" class="copy-input" readonly><button class="copy-btn" type="button" data-copy-note>Copy note</button></div></div>
+      </div>
+    </div>
+    <div class="notice" style="margin-top:14px"><strong>Important:</strong> a public-catalogue pseudo-holdout is not an organizer score, is not private-label validation, and cannot guarantee a leaderboard result. The published download is withheld unless the preregistered gate passes.</div>
+  </section>
+
+  <section class="section" aria-labelledby="research-title">
+    <div class="section-heading">
+      <div><span class="section-kicker">Research question</span><h2 id="research-title">Can geological persistence improve targeting?</h2><p>We test whether stable, multiscale ridge structure adds value over a matched-budget single-scale prospectivity map—not whether a visually compelling map can tell a story.</p></div>
+    </div>
+    <div class="grid grid-3">
+      <article class="card"><span class="badge">01 · Geology</span><h3 style="margin-top:12px">Five distinct hypotheses</h3><p>Structure, magnetic/radiometric association, geophysical edges, a public fault catalogue, and a topological stability combination are ranked before evaluation.</p><p><a href="hypotheses.html">Read the ranking →</a></p></article>
+      <article class="card"><span class="badge">02 · Stability</span><h3 style="margin-top:12px">Persistence across scale</h3><p>H0 superlevel persistence checks whether ridge-like highs survive 100, 200, and 400 m smoothing scales. Agreement is an explicit heuristic, not formal multiparameter persistence.</p><p><a href="method.html#persistence">Inspect the detector →</a></p></article>
+      <article class="card"><span class="badge">03 · Validation</span><h3 style="margin-top:12px">Spatial blocks first</h3><p>Four guarded catalogue folds, a matched positive-pixel budget, a historical educational reference, and a same-budget single-scale control gate the candidate.</p><p><a href="method.html#holdout">See the preregistered gate →</a></p></article>
+    </div>
+  </section>
+
+  <section class="section" aria-labelledby="leaderboard-title">
+    <div class="section-heading">
+      <div><span class="section-kicker">Official public board · dated snapshot</span><h2 id="leaderboard-title">The current benchmark</h2><p>These are public leaderboard values captured <time data-leaderboard-date datetime="2026-10-05">2026-10-05</time>. The board changes; the linked official page is authoritative.</p></div>
+      <a href="leaderboard.html">Full snapshot & refresh notes →</a>
+    </div>
+    <div class="stat-row">
+      <div class="stat"><strong>0.3262</strong><span>Public leader · nchuzhoy · dated snapshot</span></div>
+      <div class="stat"><strong>0.3222</strong><span>Second · kinghorton42 · dated snapshot</span></div>
+      <div class="stat"><strong>0.3195</strong><span>Third · DARD · dated snapshot</span></div>
+    </div>
+    <p class="small" style="margin-top:12px">The competition’s evaluation and leaderboard are organizer-controlled. This project has no verified score, submitted entry, or proven win. <a data-leaderboard-source href="https://www.drivendata.org/competitions/306/competition-doe-gems/leaderboard/" rel="noopener">Open official leaderboard ↗</a></p>
+  </section>
+
+  <section class="section" aria-labelledby="prior-results-title">
+    <div class="section-heading"><div><span class="section-kicker">Learning from prior work</span><h2 id="prior-results-title">Separate leaderboard facts from owner claims</h2><p>The visible leaderboard does not expose model or TIFF filenames. We document the sibling team's reported sparse-thinning and H33 results as owner claims, and do not attribute a matching 0.2778 row without evidence.</p></div><a href="results-analysis.html">Read the score autopsy →</a></div>
+    <div class="grid grid-3"><article class="card"><span class="badge">Official board</span><h3 style="margin-top:12px">0.3262 · nchuzhoy</h3><p>Top public score on the dated snapshot. Method and file unknown from the board.</p></article><article class="card"><span class="badge badge-amber">Owner report</span><h3 style="margin-top:12px">0.2600 · H19-5</h3><p>Prior project's reported best; not an organizer-verified score in the report we reviewed.</p></article><article class="card"><span class="badge badge-amber">Unresolved claim</span><h3 style="margin-top:12px">0.2778 · H33 association</h3><p>User-provided file-score pairing; owner site instead called its H33 projection 0.2747 and unscored.</p></article></div>
+  </section>
+
+  <section class="section" aria-labelledby="principles-title">
+    <div class="section-heading"><div><span class="section-kicker">How we work</span><h2 id="principles-title">Evidence before confidence</h2></div></div>
+    <div class="grid grid-2">
+      <article class="card"><h3>What this project will do</h3><ul class="small"><li>Use official challenge rules and disclose what data came from unauthenticated mirrors.</li><li>Preserve a fixed hypothesis, detector, and promotion gate before looking at raster outcomes.</li><li>Compare candidates against the public catalogue under spatial separation and an equal pixel budget.</li><li>Make the TIFF fail closed on any output-format or promotion-gate failure.</li></ul></article>
+      <article class="card"><h3>What it will not claim</h3><ul class="small"><li>That public catalogue associations reproduce expert fault labels or hidden scoring.</li><li>That persistent topographic/geophysical edges prove mineralization.</li><li>That an unverified historical submission is an organizer-confirmed score.</li><li>That a good pseudo-holdout result guarantees a top leaderboard position.</li></ul></article>
+    </div>
+  </section>
+  <section class="section">
+    <div class="notice notice-danger"><strong>Current data limitation:</strong> the DrivenData data tab requires participant authentication, and the Dropbox URLs supplied as mirrors are not authenticated copies. No competition rasters have been downloaded or processed in this repository state. See <a href="sources.html">sources and provenance</a>.</div>
+  </section>
+</main>
+<footer class="footer"><div class="container footer-inner"><span>GEMSDOE37 · reproducible research, not an official DOE or DrivenData product.</span><span class="values">Arena core values: “Maximize P(Win)” · “Own the Outcome.”</span><span><a href="https://github.com/buffedlizard55-lab/GEMSDOE37">Repository ↗</a></span></div></footer>
+</body>
+</html>
