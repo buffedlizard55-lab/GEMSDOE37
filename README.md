@@ -334,6 +334,24 @@ Go ahead and create a pull request and then merge the pull request onto the main
 The live site puts the same download first: **<https://buffedlizard55-lab.github.io/GEMSDOE37/>**
 (step-by-step upload instructions: `docs/executive-summary.html`).
 
+### Second candidate in this repository, and why it is not the recommendation
+
+A concurrent session published `gemsdoe37-csp-concealed-persistence-20261005T060000Z-8ba2edb16e5c.tif`
+(37,000 dots, 3.0 px spacing, 6 px catalogue stand-off, 234 features including external
+1 m LiDAR and GeoDAWN radiometric products). It is kept in `docs/downloads/` and is a
+legitimate alternative. It is **not** the recommended upload because the one leakage-free
+instrument in this repository was run on *its exact emission geometry with the identical
+ranker and folds*:
+
+| Emission geometry | Pooled segment-holdout DTI | Folds won |
+|---|---:|---|
+| H6 — 80,000 dots, 2.9 px spacing, 3 px stand-off | **0.21383** | 3/3 |
+| CSP — 37,000 dots, 3.0 px spacing, 6 px stand-off | 0.16651 | 0/3 |
+
+Receipt: `research/receipts/h6_sweep_csp_geometry.json`. The gap is geometry, not ranking:
+a 6 px stand-off discards the near-catalogue band where 27–30 % of unmapped faults actually
+sit, and a 37,000-dot budget sits below the measured 60k–100k plateau.
+
 ### How to submit (4 steps)
 
 1. Download the `.tif` above (or the `.zip`; the portal accepts either).

@@ -84,3 +84,32 @@ H5 was required, before any weekly slot was spent, to beat **both**
 [`results_h5.md`](results_h5.md). The gate passed. The holdout remains a *catalogue*
 pseudo-holdout: it measures transfer to withheld mapped faults, not discovery of
 expert-only hidden geometry, and it is not an organizer score.
+
+---
+
+## Session-4 addendum (2026-10-05): instrument inversion and data obtainability
+
+**Instrument inversion.** The promotion gate written above assumed the blocked catalogue
+holdout could rank candidates toward live gains. It cannot: with the eight owner-reported
+public scores recovered this session, Spearman(fold instrument, live) = **−0.667** and
+Spearman(SGMC-prevalence instrument, live) = **+0.143**. Details and the geometry regression
+that does describe the ladder (R² 0.992, LOO R² 0.978, n = 8) are in
+[`instrument_validity.md`](instrument_validity.md). The gate for sessions 4+ is therefore a
+*falsification* gate: a candidate must beat matched-budget random placement and must not be
+worse than chance on either screen; it is never promoted on a screen margin.
+
+**Obtainability of the external data named in this register (now verified).**
+
+| Source named | Status | Evidence |
+|---|---|---|
+| GeoDAWN airborne radiometric products (K, Th, U, TC) and extensions (Th/K, U/K, U/Th, TMI upward-continued 150 m), USGS, DOI `10.5066/P93LGLVQ` | **Retrieved and hash-pinned** — 8 bands on the competition grid in `data/raw/geodawn_rad_u8.tif` + `geodawn_extensions_u8.tif` (≈27 MB each) | archive MD5/SHA-256 in the product JSONs; ScienceBase item `657e1d85d34e23d3533209f7` |
+| 1 m LiDAR fault-scarp feature stack (12 bands: max excess, step, negative/positive Laplacian, down-/up-face, cross-strike, relief, coherence, strike, validity) | **Retrieved and hash-pinned** in `data/raw/lidar_scarp_features_u8.tif` + JSON with the exact quantisation table | `scripts/fetch_open_data.sh` prints the sha256 of every artifact |
+| USGS State Geologic Map Compilation (SGMC) structures, NV + CA | **Retrieved and rasterised** — `data/raw/derived_sgmc_faults_100m_u8.tif` (213 KB, 82,151 px in footprint, 61,664 px >3 px from the catalogue) | source sha256s `3b333ac0…` (NV), `78765ba4…` (CA) in the sibling receipt |
+| USGS Quaternary Fault and Fold Database (QFaults) | **Already mirrored** — 1,179 features / 349 named zones, sha256 `4d6efc7b…` (`GEMSDOE28/data/qfaults_v2_in_footprint.json`); re-fetch not needed | do **not** use as new-fault truth: 99.95 % of its footprint pixels coincide with the training catalogue |
+| 3DEP 10 m DEM (optional H7 upgrade) | Not fetched. Egress from this sandbox reaches only GitHub and PyPI; `apps.nationalmap.gov` fails TLS. Obtainable only through a repo GitHub-Actions runner, which is a legitimate but out-of-band route. | probe results in `research/review_log.md` (session 4) |
+
+**Rank changes.** H6 (dual-polarity mismatch) stays second and remains the cheapest untried
+geological test. H9 is demoted to last with cause: the QFaults mirror *is* the catalogue, so
+conditioning on it re-points mass at the ground the ladder punishes. H7's optional 3DEP data
+is the only named source not currently obtainable from this sandbox.
+

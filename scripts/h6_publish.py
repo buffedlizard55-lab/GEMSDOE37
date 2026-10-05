@@ -27,9 +27,37 @@ def main() -> None:
         archive.write(tif, arcname=tif.name)
 
     checks = receipt["format_checks"]
+    # standalone, top-level check/verification receipts (same contract as the CSP build)
+    checks_name = f"checks-{tif.stem}.json"
+    verification_name = f"verification-{tif.stem}.json"
+    standalone = dict(checks)
+    standalone["file"] = tif.name
+    standalone["submission_name"] = receipt["submission_name"]
+    standalone["generated_utc"] = receipt["generated_utc"]
+    (downloads / checks_name).write_text(json.dumps(standalone, indent=1), encoding="utf-8")
+    (downloads / verification_name).write_text(
+        json.dumps(
+            {
+                "file": tif.name,
+                "sha256": checks["sha256"],
+                "size_bytes": checks["size_bytes"],
+                "format_checks": checks,
+                "descriptors": receipt["descriptors"],
+                "uniqueness_vs_prior_submissions": receipt["uniqueness_vs_prior_submissions"],
+                "segment_holdout_pooled_dti": receipt["segment_holdout_pooled_dti"],
+                "organizer_score": None,
+            },
+            indent=1,
+        ),
+        encoding="utf-8",
+    )
     descriptors = receipt["descriptors"]
     uniqueness = receipt["uniqueness_vs_prior_submissions"]
     closest = uniqueness[0] if uniqueness else {"file": None, "jaccard": 0.0}
+
+    note = f"{receipt['submission_note']} | unscored"
+    if len(note) > 200:
+        raise SystemExit(f"submission note is {len(note)} characters, the portal field allows 200")
 
     record = {
         "schema_version": 1,
@@ -39,10 +67,13 @@ def main() -> None:
         "published_utc": datetime.now(timezone.utc).isoformat(),
         "download_path": f"downloads/{tif.name}",
         "holdout_report_path": f"downloads/{Path(args.receipt).name}",
-        "verification_path": f"downloads/{Path(args.receipt).name}",
+        "verification_path": f"downloads/{verification_name}",
+        "checks_path": f"downloads/{checks_name}",
+        "forecast_path": f"downloads/{Path(args.receipt).name}",
         "filename": tif.name,
         "submission_name": receipt["submission_name"],
-        "submission_note": receipt["submission_note"],
+        "submission_note": note,
+        "note_length": len(note),
         "positive_pixels": checks["positive_pixels"],
         "public_catalogue_holdout_pooled_dti": receipt["segment_holdout_pooled_dti"],
         "organizer_score": None,
@@ -62,7 +93,8 @@ def main() -> None:
         ),
         "warning": (
             "The reported DTI is this repository's leave-fault-segment-out holdout against hidden "
-            "catalogue segments, not an organizer score and not the private new-fault truth."
+            "catalogue segments, which ranks configurations but does not predict the leaderboard. "
+            "No organizer score exists for this file."
         ),
         "descriptors": {
             "positive_pixels": descriptors["positive_pixels"],
@@ -93,6 +125,13 @@ def main() -> None:
         },
         "format_checks": checks,
     }
+    note_file = tif.with_suffix("").with_suffix("")
+    (downloads / f"{tif.stem}.note.txt").write_text(
+        f"Submission name: {receipt['submission_name']}\nNote for the DrivenData form:\n{note}\n",
+        encoding="utf-8",
+    )
+    _ = note_file
+
     out = Path(args.out)
     out.write_text(json.dumps(record, indent=1), encoding="utf-8")
     print(f"wrote {out} and {zip_path}")

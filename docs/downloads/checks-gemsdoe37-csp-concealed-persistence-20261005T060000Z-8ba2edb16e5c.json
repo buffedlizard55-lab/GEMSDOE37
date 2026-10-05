@@ -1,0 +1,98 @@
+{
+  "generated_utc": "2026-10-05T06:00:39+00:00",
+  "submission_filename": "gemsdoe37-csp-concealed-persistence-20261005T060000Z-8ba2edb16e5c.tif",
+  "recommended_upload": "gemsdoe37-csp-concealed-persistence-20261005T060000Z-8ba2edb16e5c.tif",
+  "submission_name": "gemsdoe37-csp-concealed-persistence-20261005T060000Z-8ba2edb16e5c",
+  "submission_note": "GEMSDOE37-CSP | 4-fold blocked-OOF multi-physics belief, 234 label-free features, 37000 dots, 3 px spacing, 600 m catalogue stand-off | unscored",
+  "sha256": "8e5870c61569b8e6546dd409e438ad6525c57735511074be45175fa03b77f0fc",
+  "size_bytes": 202479,
+  "configuration": {
+    "ranking": "4-fold quadrant-blocked OOF belief over 234 label-free structural features",
+    "sources": "19 competition bands + 1 m LiDAR scarp (12) + GeoDAWN radiometric/extensions (8)",
+    "budget_pixels": 37000,
+    "spacing_px": 3.0,
+    "catalogue_standoff_px": 6.0,
+    "values": "binary 1.0 at selected pixels, 0.0 elsewhere"
+  },
+  "format_checks": {
+    "driver_is_gtiff": true,
+    "single_band": true,
+    "dtype_float32": true,
+    "shape_matches_template": true,
+    "crs_matches_template": true,
+    "epsg_matches": true,
+    "transform_matches_template": true,
+    "resolution_matches_template": true,
+    "bounds_match_template": true,
+    "nodata_tag_absent": true,
+    "all_cells_finite": true,
+    "min": 0.0,
+    "max": 1.0,
+    "range_0_1_all_cells": true,
+    "positive_pixels": 37000,
+    "sha256": "8e5870c61569b8e6546dd409e438ad6525c57735511074be45175fa03b77f0fc",
+    "size_bytes": 202479
+  },
+  "descriptors": {
+    "positive_pixels": 37000,
+    "spacing_proxy": 1.0,
+    "min_catalogue_distance_px": 6.082762530298219,
+    "median_catalogue_distance_px": 20.615528128088304,
+    "mean_catalogue_distance_px": 28.77135862346305,
+    "frac_selected_within_3px_of_catalogue": 0.0,
+    "mean_distance_to_sgmc_offcatalogue_px": 28.00445856507691,
+    "mean_belief_of_selected": 0.5140833854675293,
+    "mean_belief_of_footprint": 0.12359271198511124,
+    "mean_belief_over_all_grid_cells": 0.21815341711044312,
+    "footprint_pixels": 5167373,
+    "pixels_on_catalogue": 0,
+    "selected_pixels_outside_footprint": 0
+  },
+  "uniqueness": {
+    "n_compared": 15,
+    "max_jaccard": 0.01590044713984684,
+    "closest": [
+      {
+        "id": "h19-5",
+        "their_pixels": 121131,
+        "shared_pixels": 2475,
+        "jaccard": 0.01590044713984684,
+        "fraction_of_ours_shared": 0.06689189189189189
+      },
+      {
+        "id": "ens12",
+        "their_pixels": 172974,
+        "shared_pixels": 2473,
+        "jaccard": 0.011918014852940468,
+        "fraction_of_ours_shared": 0.06683783783783784
+      },
+      {
+        "id": "h25-ctx-ridge",
+        "their_pixels": 174232,
+        "shared_pixels": 2466,
+        "jaccard": 0.011812268281233534,
+        "fraction_of_ours_shared": 0.06664864864864865
+      },
+      {
+        "id": "h25-dotted-d15",
+        "their_pixels": 60069,
+        "shared_pixels": 1119,
+        "jaccard": 0.011662324127149556,
+        "fraction_of_ours_shared": 0.030243243243243245
+      },
+      {
+        "id": "h27-gapclosure",
+        "their_pixels": 61328,
+        "shared_pixels": 1122,
+        "jaccard": 0.011542497376705142,
+        "fraction_of_ours_shared": 0.030324324324324324
+      }
+    ]
+  },
+  "inputs_sha256": {
+    "labels.tif": "7ba308ccdc4418b31a178f4f1ef21aaa6e152e4028f2f6f64b01f7eb25ae4093",
+    "sample_submission.tif": "2176d08e485aa2cd2860ce8df539db4faf4d76163b38a4dd8c30a40454d35cbc",
+    "belief_oof.npy": "59b2fcb5f9a47eb4782044ab6bd12dcb94c3546f2ef181707dab516a8551da04"
+  },
+  "provenance": "scripts/build_csp_candidate.py -> scripts/verify_csp_submission.py"
+}
