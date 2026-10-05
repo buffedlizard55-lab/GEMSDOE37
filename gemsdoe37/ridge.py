@@ -133,16 +133,30 @@ def persistent_layer_score(
                 peak_weights[observation.sigma_m][r, c], track_strength
             )
 
-    score = np.zeros(values.shape, dtype=np.float32)
+    # Multiscale response across all scales (geometric mean across smoothing levels)
+    scale_arrays = [responses[s] for s in sorted(responses)]
+    if len(scale_arrays) >= 3:
+        multiscale_response = np.cbrt(scale_arrays[0] * scale_arrays[1] * scale_arrays[2])
+    elif len(scale_arrays) == 2:
+        multiscale_response = np.sqrt(scale_arrays[0] * scale_arrays[1])
+    else:
+        multiscale_response = scale_arrays[0]
+
+    # Peak neighborhood from accepted multiscale persistence tracks
+    track_indicator = np.zeros(values.shape, dtype=np.float32)
     radius = int(peak_neighbourhood_px)
     size = 2 * radius + 1
-    for sigma_m, response in responses.items():
+    for sigma_m in responses:
         peaks = peak_weights[sigma_m]
         if radius:
             neighborhood = ndimage.maximum_filter(peaks, size=size, mode="constant", cval=0.0)
         else:
             neighborhood = peaks
-        score = np.maximum(score, response * neighborhood)
+        track_indicator = np.maximum(track_indicator, neighborhood)
+
+    # Topological persistence certifies multiscale ridge structures:
+    # Ridges corroborated by accepted persistence tracks receive full prominence.
+    score = multiscale_response * (0.6 + 0.4 * (track_indicator > 0.0))
     support_union = np.zeros(values.shape, dtype=bool)
     for sigma_m in responses:
         support_union |= support_by_sigma[sigma_m]
@@ -223,10 +237,12 @@ def combine_independent_layers(
     sums = np.where(supported, stacked, 0.0).sum(axis=0, dtype=np.float32)
     fused = np.zeros(shape, dtype=np.float32)
     enough = valid & (count >= minimum_layer_support)
-    np.divide(sums, count, out=fused, where=enough)
-    # Modest explicit bonus for 3-way independent agreement; no calibration claim.
-    if len(arrays) >= 3:
-        fused[enough] *= (0.75 + 0.25 * count[enough] / len(arrays))
+    if minimum_layer_support == 1:
+        fused[enough] = (sums[enough] / len(arrays)) * (0.75 + 0.25 * count[enough] / len(arrays))
+    else:
+        np.divide(sums, count, out=fused, where=enough)
+        if len(arrays) >= 3:
+            fused[enough] *= (0.75 + 0.25 * count[enough] / len(arrays))
     fused[~valid] = 0.0
     receipt = {
         "layer_count": len(arrays),
