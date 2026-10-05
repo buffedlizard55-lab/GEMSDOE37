@@ -1,0 +1,325 @@
+{
+  "schema_version": 2,
+  "validated_utc": "2026-10-05T02:50:20+00:00",
+  "candidate_id": "GEMSDOE37-H1-TOPO-PERSISTENCE",
+  "truth_class": "public-catalogue spatial pseudo-holdout; not expert-only hidden truth",
+  "known_fault_mask_rule": "Apply the organizer-confirmed exact provided training-fault pixel mask only; no proximity buffer. New/corrected/splayed fault truth may occur within 300 m of known traces. In each spatial fold, only catalogue pixels outside the full held-out quadrant are visible-known; the held-out quadrant labels are withheld.",
+  "current_holdout_best_status": "hash-pinned local baseline loaded",
+  "input_hashes_sha256": {
+    "features": "4371c82e3b8339b807bdffcf4ef59a225520fe2988d521be208ae33743123bc5",
+    "labels": "7ba308ccdc4418b31a178f4f1ef21aaa6e152e4028f2f6f64b01f7eb25ae4093",
+    "template": "2176d08e485aa2cd2860ce8df539db4faf4d76163b38a4dd8c30a40454d35cbc"
+  },
+  "build_receipt_sha256": "090d4de495976766b3a16c35e71fee681381f4ec3d2f411a6a02ca0930a08084",
+  "preregistration_sha256": "7a1f4b8c2bb0915d81a298864e4d0babbc2c116b672e6061dd9d69de2c9e774e",
+  "validation_protocol_sha256": "646904928457ddfa226e52d0faa9c3a9dd7f4a20f297ea8a9876b4f0de7a974a",
+  "normalization_fit_scope": "Within each fold, fit robust input and response percentiles on the other three full quadrants only; apply those fixed transforms across the complete unsupervised feature grid. No catalogue labels enter fit masks or transformations.",
+  "persistence_track_details": {
+    "publication_note": "Hash-pinned full accepted-track sidecars are retained in the local ignored data/prepared directory; this small Pages receipt publishes their counts and hashes, not the large per-bar payloads.",
+    "full_grid": {
+      "dem_curvature": {
+        "sha256": "e5d8da61e37d9917da6801a80b68892a6ae7f1eeb551a8f4ed3f19e27d1dff96",
+        "track_count": 19140,
+        "bar_observation_count": 40186
+      },
+      "magnetic_edge": {
+        "sha256": "76f1560c689baf3347aef2c2692a6e4f8e946403c904593b403642fc1c3557bc",
+        "track_count": 8085,
+        "bar_observation_count": 18120
+      },
+      "gravity_edge": {
+        "sha256": "c01e31f0f19648f69b31e19a0ad71ea438da1429bf6231d7c940b486e4512c65",
+        "track_count": 714,
+        "bar_observation_count": 1671
+      }
+    },
+    "spatial_folds": {
+      "NW": {
+        "dem_curvature": {
+          "sha256": "8068844a11b9ec0dd93499f6335d26a01db2125d2981420e1bbe50e1c2a0fb73",
+          "track_count": 19005,
+          "bar_observation_count": 39895
+        },
+        "magnetic_edge": {
+          "sha256": "f3f56cb8fc96b269ba2187d4ec9b167f62841fc49dca479ef006b9f960a4dec9",
+          "track_count": 8666,
+          "bar_observation_count": 19342
+        },
+        "gravity_edge": {
+          "sha256": "75ec61fe1318de230b7792a788956e44397a2735799b0af29e4f3b61f5d99307",
+          "track_count": 695,
+          "bar_observation_count": 1631
+        }
+      },
+      "NE": {
+        "dem_curvature": {
+          "sha256": "51c39ba62767c2f872d72c8bd4a8b5f4b66d043aad743ce51669997cbad96ed2",
+          "track_count": 19611,
+          "bar_observation_count": 41172
+        },
+        "magnetic_edge": {
+          "sha256": "e99c6dcd8d9b6a845ba23d0aeb65c1b6a09351bbd8985f2f63946e2ec27480ca",
+          "track_count": 7925,
+          "bar_observation_count": 17732
+        },
+        "gravity_edge": {
+          "sha256": "b5f5407c43138339061654f0740edb89d996ee3a3df4125c250dcafa02103c6a",
+          "track_count": 720,
+          "bar_observation_count": 1679
+        }
+      },
+      "SW": {
+        "dem_curvature": {
+          "sha256": "c4b6a7b959b0bde02adea54769f90bf73a2b71fda6b8811062339608d5ed35e6",
+          "track_count": 19019,
+          "bar_observation_count": 39937
+        },
+        "magnetic_edge": {
+          "sha256": "d80ec5561a3c46652b42ad49069dc32cc9915093a585e6c884de32862fbe9850",
+          "track_count": 8097,
+          "bar_observation_count": 18160
+        },
+        "gravity_edge": {
+          "sha256": "d606722e1f5b9c916efbfc2ee03caa25fd6b53ebda0e35abcd8e032a154844bd",
+          "track_count": 712,
+          "bar_observation_count": 1665
+        }
+      },
+      "SE": {
+        "dem_curvature": {
+          "sha256": "eac52b59f4638c15d2ebf617e38c2d9b326c235e990bb7b19bbd96f6ff534b8a",
+          "track_count": 18926,
+          "bar_observation_count": 39744
+        },
+        "magnetic_edge": {
+          "sha256": "53891691887de2bcd4476a79fec63a6f72a7982b059163ebfc5d0ee293298df6",
+          "track_count": 7964,
+          "bar_observation_count": 17814
+        },
+        "gravity_edge": {
+          "sha256": "6d434b8a25c5f3f5537f8aaa05115a44f1c3715c905644c09249ff7520681af6",
+          "track_count": 726,
+          "bar_observation_count": 1691
+        }
+      }
+    }
+  },
+  "budget_positive_pixels": 37654,
+  "grid": {
+    "height": 3730,
+    "width": 3292,
+    "crs": "EPSG:32611",
+    "transform": [
+      100.0,
+      0.0,
+      243350.0,
+      0.0,
+      -100.0,
+      4508550.0
+    ],
+    "resolution": [
+      100.0,
+      100.0
+    ]
+  },
+  "folds": {
+    "topological_candidate": {
+      "NW": {
+        "tp": 859.7221320562323,
+        "fp": 23460.550592052143,
+        "fn": 28306.27786794377,
+        "dti": 0.030490001311646815,
+        "truth_pixels": 29166,
+        "valid_pixels": 2436767,
+        "visible_known_fault_pixels": 31597,
+        "emitted_pixels": 24764
+      },
+      "NE": {
+        "tp": 383.8379426612951,
+        "fp": 6148.921362989648,
+        "fn": 12026.162057338704,
+        "dti": 0.034165843676326184,
+        "truth_pixels": 12410,
+        "valid_pixels": 1352917,
+        "visible_known_fault_pixels": 48315,
+        "emitted_pixels": 6806
+      },
+      "SW": {
+        "tp": 334.7329590975646,
+        "fp": 3223.916467025818,
+        "fn": 8975.267040902436,
+        "dti": 0.041022553908711595,
+        "truth_pixels": 9310,
+        "valid_pixels": 556926,
+        "visible_known_fault_pixels": 51461,
+        "emitted_pixels": 3694
+      },
+      "SE": {
+        "tp": 123.85671547857257,
+        "fp": 2836.6588278759073,
+        "fn": 9370.143284521428,
+        "dti": 0.015127901561046254,
+        "truth_pixels": 9494,
+        "valid_pixels": 782847,
+        "visible_known_fault_pixels": 51309,
+        "emitted_pixels": 3012
+      }
+    },
+    "single_scale_control": {
+      "NW": {
+        "tp": 662.1197534132775,
+        "fp": 20252.140684091766,
+        "fn": 28503.880246586723,
+        "dti": 0.02406338586152588,
+        "truth_pixels": 29166,
+        "valid_pixels": 2436767,
+        "visible_known_fault_pixels": 31597,
+        "emitted_pixels": 21293
+      },
+      "NE": {
+        "tp": 463.1392371752494,
+        "fp": 8553.524459376136,
+        "fn": 11946.86076282475,
+        "dti": 0.039478825421337765,
+        "truth_pixels": 12410,
+        "valid_pixels": 1352917,
+        "visible_known_fault_pixels": 48315,
+        "emitted_pixels": 9312
+      },
+      "SW": {
+        "tp": 267.4769523149957,
+        "fp": 3511.327978926987,
+        "fn": 9042.523047685005,
+        "dti": 0.032604186392439935,
+        "truth_pixels": 9310,
+        "valid_pixels": 556926,
+        "visible_known_fault_pixels": 51461,
+        "emitted_pixels": 3850
+      },
+      "SE": {
+        "tp": 96.9965669045871,
+        "fp": 3328.7083006264284,
+        "fn": 9397.003433095413,
+        "dti": 0.011714078830185904,
+        "truth_pixels": 9494,
+        "valid_pixels": 782847,
+        "visible_known_fault_pixels": 51309,
+        "emitted_pixels": 3438
+      }
+    }
+  },
+  "summaries": {
+    "topological_candidate": {
+      "pooled_dti": 0.030516266995057145,
+      "mean_fold_dti_descriptive_only": 0.03020157511443271,
+      "std_fold_dti_population_descriptive_only": 0.0094882536770782,
+      "pooled_components": {
+        "tp": 1702.1497492936646,
+        "fp": 35670.04724994352,
+        "fn": 58677.85025070634
+      },
+      "per_fold_dti": {
+        "NW": 0.030490001311646815,
+        "NE": 0.034165843676326184,
+        "SW": 0.041022553908711595,
+        "SE": 0.015127901561046254
+      },
+      "truth_pixels_by_fold": {
+        "NW": 29166,
+        "NE": 12410,
+        "SW": 9310,
+        "SE": 9494
+      }
+    },
+    "single_scale_control": {
+      "pooled_dti": 0.026730727780584856,
+      "mean_fold_dti_descriptive_only": 0.026965119126372374,
+      "std_fold_dti_population_descriptive_only": 0.01036105944057015,
+      "pooled_components": {
+        "tp": 1489.7325098081099,
+        "fp": 35645.70142302132,
+        "fn": 58890.267490191894
+      },
+      "per_fold_dti": {
+        "NW": 0.02406338586152588,
+        "NE": 0.039478825421337765,
+        "SW": 0.032604186392439935,
+        "SE": 0.011714078830185904
+      },
+      "truth_pixels_by_fold": {
+        "NW": 29166,
+        "NE": 12410,
+        "SW": 9310,
+        "SE": 9494
+      }
+    }
+  },
+  "paired_gains": {
+    "topological_minus_single_scale_per_fold": {
+      "NW": 0.006426615450120934,
+      "NE": -0.0053129817450115815,
+      "SW": 0.00841836751627166,
+      "SE": 0.00341382273086035
+    },
+    "topological_minus_single_scale_pooled": 0.003785539214472288,
+    "topological_minus_current_holdout_best_per_fold": {
+      "NW": 0.006426615450120934,
+      "NE": -0.0053129817450115815,
+      "SW": 0.00841836751627166,
+      "SE": 0.00341382273086035
+    },
+    "topological_minus_current_holdout_best_pooled": 0.003785539214472288
+  },
+  "gate": {
+    "rule": {
+      "minimum_pooled_dti_gain_over_single_scale_control": 0.003,
+      "minimum_pooled_dti_gain_over_current_holdout_best": 0.003,
+      "minimum_positive_folds": 3,
+      "maximum_allowed_single_fold_regression": 0.02,
+      "requires_single_scale_control_to_be_beaten": true,
+      "requires_registered_current_holdout_best_to_be_beaten": true,
+      "slot_eligible_only_after_full_format_validation": true
+    },
+    "beats_single_scale_control": true,
+    "beats_registered_current_holdout_best": true,
+    "slot_eligible": true,
+    "slot_blockers": [],
+    "organizer_score_claimed": false
+  },
+  "submission_written": true,
+  "notes": [
+    "Scores are pooled across the four spatial blocks by summing TP, FP, and FN before calculating one DTI; the mean fold DTI is descriptive only.",
+    "The fold scorer applies the official exact known-fault pixel mask with no proximity buffer. The 300 m guard is a spatial-validation design choice, not an organizer scoring mask.",
+    "The 37,654-pixel budget is fixed from an owner-reported H33 artifact count; it is not an organizer score and its submission attribution is unverified.",
+    "The static H33 B=2 raster is not used as a fold comparator because its catalogue-buffer pruning used labels from the full area, including held-out folds.",
+    "The public-catalogue pseudo-holdout cannot prove discovery of hidden expert faults, especially corrections or splays within 300 m of known traces, or predict the private leaderboard."
+  ],
+  "submission": {
+    "filename": "gemsdoe37-topo-persistence-20261005T025021488008Z-58f9ca92.tif",
+    "relative_path": "docs/downloads/gemsdoe37-topo-persistence-20261005T025021488008Z-58f9ca92.tif",
+    "submission_name": "GEMSDOE37-TOPO-PH-20261005T025021488008Z-58F9CA92",
+    "submission_note": "GEMSDOE37-TOPO-PH-20261005T025021488008Z-58F9CA92 | H0 persistence, DEM curvature + mag/gravity edges; 37654 px; 4-block catalogue pooled DTI 0.0305; unscored",
+    "format_receipt": {
+      "driver_is_gtiff": true,
+      "single_band": true,
+      "dtype_float32": true,
+      "shape_matches_template": true,
+      "crs_matches_template": true,
+      "epsg_matches": true,
+      "transform_matches_template": true,
+      "resolution_matches_template": true,
+      "bounds_match_template": true,
+      "nodata_tag_absent": true,
+      "all_cells_finite": true,
+      "min": 0.0,
+      "max": 1.0,
+      "range_0_1_all_cells": true,
+      "positive_pixels": 37654,
+      "positive_pixels_match_budget": true,
+      "sha256": "29ce3150ae796ca50570b830b9231487fc5a043af5b0681f7e7dbe8f4fbdcc19",
+      "size_bytes": 123105
+    },
+    "sha256": "29ce3150ae796ca50570b830b9231487fc5a043af5b0681f7e7dbe8f4fbdcc19",
+    "origin": "GEMSDOE37 H1 score surface; fixed owner-reported pixel count used only as the matched budget"
+  }
+}

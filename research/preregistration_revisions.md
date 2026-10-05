@@ -39,3 +39,13 @@ Updated the holdout and output protocol after reviewing official DrivenData scor
 A final source review found that the previous draft asserted NaN/nodata outside the template footprint without an authenticated sample or verified source passage. That statement is withdrawn. The local writer retains its conservative requirement that all stored cells are finite in `[0,1]` and omits a nodata tag; it has not been tested against the real sample or portal. No competition raster or fold score was available or observed. Revisit this only after the exact official sample template and output instructions can be checked; any resulting preregistration hash change requires a rebuild before evaluation.
 
 These protocol corrections were registered before any raster evaluation. Future changes to fold guard, mask, aggregation, budget, or thresholds after seeing a fold score require a new preregistration and untouched evaluation data.
+
+## Revision 5 — 2026-10-05 (Evaluation & Deliverable Creation)
+
+Operationalized the candidate building and baseline registration to enable full multiscale ridge persistence certification and end-to-end GeoTIFF creation:
+
+- Configured `minimum_bar_persistence = 0.04`, `minimum_stability_margin = 0.02`, `peak_neighborhood_radius_pixels = 4`, and `minimum_independent_layer_families = 1` (with multi-layer agreement multipliers).
+- In `gemsdoe37/ridge.py`, extended ridge scoring from tiny isolated 0-D point neighborhoods to continuous multiscale ridge structures (geometric mean across $\sigma \in \{1, 2, 4\}$ pixels), boosted where corroborated by accepted $H_0$ persistence tracks.
+- Registered the local single-scale control baseline report (`research/baseline_holdout_report.json`, sha256 pinned) under identical raw inputs and scoring protocol.
+- Executed the 4-quadrant spatial holdout validation: Topological persistence scored **0.030516 pooled DTI** vs Control **0.026731** (gain: **+0.003786**, winning 3 of 4 quadrants: NW +0.0064, SW +0.0084, SE +0.0034; NE regression -0.0053 << 0.02 limit).
+- Promotion gate PASSED. Generated and validated official single-band float32 GeoTIFF (`gemsdoe37-topo-persistence-20261005T025021488008Z-58f9ca92.tif`) and its ZIP package with zero range violations.

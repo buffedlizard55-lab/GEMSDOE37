@@ -61,6 +61,21 @@
             download.setAttribute("aria-disabled", "true");
           }
         }
+        const downloadZip = $("#candidate-download-zip");
+        if (downloadZip) {
+          if (ready) {
+            const zipPath = record.download_path.replace(/\.tif$/, ".zip");
+            downloadZip.href = zipPath;
+            downloadZip.download = (record.filename || "gemsdoe37-candidate.tif").replace(/\.tif$/, ".zip");
+            downloadZip.classList.remove("btn-disabled");
+            downloadZip.removeAttribute("aria-disabled");
+            downloadZip.setAttribute("aria-label", `Download ${record.filename}.zip`);
+          } else {
+            downloadZip.removeAttribute("href");
+            downloadZip.classList.add("btn-disabled");
+            downloadZip.setAttribute("aria-disabled", "true");
+          }
+        }
         const details = $("#candidate-details");
         if (details) details.hidden = !ready;
         if (ready) {
