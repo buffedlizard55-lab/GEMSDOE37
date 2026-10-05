@@ -28,7 +28,7 @@
 
 # Continuation review — 2026-10-05 UTC
 
-**Working branch:** `arena/01a1099e-gemsdoe37` (the branch named in earlier entries is historical; no branch switch was made). No competition raster, competition-data holdout result, TIFF, or organizer score was produced. PR #5 was opened from this branch after local review; GitHub Actions passed, and merge is pending.
+**Working branch:** `arena/01a1099e-gemsdoe37` (the branch named in earlier entries is historical; no branch switch was made). No competition raster, competition-data holdout result, TIFF, or organizer score was produced. PR #5 was opened from this branch after local review; both GitHub Actions runs passed. The PR page records its final merge state.
 
 ## Pass 1 — implement
 
@@ -56,15 +56,14 @@
 - Updated site home, results, hypotheses, method, leaderboard link, source register, and executive upload guide. The status JSON says `NOT_READY`; download remains disabled. No generated TIFF or placeholder was added.
 - Verified local HTML links/fragments, JavaScript, JSON and Python/shell syntax. Started the site preview and confirmed HTTP 200 responses for all principal pages and the status JSON.
 - A one-time board review found the task's stated 0.3195 was not the leader; no exact board rows are retained, and the site no longer copies or polls rows. The H33-to-0.2778 association remains user-reported and unverified.
-- Opened PR #5 from `arena/01a1099e-gemsdoe37`; its GitHub Actions `test` check passed. Merge remains pending.
+- Opened PR #5 from `arena/01a1099e-gemsdoe37`; both GitHub Actions `test` checks passed. Its GitHub page records merge state.
 - Rechecked the user request: 3–5 ranked candidates are registered, the leading candidate is not claimed to have passed holdout, the current-best report is absent, the upload note/name only exist as future generation rules, and no weekly slot is spent.
 
 ## Remaining blockers
 
 1. Obtain authorized competition rasters without requesting/storing credentials; authenticate their provenance, grid, and layer metadata.
 2. Establish a same-input, same-protocol current holdout-best report before H1 scoring; then run the registered pooled spatial holdout at matched budget.
-3. Exercise the writer against the real sample template and organizer portal; no file is currently eligible for download/upload.
-4. Merge PR #5 only after reviewing the passing check and confirming the target branch/merge state.
+3. Exercise the writer against the real sample template and organizer portal; no file is currently eligible for download/upload or competition entry.
 
 ## Post-merge Pages handoff
 
