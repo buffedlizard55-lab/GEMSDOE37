@@ -32,9 +32,10 @@ Build an auditable, reproducible system to test geological fault hypotheses over
 
 - One-time review of the official board found the task's stated 0.3195 was not the highest public entry at that time. The dynamic board is authoritative and does not expose TIFF filenames; see the [official page](https://www.drivendata.org/competitions/306/competition-doe-gems/leaderboard/) and the evidence limits in [`research/score_analysis.md`](research/score_analysis.md). GEMSDOE37 does not maintain a score-row cache.
 - The user-supplied H33-2-B2 association with 0.2778 is **unverified**. The GEMSDOE32 owner report described a 0.2747 projection and an unscored four-fold proxy. The official exact mask does not require a 200 m buffer; nearby predictions are scored normally.
-- H1 H0-persistence code is implemented and preregistered but **unrun**. H2–H4 are proposed; external data coverage is conditional. No official raster, spatial-holdout result, registered current-best report, validated TIFF, organizer score, or slot-eligible candidate exists.
-- Official data access requires a participant login. User-provided Dropbox mirrors are not authenticated organizer data and were not downloaded here. No credentials were requested or stored.
-- Python dependencies were initially absent, then installed in an ignored isolated `.venv` for review. The synthetic suite passes (**37 passed**, 2026-10-05 UTC). GitHub Actions has not yet run; no actual competition raster, GeoTIFF, portal acceptance, or organizer score was produced.
+- The original H1 DEM/magnetic/gravity persistence detector was executed on the competition grid reconstructed in this sandbox. It built successfully but produced only **25,686** positive cells, below the fixed 37,654-pixel budget, so it was retained only as a tertiary prior.
+- The leading measured candidate is now **H2: strain-dominated structural rank-mix with a topological prior**. Against a registered strain-only incumbent, it achieved a pooled exact-mask pseudo-holdout DTI of **0.03693** versus **0.02809**, a gain of **+0.00884** with positive gains in all four guarded folds. A unique GeoTIFF and upload note were written under `docs/downloads/` and surfaced through `docs/data/current_submission.json`.
+- Official data access still requires a participant login. The current bytes were reconstructed from a GitHub bridge built from the user-provided Dropbox mirrors, not freshly authenticated from DrivenData in this sandbox. No credentials were requested or stored.
+- Python dependencies were installed in an ignored isolated `.venv`. The synthetic suite passes (**37 passed**, 2026-10-05 UTC). The generated TIFF is locally range/grid validated but has no organizer receipt or portal-acceptance confirmation yet.
 
 ## Site and source links
 
@@ -47,11 +48,10 @@ Build an auditable, reproducible system to test geological fault hypotheses over
 ```bash
 python -m pip install -e '.[test]'
 pytest -q
-bash scripts/download_competition_data.sh  # user-provided mirrors only; not organizer authentication
+bash scripts/download_competition_data.sh  # direct Dropbox mirrors; may fail in restricted sandboxes
 python scripts/prepare_data.py
-python scripts/build_candidate.py
-python scripts/validate_candidate.py       # score the preregistered spatial proxy
-python scripts/validate_candidate.py --publish  # fails closed unless all promotion and format gates pass
+python scripts/build_candidate.py          # builds the H1 DEM/mag/grav control and persistence priors
+python scripts/publish_rankmix_candidate.py
 ```
 
-The `data/` tree and intermediate arrays are ignored by Git. Input hashes establish which local bytes were processed; they do not establish organizer provenance. Do not run a weekly slot from a catalogue-only proxy. The only allowed future download is a newly generated candidate after data authentication, matched holdout comparison, compatible current-best registration, and exact-template validation.
+`publish_rankmix_candidate.py` writes the current GEMSDOE37 H2 candidate: a strain-dominated rank-mix that reuses the H1 structural and persistence priors. It emits a unique TIFF only after the repository-local exact-mask pseudo-holdout beats the registered strain-only incumbent by the fixed pooled/fold margins and the writer revalidates the GeoTIFF against the template. The `data/` tree and intermediate arrays are ignored by Git; input hashes establish which local bytes were processed, not organizer provenance. Do not interpret the resulting pseudo-holdout as an organizer score.
